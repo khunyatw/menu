@@ -131,7 +131,7 @@
             border-radius: 12px;
             border: 1px solid #E5E0D8;
             padding: 6px 0;
-            min-width: 160px;
+            min-width: 210px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             display: none;
         }
@@ -164,38 +164,34 @@
             display: inline-block;
         }
 
-        .nav-menu-item small {
-            font-size: 11px;
-            color: #999;
-        }
-
         .nav-menu-item:hover {
             background: #F9F3E7;
             color: #222;
         }
 
-        /* 右上角：語言切換 */
-        .lang-switch {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            display: flex;
-            gap: 6px;
-            z-index: 20;
+        .nav-menu-divider {
+            height: 1px;
+            background: #EEE3D5;
+            margin: 4px 0;
         }
 
-        @media (max-width: 480px) {
-            .lang-switch {
-                top: 10px;
-                right: 10px;
-            }
+        .nav-menu-lang-label {
+            padding: 6px 14px 2px;
+            font-size: 11px;
+            color: #999;
+        }
+
+        .nav-menu-lang-buttons {
+            padding: 4px 10px 8px;
+            display: flex;
+            gap: 6px;
         }
 
         .lang-btn {
             border-radius: 999px;
             border: 1px solid #D4C5B0;
             background: #FDFBF7;
-            padding: 4px 8px;
+            padding: 3px 10px;
             font-size: 11px;
             cursor: pointer;
             min-width: 32px;
@@ -216,8 +212,9 @@
             box-shadow: 0 1px 4px rgba(0,0,0,0.15);
         }
 
+        /* 類別 tabs（放在菜單區下方） */
         .category-bar-wrapper {
-            margin-top: 24px;
+            margin-top: 16px;
             border-bottom: 1px solid #E5E0D8;
             padding-bottom: 8px;
         }
@@ -248,7 +245,6 @@
             color: #555;
             background-color: #FDFBF7;
             display: flex;
-            flex-direction: column;
             align-items: center;
             min-width: max-content;
             cursor: pointer;
@@ -256,20 +252,10 @@
             white-space: nowrap;
         }
 
-        .category-tab-sub {
-            font-size: 11px;
-            color: #B8A489;
-            margin-top: 2px;
-        }
-
         .category-tab.active {
             background-color: #2C2C2C;
             color: #F9F7F2;
             border-color: #2C2C2C;
-        }
-
-        .category-tab.active .category-tab-sub {
-            color: #F0E3CF;
         }
 
         .category-tab:hover {
@@ -286,7 +272,7 @@
         }
 
         section {
-            scroll-margin-top: 90px; /* 捲動時不要被 header 擋住 */
+            scroll-margin-top: 90px;
         }
 
         .section-title-block {
@@ -323,32 +309,7 @@
             color: #A46A22;
         }
 
-        .picture-placeholder {
-            border-radius: 16px;
-            border: 1px dashed #D4C5B0;
-            padding: 16px;
-            text-align: center;
-            font-size: 13px;
-            color: #999;
-        }
-
-        .picture-grid {
-            margin-top: 12px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 10px;
-        }
-
-        .picture-card {
-            background: #FDFBF7;
-            border-radius: 12px;
-            border: 1px solid #EEE3D5;
-            padding: 8px;
-            font-size: 12px;
-            color: #777;
-        }
-
-        /* 菜單區本身原本的樣式 */
+        /* 菜單區樣式 */
         .menu-wrapper {
             margin-top: 16px;
         }
@@ -366,13 +327,6 @@
             margin-right: 10px;
             color: #2C2C2C;
             font-weight: 600;
-        }
-
-        .section-title-sub {
-            font-size: 14px;
-            color: #D4C5B0;
-            letter-spacing: 0.05em;
-            font-weight: 500;
         }
 
         .menu-grid {
@@ -463,17 +417,6 @@
             font-size: 12px;
         }
 
-        .item-name-sub1 {
-            font-size: 12px;
-            color: #888888;
-        }
-
-        .item-name-sub2 {
-            font-size: 11px;
-            color: #AAAAAA;
-            letter-spacing: 0.02em;
-        }
-
         .item-price {
             font-size: 16px;
             color: #2C2C2C;
@@ -508,6 +451,79 @@
             color: #B14B4B;
         }
 
+        /* 通用：橫向滑動照片區（照片 + 評論都用這組） */
+        .photo-strip {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 8px 2px 12px;
+            scrollbar-width: thin;
+            scroll-snap-type: x mandatory;
+        }
+
+        .photo-strip::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .photo-strip::-webkit-scrollbar-thumb {
+            background: #D4C5B0;
+            border-radius: 999px;
+        }
+
+        .photo-item {
+            flex: 0 0 80%;
+            max-width: 420px;
+            scroll-snap-align: start;
+        }
+
+        @media (min-width: 768px) {
+            .photo-item {
+                flex: 0 0 45%;
+                max-width: 480px;
+            }
+        }
+
+        .photo-img {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid #EEE3D5;
+            background-color: #EDE4D8;
+            object-fit: cover;
+            aspect-ratio: 4 / 3; /* 建議 4:3 或 3:2 的橫向圖 */
+        }
+
+        /* 評論區按鈕 */
+        .review-actions {
+            margin-bottom: 12px;
+        }
+
+        .review-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            border: 1px solid #D4C5B0;
+            background: #FDFBF7;
+            font-size: 13px;
+            color: #444;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .review-button i {
+            font-size: 16px;
+            color: #EA4335;
+        }
+
+        .review-button:hover {
+            background: #F9F3E7;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+        }
+
         footer {
             margin-top: 40px;
             text-align: center;
@@ -527,7 +543,7 @@
         <div class="brand-logo">KHUNYA THAI</div>
         <div class="brand-subtitle">Authentic Thai Home-Style Cuisine</div>
 
-        <!-- 左上角選單 -->
+        <!-- 左上角選單 + 語言切換 -->
         <div class="nav-wrapper">
             <button class="nav-toggle" id="navToggle" aria-label="Open navigation">
                 <i class="ri-menu-line"></i>
@@ -535,28 +551,30 @@
             <div class="nav-menu" id="navMenu">
                 <button class="nav-menu-item" data-target="about">
                     <i class="ri-store-2-line"></i>
-                    <span>關於我們 <small>About Us</small></span>
+                    <span id="navAboutLabel">關於我們</span>
                 </button>
                 <button class="nav-menu-item" data-target="menu">
                     <i class="ri-restaurant-line"></i>
-                    <span>菜單 <small>Menu</small></span>
+                    <span id="navMenuLabel">菜單</span>
                 </button>
                 <button class="nav-menu-item" data-target="picture">
                     <i class="ri-image-line"></i>
-                    <span>照片 <small>Picture</small></span>
+                    <span id="navPictureLabel">照片</span>
                 </button>
+                <button class="nav-menu-item" data-target="review">
+                    <i class="ri-map-pin-line"></i>
+                    <span id="navReviewLabel">Google 評論與地圖</span>
+                </button>
+
+                <div class="nav-menu-divider"></div>
+
+                <div class="nav-menu-lang-label" id="navLangLabel">語言 / Language</div>
+                <div class="nav-menu-lang-buttons" id="langSwitch">
+                    <button class="lang-btn active" data-lang="zh">中</button>
+                    <button class="lang-btn" data-lang="th">TH</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
             </div>
-        </div>
-
-        <!-- 右上角語言切換 -->
-        <div class="lang-switch" id="langSwitch">
-            <button class="lang-btn active" data-lang="zh">中</button>
-            <button class="lang-btn" data-lang="th">TH</button>
-            <button class="lang-btn" data-lang="en">EN</button>
-        </div>
-
-        <div class="category-bar-wrapper">
-            <div id="categoryTabs" class="category-tabs"></div>
         </div>
     </header>
 
@@ -564,55 +582,96 @@
         <!-- 關於我們 -->
         <section id="about">
             <div class="section-title-block">
-                <div class="section-title-large">關於我們 About Us</div>
-                <div class="section-title-subtext">
+                <div class="section-title-large" id="aboutTitle">關於我們</div>
+                <div class="section-title-subtext" id="aboutSubtitle">
                     昆雅泰式料理由泰國與台灣夥伴共同經營，希望把泰國日常餐桌上的味道，用溫柔而堅持的方式帶到板橋。
                 </div>
             </div>
-            <div class="about-text">
-                我們不追求華麗擺盤，而是專注在「日常可以常吃、又保留泰國靈魂」的家常菜。  
+            <div class="about-text" id="aboutBody">
+                我們不追求華麗擺盤，而是專注在「日常可以常吃、又保留泰國靈魂」的家常菜。<br>
                 醬料、咖哩與湯底堅持自己熬煮，盡量使用原始香料與食材，不過度改良成台式口味。
-                <div class="about-highlight">
-                    <strong>打拋飯、清邁金麵、泰式船麵與泰式奶茶</strong> 是我們最想推薦給你的幾道料理。  
-                    如果有機會，也歡迎你來店裡坐坐，慢慢吃、慢慢聊天。
-                </div>
+            </div>
+            <div class="about-highlight" id="aboutHighlight">
+                <strong>打拋飯、清邁金麵、泰式船麵與泰式奶茶</strong> 是我們最想推薦給你的幾道料理。<br>
+                如果有機會，也歡迎你來店裡坐坐，慢慢吃、慢慢聊天。
             </div>
         </section>
 
         <!-- 菜單 -->
         <section id="menu">
             <div class="section-title-block">
-                <div class="section-title-large">菜單 Menu</div>
-                <div class="section-title-subtext">
-                    點擊上方類別標籤，可切換不同料理分類；右上角可切換顯示語言。
+                <div class="section-title-large" id="menuTitle">菜單</div>
+                <div class="section-title-subtext" id="menuSubtitle">
+                    類別按鈕在標題下方，點選即可切換不同料理分類；左上角選單可以切換語言。
                 </div>
             </div>
+
+            <!-- 類別 Tabs 放在菜單標題下方 -->
+            <div class="category-bar-wrapper">
+                <div id="categoryTabs" class="category-tabs"></div>
+            </div>
+
             <div class="menu-wrapper" id="menuWrapper">
                 <p class="menu-empty">載入菜單中…</p>
             </div>
         </section>
 
-        <!-- 照片 -->
+        <!-- 照片：橫向滑動 -->
         <section id="picture">
             <div class="section-title-block">
-                <div class="section-title-large">照片 Picture</div>
-                <div class="section-title-subtext">
-                    之後可以放餐點照片、店內空間、活動紀錄，或直接嵌入 Instagram 貼文。
+                <div class="section-title-large" id="pictureTitle">照片</div>
+            </div>
+            <div class="photo-strip" id="photoStrip">
+                <!-- 建議：上傳到 images/ 資料夾，修改下面 src 即可 -->
+                <div class="photo-item">
+                    <img class="photo-img" src="images/photo1.jpg" alt="Restaurant photo 1">
+                </div>
+                <div class="photo-item">
+                    <img class="photo-img" src="images/photo2.jpg" alt="Restaurant photo 2">
+                </div>
+                <div class="photo-item">
+                    <img class="photo-img" src="images/photo3.jpg" alt="Restaurant photo 3">
                 </div>
             </div>
-            <div class="picture-placeholder">
-                這裡目前是預留區塊，未來可以改成：IG 貼文嵌入、相片牆、或單張主視覺圖片。
+        </section>
+
+        <!-- Google 評論（用截圖 + 按鈕連到地圖） -->
+        <section id="review">
+            <div class="section-title-block">
+                <div class="section-title-large" id="reviewTitle">Google 評論與地圖</div>
+                <div class="section-title-subtext" id="reviewSubtitle">
+                    評論區使用實際 Google Maps 的連結搭配截圖展示，確保資訊真實也方便導航。
+                </div>
             </div>
-            <div class="picture-grid">
-                <div class="picture-card">範例：打拋系列便當照</div>
-                <div class="picture-card">範例：清邁金麵特寫</div>
-                <div class="picture-card">範例：泰式奶茶 & 粉紅奶</div>
+
+            <div class="review-actions">
+                <!-- 使用你提供的地圖連結 -->
+                <a id="reviewButton" class="review-button"
+                   href="https://maps.app.goo.gl/RMUuJtk4PQQrqqKH9"
+                   target="_blank" rel="noopener noreferrer">
+                    <i class="ri-map-pin-line"></i>
+                    <span>在 Google 地圖上查看位置與評論</span>
+                </a>
+            </div>
+
+            <!-- 評論截圖：橫向滑動 -->
+            <div class="photo-strip" id="reviewStrip">
+                <!-- 建議：把 Google 評論截圖存成 review1.jpg / review2.jpg... 上傳到 images/ -->
+                <div class="photo-item">
+                    <img class="photo-img" src="images/review1.jpg" alt="Google review screenshot 1">
+                </div>
+                <div class="photo-item">
+                    <img class="photo-img" src="images/review2.jpg" alt="Google review screenshot 2">
+                </div>
+                <div class="photo-item">
+                    <img class="photo-img" src="images/review3.jpg" alt="Google review screenshot 3">
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 KHUNYA THAI CUISINE • AUTHENTIC THAI FLAVORS</p>
+        <p id="footerText">&copy; 2024 KHUNYA THAI CUISINE • AUTHENTIC THAI FLAVORS</p>
     </footer>
 </div>
 
@@ -627,58 +686,140 @@
     let currentCategoryId = '';
     let currentLang = 'zh';
 
-    function getCategoryTexts(cat) {
-        let primary = '';
-        let secondary = '';
+    const i18n = {
+        zh: {
+            navAbout: '關於我們',
+            navMenu: '菜單',
+            navPicture: '照片',
+            navReview: 'Google 評論與地圖',
+            navLangLabel: '語言 / Language',
 
-        if (currentLang === 'zh') {
-            primary = cat.zh || cat.en || cat.th || '';
-            secondary = cat.th || '';
-        } else if (currentLang === 'th') {
-            primary = cat.th || cat.en || cat.zh || '';
-            secondary = cat.zh || '';
-        } else { // en
-            primary = cat.en || cat.zh || cat.th || '';
-            secondary = cat.zh || '';
+            aboutTitle: '關於我們',
+            aboutSubtitle: '昆雅泰式料理由泰國與台灣夥伴共同經營，希望把泰國日常餐桌上的味道，用溫柔而堅持的方式帶到板橋。',
+            aboutBody: '我們不追求華麗擺盤，而是專注在「日常可以常吃、又保留泰國靈魂」的家常菜。<br>醬料、咖哩與湯底堅持自己熬煮，盡量使用原始香料與食材，不過度改良成台式口味。',
+            aboutHighlight: '<strong>打拋飯、清邁金麵、泰式船麵與泰式奶茶</strong> 是我們最想推薦給你的幾道料理。<br>如果有機會，也歡迎你來店裡坐坐，慢慢吃、慢慢聊天。',
+
+            menuTitle: '菜單',
+            menuSubtitle: '類別按鈕在標題下方，點選即可切換不同料理分類；左上角選單可以切換語言。',
+
+            pictureTitle: '照片',
+
+            reviewTitle: 'Google 評論與地圖',
+            reviewSubtitle: '評論區使用實際 Google Maps 的連結搭配截圖展示，確保資訊真實也方便導航。',
+            reviewButton: '在 Google 地圖上查看位置與評論',
+
+            featuredBadge: '主打推薦',
+            footer: '&copy; 2024 KHUNYA THAI CUISINE • AUTHENTIC THAI FLAVORS'
+        },
+        th: {
+            navAbout: 'เกี่ยวกับเรา',
+            navMenu: 'เมนู',
+            navPicture: 'รูปภาพ',
+            navReview: 'รีวิว & แผนที่ Google',
+            navLangLabel: 'ภาษา / Language',
+
+            aboutTitle: 'เกี่ยวกับเรา',
+            aboutSubtitle: 'คุณย่า อาหารไทย เกิดจากการร่วมมือระหว่างเพื่อนชาวไทยและชาวไต้หวัน อยากนำรสชาติอาหารบ้าน ๆ ของไทย มาถ่ายทอดที่บันเฉียวอย่างจริงใจ',
+            aboutBody: 'เราไม่ได้เน้นการจัดจานหรูหรา แต่ตั้งใจทำอาหารที่ “กินได้ทุกวัน และยังคงความเป็นไทยแท้”<br>น้ำพริก เครื่องแกง และน้ำซุป พยายามทำเองให้มากที่สุด ใช้สมุนไพรและวัตถุดิบแบบดั้งเดิม ไม่ดัดแปลงให้เป็นรสไต้หวันมากเกินไป',
+            aboutHighlight: '<strong>ข้าวกะเพรา ข้าวซอย ก๋วยเตี๋ยวเรือ และชาไทย</strong> คือเมนูที่เราอยากให้คุณได้ลองมากที่สุด<br>ถ้ามีเวลา แวะมานั่งกินช้า ๆ คุยกันสบาย ๆ ที่ร้านได้นะ',
+
+            menuTitle: 'เมนู',
+            menuSubtitle: 'ปุ่มหมวดหมู่อยู่ใต้หัวข้อเมนู สามารถเลือกสลับประเภทอาหารได้ และสามารถเปลี่ยนภาษาได้จากเมนูมุมซ้ายบน',
+
+            pictureTitle: 'รูปภาพ',
+
+            reviewTitle: 'รีวิว & แผนที่ Google',
+            reviewSubtitle: 'โซนนี้ใช้ลิงก์จาก Google Maps ร่วมกับภาพรีวิวจริง ทำให้ดูง่ายและน่าเชื่อถือ',
+            reviewButton: 'เปิดดูรีวิวและตำแหน่งบน Google Maps',
+
+            featuredBadge: 'เมนูแนะนำ',
+            footer: '&copy; 2024 KHUNYA THAI CUISINE • AUTHENTIC THAI FLAVORS'
+        },
+        en: {
+            navAbout: 'About Us',
+            navMenu: 'Menu',
+            navPicture: 'Pictures',
+            navReview: 'Google Reviews & Map',
+            navLangLabel: 'Language',
+
+            aboutTitle: 'About Us',
+            aboutSubtitle: 'Khunya Thai Cuisine is run by Thai and Taiwanese partners, bringing everyday Thai flavors to Banqiao with care and persistence.',
+            aboutBody: 'We do not chase fancy plating. Instead, we focus on home-style dishes that you can enjoy often, while keeping an authentic Thai soul.<br>Our sauces, curries, and soups are mostly made in-house, using real herbs and ingredients, without over-adjusting everything to “Taiwanese style”.',
+            aboutHighlight: '<strong>Basil rice, Chiang Mai Khao Soi, Thai boat noodles and Thai milk tea</strong> are the dishes we most recommend.<br>If you have time, we would love to have you sit down, eat slowly, and chat with us at the restaurant.',
+
+            menuTitle: 'Menu',
+            menuSubtitle: 'Category buttons are placed under the menu title. Tap to switch dish types; change language from the top-left menu.',
+
+            pictureTitle: 'Pictures',
+
+            reviewTitle: 'Google Reviews & Map',
+            reviewSubtitle: 'This section uses a real Google Maps link with screenshot previews, to keep information realistic and make navigation easy.',
+            reviewButton: 'Open Google Maps for reviews & location',
+
+            featuredBadge: 'Signature',
+            footer: '&copy; 2024 KHUNYA THAI CUISINE • AUTHENTIC THAI FLAVORS'
         }
+    };
 
-        return { primary, secondary };
+    function applyStaticTexts() {
+        const t = i18n[currentLang] || i18n.zh;
+        const setHTML = (id, html) => {
+            const el = document.getElementById(id);
+            if (el && html !== undefined) el.innerHTML = html;
+        };
+
+        setHTML('navAboutLabel', t.navAbout);
+        setHTML('navMenuLabel', t.navMenu);
+        setHTML('navPictureLabel', t.navPicture);
+        setHTML('navReviewLabel', t.navReview);
+        setHTML('navLangLabel', t.navLangLabel);
+
+        setHTML('aboutTitle', t.aboutTitle);
+        setHTML('aboutSubtitle', t.aboutSubtitle);
+        setHTML('aboutBody', t.aboutBody);
+        setHTML('aboutHighlight', t.aboutHighlight);
+
+        setHTML('menuTitle', t.menuTitle);
+        setHTML('menuSubtitle', t.menuSubtitle);
+
+        setHTML('pictureTitle', t.pictureTitle);
+
+        setHTML('reviewTitle', t.reviewTitle);
+        setHTML('reviewSubtitle', t.reviewSubtitle);
+        setHTML('reviewButton', t.reviewButton);
+
+        setHTML('footerText', t.footer);
     }
 
-    function getItemTexts(item) {
-        let main = '';
-        let sub1 = '';
-        let sub2 = '';
-
+    function getCategoryLabel(cat) {
         if (currentLang === 'zh') {
-            main = item.nameZh || item.nameEn || item.nameTh || '';
-            sub1 = item.nameTh || '';
-            sub2 = item.nameEn || '';
+            return cat.zh || cat.en || cat.th || '';
         } else if (currentLang === 'th') {
-            main = item.nameTh || item.nameEn || item.nameZh || '';
-            sub1 = item.nameZh || '';
-            sub2 = item.nameEn || '';
-        } else { // en
-            main = item.nameEn || item.nameZh || item.nameTh || '';
-            sub1 = item.nameZh || '';
-            sub2 = item.nameTh || '';
+            return cat.th || cat.en || cat.zh || '';
+        } else {
+            return cat.en || cat.zh || cat.th || '';
         }
+    }
 
-        return { main, sub1, sub2 };
+    function getItemName(item) {
+        if (currentLang === 'zh') {
+            return item.nameZh || item.nameEn || item.nameTh || '';
+        } else if (currentLang === 'th') {
+            return item.nameTh || item.nameEn || item.nameZh || '';
+        } else {
+            return item.nameEn || item.nameZh || item.nameTh || '';
+        }
     }
 
     function renderTabs(categories, activeCategoryId) {
         categoryTabsContainer.innerHTML = '';
         categories.forEach(cat => {
-            const { primary, secondary } = getCategoryTexts(cat);
+            const label = getCategoryLabel(cat);
             const tab = document.createElement('button');
             tab.type = 'button';
             tab.className = 'category-tab' + (cat.id === activeCategoryId ? ' active' : '');
             tab.dataset.categoryId = cat.id;
-            tab.innerHTML = `
-                <span>${primary}</span>
-                ${secondary ? `<span class="category-tab-sub">${secondary}</span>` : ''}
-            `;
+            tab.textContent = label;
             tab.addEventListener('click', () => {
                 setActiveCategory(cat.id);
             });
@@ -690,7 +831,7 @@
         if (!currentCategoryId) return;
 
         const cat = globalCategories.find(c => c.id === currentCategoryId);
-        const { primary: catMain, secondary: catSub } = cat ? getCategoryTexts(cat) : { primary: '', secondary: '' };
+        const catLabel = cat ? getCategoryLabel(cat) : '';
 
         const items = globalMenuData.filter(item => item.categoryZh === currentCategoryId);
 
@@ -699,12 +840,15 @@
             return;
         }
 
-        const itemsHtml = items.map(item => {
-            const { main, sub1, sub2 } = getItemTexts(item);
+        const t = i18n[currentLang] || i18n.zh;
 
-            const priceHtml = (item.price || item.price === 0)
-                ? `<span class="item-price">${item.price}</span>`
-                : '';
+        const itemsHtml = items.map(item => {
+            const main = getItemName(item);
+
+            const priceHtml =
+                item.price || item.price === 0
+                    ? `<span class="item-price">${item.price}</span>`
+                    : '';
 
             const isFeatured =
                 item.feature === true ||
@@ -714,15 +858,7 @@
                 item.feature === '1';
 
             const badgeHtml = isFeatured
-                ? `<span class="item-badge">主打推薦</span>`
-                : '';
-
-            const sub1Html = sub1
-                ? `<span class="item-name-sub1">${sub1}</span>`
-                : '';
-
-            const sub2Html = sub2
-                ? `<span class="item-name-sub2">${sub2}</span>`
+                ? `<span class="item-badge">${t.featuredBadge}</span>`
                 : '';
 
             const code = item.coed || item.code || '';
@@ -736,8 +872,6 @@
                                 <span class="item-name-main">${main}</span>
                                 ${badgeHtml}
                             </div>
-                            ${sub1Html}
-                            ${sub2Html}
                         </div>
                     </div>
                     ${priceHtml}
@@ -748,8 +882,7 @@
         menuWrapper.innerHTML = `
             <section class="menu-section-inner">
                 <div class="section-header-menu">
-                    <span class="section-title-main">${catMain}</span>
-                    ${catSub ? `<span class="section-title-sub">${catSub}</span>` : ''}
+                    <span class="section-title-main">${catLabel}</span>
                 </div>
                 <div class="menu-grid">
                     ${itemsHtml}
@@ -807,6 +940,7 @@
         }
 
         currentCategoryId = globalCategories[0].id;
+        applyStaticTexts();
         renderTabs(globalCategories, currentCategoryId);
         renderMenu();
     }
@@ -826,13 +960,14 @@
             })
             .catch(err => {
                 console.error(err);
-                menuWrapper.innerHTML = '<p class="menu-error">載入菜單發生錯誤，請確認：<br>1. menu.json 是否與此 HTML 在同一個資料夾<br>2. menu.json 內容是否為合法的 JSON 格式</p>';
+                menuWrapper.innerHTML =
+                    '<p class="menu-error">載入菜單發生錯誤，請確認：<br>1. menu.json 是否與此 HTML 在同一個資料夾<br>2. menu.json 內容是否為合法的 JSON 格式</p>';
             });
     }
 
-    // 語言切換
+    // 語言切換（在選單裡）
     if (langSwitch) {
-        langSwitch.addEventListener('click', (e) => {
+        langSwitch.addEventListener('click', e => {
             const btn = e.target.closest('.lang-btn');
             if (!btn) return;
             const lang = btn.dataset.lang;
@@ -843,6 +978,7 @@
                 b.classList.toggle('active', b.dataset.lang === currentLang);
             });
 
+            applyStaticTexts();
             renderTabs(globalCategories, currentCategoryId);
             renderMenu();
         });
