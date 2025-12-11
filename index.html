@@ -387,4 +387,240 @@
 </div>
 
 <script>
-(function ()
+(function () {
+    const menuWrapper = document.getElementById('menuWrapper');
+    const categoryTabsContainer = document.getElementById('categoryTabs');
+    const langSwitch = document.getElementById('langSwitch');
+
+    let globalMenuData = [];
+    let globalCategories = []; // { id, zh, th, en }
+    let currentCategoryId = '';
+    let currentLang = 'zh';
+
+    function getCategoryTexts(cat) {
+        let primary = '';
+        let secondary = '';
+
+        if (currentLang === 'zh') {
+            primary = cat.zh || cat.en || cat.th || '';
+            secondary = cat.th || '';
+        } else if (currentLang === 'th') {
+            primary = cat.th || cat.en || cat.zh || '';
+            secondary = cat.zh || '';
+        } else { // en
+            primary = cat.en || cat.zh || cat.th || '';
+            secondary = cat.zh || '';
+        }
+
+        return { primary, secondary };
+    }
+
+    function getItemTexts(item) {
+        let main = '';
+        let sub1 = '';
+        let sub2 = '';
+
+        if (currentLang === 'zh') {
+            main = item.nameZh || item.nameEn || item.nameTh || '';
+            sub1 = item.nameTh || '';
+            sub2 = item.nameEn || '';
+        } else if (currentLang === 'th') {
+            main = item.nameTh || item.nameEn || item.nameZh || '';
+            sub1 = item.nameZh || '';
+            sub2 = item.nameEn || '';
+        } else { // en
+            main = item.nameEn || item.nameZh || item.nameTh || '';
+            sub1 = item.nameZh || '';
+            sub2 = item.nameTh || '';
+        }
+
+        return { main, sub1, sub2 };
+    }
+
+    function renderTabs(categories, activeCategoryId) {
+        categoryTabsContainer.innerHTML = '';
+        categories.forEach(cat => {
+            const { primary, secondary } = getCategoryTexts(cat);
+            const tab = document.createElement('button');
+            tab.type = 'button';
+            tab.className = 'category-tab' + (cat.id === activeCategoryId ? ' active' : '');
+            tab.dataset.categoryId = cat.id;
+            tab.innerHTML = `
+                <span>${primary}</span>
+                ${secondary ? `<span class="category-tab-sub">${secondary}</span>` : ''}
+            `;
+            tab.addEventListener('click', () => {
+                setActiveCategory(cat.id);
+            });
+            categoryTabsContainer.appendChild(tab);
+        });
+    }
+
+    function renderMenu() {
+        if (!currentCategoryId) return;
+
+        const cat = globalCategories.find(c => c.id === currentCategoryId);
+        const { primary: catMain, secondary: catSub } = cat ? getCategoryTexts(cat) : { primary: '', secondary: '' };
+
+        const items = globalMenuData.filter(item => item.categoryZh === currentCategoryId);
+
+        if (!items.length) {
+            menuWrapper.innerHTML = '<p class="menu-empty">這個類別目前沒有菜單項目。</p>';
+            return;
+        }
+
+        const itemsHtml = items.map(item => {
+            const { main, sub1, sub2 } = getItemTexts(item);
+
+            const priceHtml = (item.price || item.price === 0)
+                ? `<span class="item-price">${item.price}</span>`
+                : '';
+
+            const isFeatured =
+                item.feature === true ||
+                item.feature === 'true' ||
+                item.feature === 'TRUE' ||
+                item.feature === 1 ||
+                item.feature === '1';
+
+            const badgeHtml = isFeatured
+                ? `<span class="item-badge">主打推薦</span>`
+                : '';
+
+            const sub1Html = sub1
+                ? `<span class="item-name-sub1">${sub1}</span>`
+                : '';
+
+            const sub2Html = sub2
+                ? `<span class="item-name-sub2">${sub2}</span>`
+                : '';
+
+            const code = item.coed || item.code || '';
+
+            return `
+                <div class="menu-item${isFeatured ? ' featured' : ''}">
+                    <div class="item-left">
+                        <span class="item-code">${code}</span>
+                        <div class="item-details">
+                            <div class="item-title-row">
+                                <span class="item-name-main">${main}</span>
+                                ${badgeHtml}
+                            </div>
+                            ${sub1Html}
+                            ${sub2Html}
+                        </div>
+                    </div>
+                    ${priceHtml}
+                </div>
+            `;
+        }).join('');
+
+        menuWrapper.innerHTML = `
+            <section class="menu-section">
+                <div class="section-header">
+                    <span class="section-title-main">${catMain}</span>
+                    ${catSub ? `<span class="section-title-sub">${catSub}</span>` : ''}
+                </div>
+                <div class="menu-grid">
+                    ${itemsHtml}
+                </div>
+            </section>
+        `;
+    }
+
+    function setActiveCategory(categoryId) {
+        currentCategoryId = categoryId;
+        Array.from(categoryTabsContainer.querySelectorAll('.category-tab')).forEach(tab => {
+            tab.classList.toggle('active', tab.dataset.categoryId === categoryId);
+        });
+        renderMenu();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function initMenu(menuData) {
+        if (!menuData || !menuData.length) {
+            menuWrapper.innerHTML = '<p class="menu-empty">找不到任何菜單資料，請確認 menu.json 內容。</p>';
+            return;
+        }
+
+        globalMenuData = menuData.map(item => ({
+            coed: item.coed ?? item.code ?? '',
+            categoryZh: item.categoryZh || '',
+            categoryTh: item.categoryTh || '',
+            categoryEn: item.categoryEn || '',
+            nameZh: item.nameZh || '',
+            nameTh: item.nameTh || '',
+            nameEn: item.nameEn || '',
+            price: item.price,
+            feature: item.feature
+        }));
+
+        const catMap = new Map();
+        globalMenuData.forEach(item => {
+            const id = item.categoryZh || '';
+            if (!id) return;
+            if (!catMap.has(id)) {
+                catMap.set(id, {
+                    id,
+                    zh: item.categoryZh || '',
+                    th: item.categoryTh || '',
+                    en: item.categoryEn || ''
+                });
+            }
+        });
+
+        globalCategories = Array.from(catMap.values());
+
+        if (!globalCategories.length) {
+            menuWrapper.innerHTML = '<p class="menu-empty">menu.json 裡沒有 categoryZh 資料。</p>';
+            return;
+        }
+
+        currentCategoryId = globalCategories[0].id;
+        renderTabs(globalCategories, currentCategoryId);
+        renderMenu();
+    }
+
+    function loadMenu() {
+        menuWrapper.innerHTML = '<p class="menu-empty">載入菜單中…</p>';
+
+        fetch('menu.json')
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('menu.json 載入失敗');
+                }
+                return res.json();
+            })
+            .then(data => {
+                initMenu(data);
+            })
+            .catch(err => {
+                console.error(err);
+                menuWrapper.innerHTML = '<p class="menu-error">載入菜單發生錯誤，請確認：<br>1. menu.json 是否與此 HTML 在同一個資料夾<br>2. menu.json 內容是否為合法的 JSON 格式</p>';
+            });
+    }
+
+    // 語言切換事件
+    if (langSwitch) {
+        langSwitch.addEventListener('click', (e) => {
+            const btn = e.target.closest('.lang-btn');
+            if (!btn) return;
+            const lang = btn.dataset.lang;
+            if (!lang || lang === currentLang) return;
+            currentLang = lang;
+
+            Array.from(langSwitch.querySelectorAll('.lang-btn')).forEach(b => {
+                b.classList.toggle('active', b.dataset.lang === currentLang);
+            });
+
+            renderTabs(globalCategories, currentCategoryId);
+            renderMenu();
+        });
+    }
+
+    loadMenu();
+})();
+</script>
+
+</body>
+</html>
