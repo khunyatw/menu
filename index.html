@@ -4,30 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khunya Thai Cuisine Menu</title>
+
+    <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <!-- Fonts: 中文 + 泰文 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Kanit:wght@400;500;700&display=swap">
 
     <style>
-        @font-face {
-            font-family: 'NotoSerifCJKsc';
-            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Bold.otf') format('opentype');
-            font-weight: 700;
-        }
-        @font-face {
-            font-family: 'NotoSerifCJKsc';
-            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Regular.otf') format('opentype');
-            font-weight: 400;
-        }
-        @font-face {
-            font-family: 'NotoSansHans';
-            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSansHans-Regular.otf') format('opentype');
-            font-weight: 400;
-        }
-        @font-face {
-            font-family: 'NotoSansHans';
-            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSansHans-Medium.otf') format('opentype');
-            font-weight: 500;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -39,7 +22,7 @@
             padding: 0;
             background-color: #F9F7F2;
             color: #2C2C2C;
-            font-family: 'NotoSerifCJKsc', serif;
+            font-family: 'Noto Sans TC','Kanit',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
@@ -79,6 +62,7 @@
             text-transform: uppercase;
             position: relative;
             display: inline-block;
+            font-weight: 700;
         }
 
         .brand-logo::after {
@@ -93,12 +77,53 @@
         }
 
         .brand-subtitle {
-            font-family: 'NotoSansHans', sans-serif;
             font-size: 13px;
             color: #666666;
             letter-spacing: 0.25em;
             margin-top: 18px;
             text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* 語言切換 */
+        .lang-switch {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            display: flex;
+            gap: 6px;
+        }
+
+        @media (max-width: 480px) {
+            .lang-switch {
+                top: 10px;
+                right: 10px;
+            }
+        }
+
+        .lang-btn {
+            border-radius: 999px;
+            border: 1px solid #D4C5B0;
+            background: #FDFBF7;
+            padding: 4px 8px;
+            font-size: 11px;
+            cursor: pointer;
+            min-width: 32px;
+            text-align: center;
+            color: #555;
+            transition: all 0.15s ease;
+        }
+
+        .lang-btn.active {
+            background: #2C2C2C;
+            color: #F9F7F2;
+            border-color: #2C2C2C;
+            font-weight: 600;
+        }
+
+        .lang-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.15);
         }
 
         .category-bar-wrapper {
@@ -129,7 +154,6 @@
             border-radius: 999px;
             border: 1px solid #D4C5B0;
             padding: 6px 14px;
-            font-family: 'NotoSansHans', sans-serif;
             font-size: 13px;
             color: #555;
             background-color: #FDFBF7;
@@ -142,7 +166,7 @@
             white-space: nowrap;
         }
 
-        .category-tab-th {
+        .category-tab-sub {
             font-size: 11px;
             color: #B8A489;
             margin-top: 2px;
@@ -154,7 +178,7 @@
             border-color: #2C2C2C;
         }
 
-        .category-tab.active .category-tab-th {
+        .category-tab.active .category-tab-sub {
             color: #F0E3CF;
         }
 
@@ -175,14 +199,14 @@
             padding-bottom: 10px;
         }
 
-        .section-title-cn {
+        .section-title-main {
             font-size: 22px;
             margin-right: 10px;
             color: #2C2C2C;
+            font-weight: 600;
         }
 
-        .section-title-en {
-            font-family: 'NotoSansHans', sans-serif;
+        .section-title-sub {
             font-size: 14px;
             color: #D4C5B0;
             letter-spacing: 0.05em;
@@ -210,11 +234,19 @@
             background: #FDFBF7;
             border: 1px solid #EEE3D5;
             gap: 8px;
+            transition: box-shadow 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
         }
 
         .menu-item:hover {
             border-color: #D4C5B0;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transform: translateY(-1px);
+        }
+
+        .menu-item.featured {
+            border-color: #E29D4D;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+            background: #FFF9F1;
         }
 
         .item-left {
@@ -224,7 +256,6 @@
         }
 
         .item-code {
-            font-family: 'NotoSansHans', sans-serif;
             font-size: 12px;
             color: #999999;
             width: 40px;
@@ -236,32 +267,55 @@
             display: flex;
             flex-direction: column;
             gap: 2px;
+            width: 100%;
         }
 
-        .item-name-cn {
+        .item-title-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .item-name-main {
             font-size: 16px;
             color: #2C2C2C;
             line-height: 1.4;
+            font-weight: 500;
         }
 
-        .item-name-th {
-            font-family: 'NotoSansHans', sans-serif;
+        .item-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #A8571D;
+            background: #FFE3BF;
+            border-radius: 999px;
+            padding: 2px 8px 3px;
+        }
+
+        .item-badge::before {
+            content: "🔥";
+            font-size: 12px;
+        }
+
+        .item-name-sub1 {
             font-size: 12px;
             color: #888888;
         }
 
-        .item-name-en {
-            font-family: 'NotoSansHans', sans-serif;
+        .item-name-sub2 {
             font-size: 11px;
             color: #AAAAAA;
             letter-spacing: 0.02em;
         }
 
         .item-price {
-            font-family: 'NotoSansHans', sans-serif;
             font-size: 16px;
             color: #2C2C2C;
-            font-weight: 500;
+            font-weight: 600;
             padding-top: 2px;
             flex-shrink: 0;
             margin-left: 8px;
@@ -272,7 +326,7 @@
                 width: 32px;
                 font-size: 11px;
             }
-            .item-name-cn {
+            .item-name-main {
                 font-size: 15px;
             }
             .item-price {
@@ -282,7 +336,6 @@
 
         .menu-empty,
         .menu-error {
-            font-family: 'NotoSansHans', sans-serif;
             font-size: 14px;
             color: #777;
             text-align: center;
@@ -296,7 +349,6 @@
         footer {
             margin-top: 40px;
             text-align: center;
-            font-family: 'NotoSansHans', sans-serif;
             font-size: 12px;
             color: #999999;
             letter-spacing: 0.16em;
@@ -313,6 +365,13 @@
         <div class="brand-logo">KHUNYA THAI</div>
         <div class="brand-subtitle">Authentic Thai Home-Style Cuisine</div>
 
+        <!-- 語言切換 -->
+        <div class="lang-switch" id="langSwitch">
+            <button class="lang-btn active" data-lang="zh">中</button>
+            <button class="lang-btn" data-lang="th">TH</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+
         <div class="category-bar-wrapper">
             <div id="categoryTabs" class="category-tabs"></div>
         </div>
@@ -328,141 +387,4 @@
 </div>
 
 <script>
-(function () {
-    const menuWrapper = document.getElementById('menuWrapper');
-    const categoryTabsContainer = document.getElementById('categoryTabs');
-
-    let globalMenuData = [];
-    let globalCategories = [];
-    let currentCategory = '';
-
-    function splitCategoryLabel(label) {
-        const match = label.match(/^(.+?)\((.+)\)$/);
-        if (match) {
-            return { cn: match[1], th: match[2] };
-        }
-        return { cn: label, th: '' };
-    }
-
-    function renderTabs(categories, activeCategory) {
-        categoryTabsContainer.innerHTML = '';
-        categories.forEach((cat) => {
-            const { cn, th } = splitCategoryLabel(cat);
-            const tab = document.createElement('button');
-            tab.type = 'button';
-            tab.className = 'category-tab' + (cat === activeCategory ? ' active' : '');
-            tab.dataset.category = cat;
-            tab.innerHTML = `
-                <span>${cn}</span>
-                ${th ? `<span class="category-tab-th">${th}</span>` : ''}
-            `;
-            tab.addEventListener('click', () => {
-                setActiveCategory(cat);
-            });
-            categoryTabsContainer.appendChild(tab);
-        });
-    }
-
-    function renderMenu() {
-        if (!currentCategory) return;
-        const { cn, th } = splitCategoryLabel(currentCategory);
-        const items = globalMenuData.filter(item => item.category === currentCategory);
-
-        if (!items.length) {
-            menuWrapper.innerHTML = '<p class="menu-empty">這個類別目前沒有菜單項目。</p>';
-            return;
-        }
-
-        const itemsHtml = items.map(item => {
-            const priceHtml = (item.price || item.price === 0)
-                ? `<span class="item-price">${item.price}</span>`
-                : '';
-            const thHtml = item.nameTh
-                ? `<span class="item-name-th">${item.nameTh}</span>`
-                : '';
-            const enHtml = item.nameEn
-                ? `<span class="item-name-en">${item.nameEn}</span>`
-                : '';
-
-            return `
-                <div class="menu-item">
-                    <div class="item-left">
-                        <span class="item-code">${item.code || ''}</span>
-                        <div class="item-details">
-                            <span class="item-name-cn">${item.nameZh || ''}</span>
-                            ${thHtml}
-                            ${enHtml}
-                        </div>
-                    </div>
-                    ${priceHtml}
-                </div>
-            `;
-        }).join('');
-
-        menuWrapper.innerHTML = `
-            <section class="menu-section">
-                <div class="section-header">
-                    <span class="section-title-cn">${cn}</span>
-                    ${th ? `<span class="section-title-en">${th}</span>` : ''}
-                </div>
-                <div class="menu-grid">
-                    ${itemsHtml}
-                </div>
-            </section>
-        `;
-    }
-
-    function setActiveCategory(category) {
-        currentCategory = category;
-        Array.from(categoryTabsContainer.querySelectorAll('.category-tab')).forEach(tab => {
-            tab.classList.toggle('active', tab.dataset.category === category);
-        });
-        renderMenu();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function initMenu(menuData) {
-        if (!menuData || !menuData.length) {
-            menuWrapper.innerHTML = '<p class="menu-empty">找不到任何菜單資料，請確認 menu.json 內容。</p>';
-            return;
-        }
-
-        globalMenuData = menuData.slice();
-        const categorySet = new Set(menuData.map(item => item.category).filter(Boolean));
-        globalCategories = Array.from(categorySet);
-
-        if (!globalCategories.length) {
-            menuWrapper.innerHTML = '<p class="menu-empty">menu.json 裡沒有「category」資料。</p>';
-            return;
-        }
-
-        currentCategory = globalCategories[0];
-        renderTabs(globalCategories, currentCategory);
-        renderMenu();
-    }
-
-    function loadMenu() {
-        menuWrapper.innerHTML = '<p class="menu-empty">載入菜單中…</p>';
-
-        fetch('menu.json')
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error('menu.json 載入失敗');
-                }
-                return res.json();
-            })
-            .then(data => {
-                initMenu(data);
-            })
-            .catch(err => {
-                console.error(err);
-                menuWrapper.innerHTML = '<p class="menu-error">載入菜單發生錯誤，請確認：<br>1. menu.json 是否與此 HTML 在同一個資料夾<br>2. menu.json 內容是否為合法的 JSON 格式</p>';
-            });
-    }
-
-    loadMenu();
-})();
-</script>
-
-</body>
-</html>
+(function ()
