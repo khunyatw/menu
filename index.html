@@ -543,7 +543,7 @@
             flex: 0 0 72%;
             max-width: 420px;
             scroll-snap-align: start;
-            cursor: pointer; /* 像 IG 一樣暗示可點 */
+            cursor: pointer;
         }
 
         @media (min-width: 768px) {
@@ -748,7 +748,7 @@
             <div class="section-title-block">
                 <div class="section-title-large" id="menuTitle">菜單</div>
                 <div class="section-title-subtext" id="menuSubtitle">
-                    類別按鈕在標題下方，點選即可切換不同料理分類；左上角選單可以切換語言。
+                    類別按鈕在標題下方，點選即可切換不同料理分類；右上角選單可以切換語言。
                 </div>
             </div>
 
@@ -796,7 +796,19 @@
 
             <div class="photo-strip" id="reviewStrip">
                 <div class="photo-item">
-                    <img class="photo-img" src="google-reviews/1.jpeg" alt="昆雅泰式料理 Google 評論截圖">
+                    <img class="photo-img" src="google-reviews/1.jpeg" alt="昆雅泰式料理 Google 評論截圖 1">
+                </div>
+                <div class="photo-item">
+                    <img class="photo-img" src="google-reviews/2.jpeg" alt="昆雅泰式料理 Google 評論截圖 2">
+                </div>
+                <div class="photo-item">
+                    <img class="photo-img" src="google-reviews/3.jpeg" alt="昆雅泰式料理 Google 評論截圖 3">
+                </div>
+                <div class="photo-item">
+                    <img class="photo-img" src="google-reviews/4.jpeg" alt="昆雅泰式料理 Google 評論截圖 4">
+                </div>
+                <div class="photo-item">
+                    <img class="photo-img" src="google-reviews/5.jpeg" alt="昆雅泰式料理 Google 評論截圖 5">
                 </div>
             </div>
         </section>
@@ -844,6 +856,7 @@
 </div>
 
 <script>
+/* 主程式：語言偵測 + 菜單載入 + 文案切換 */
 (function () {
     const menuWrapper = document.getElementById('menuWrapper');
     const categoryTabsContainer = document.getElementById('categoryTabs');
@@ -852,7 +865,7 @@
     let globalMenuData = [];
     let globalCategories = []; // { id, zh, th, en }
     let currentCategoryId = '';
-    let currentLang = 'zh';
+    let currentLang = 'zh'; // 預設，下面會被瀏覽器語言覆蓋
 
     const i18n = {
         zh: {
@@ -869,7 +882,7 @@
             aboutHighlight: '<strong>打拋飯、清邁金麵、泰式船麵與泰式奶茶</strong> 是我們最想推薦給你的幾道料理。<br>如果有機會，也歡迎你來店裡坐坐，慢慢吃、慢慢聊天。',
 
             menuTitle: '菜單',
-            menuSubtitle: '類別按鈕在標題下方，點選即可切換不同料理分類；左上角選單可以切換語言。',
+            menuSubtitle: '類別按鈕在標題下方，點選即可切換不同料理分類；右上角選單可以切換語言。',
 
             pictureTitle: '照片',
 
@@ -901,7 +914,7 @@
             aboutHighlight: '<strong>ข้าวกะเพรา ข้าวซอย ก๋วยเตี๋ยวเรือ และชาไทย</strong> คือเมนูที่เราอยากให้คุณได้ลองมากที่สุด<br>ถ้ามีเวลา แวะมานั่งกินช้า ๆ คุยกันสบาย ๆ ที่ร้านได้นะ',
 
             menuTitle: 'เมนู',
-            menuSubtitle: 'ปุ่มหมวดหมู่อยู่ใต้หัวข้อเมนู สามารถเลือกสลับประเภทอาหารได้ และสามารถเปลี่ยนภาษาได้จากเมนูมุมซ้ายบน',
+            menuSubtitle: 'ปุ่มหมวดหมู่จะอยู่ใต้หัวข้อเมนู สามารถเปลี่ยนประเภทอาหารได้ และเปลี่ยนภาษาได้จากเมนูมุมขวาบน',
 
             pictureTitle: 'รูปภาพ',
 
@@ -933,7 +946,7 @@
             aboutHighlight: '<strong>Basil rice, Chiang Mai Khao Soi, Thai boat noodles and Thai milk tea</strong> are the dishes we most recommend.<br>If you have time, we would love to have you sit down, eat slowly, and chat with us at the restaurant.',
 
             menuTitle: 'Menu',
-            menuSubtitle: 'Category buttons are placed under the menu title. Tap to switch dish types; change language from the top-left menu.',
+            menuSubtitle: 'Category buttons are placed under the menu title. Tap to switch dish types; change language from the top-right menu.',
 
             pictureTitle: 'Pictures',
 
@@ -952,6 +965,42 @@
             footer: '&copy; 2024 KHUNYA THAI CUISINE • AUTHENTIC THAI FLAVORS'
         }
     };
+
+    // 依瀏覽器語言決定預設語系：zh / th / en
+    function detectInitialLang() {
+        const navLang =
+            (navigator.languages && navigator.languages[0]) ||
+            navigator.language ||
+            navigator.userLanguage ||
+            '';
+
+        const lower = String(navLang).toLowerCase();
+
+        if (lower.startsWith('zh')) return 'zh';
+        if (lower.startsWith('th')) return 'th';
+        return 'en';
+    }
+
+    // 同步 <html lang="...">（對 SEO / 輔助工具友善）
+    function updateHtmlLangAttr() {
+        const html = document.documentElement;
+        if (!html) return;
+        if (currentLang === 'zh') {
+            html.lang = 'zh-TW';
+        } else if (currentLang === 'th') {
+            html.lang = 'th';
+        } else {
+            html.lang = 'en';
+        }
+    }
+
+    // 同步右上角語言按鈕 active 樣式
+    function updateLangButtons() {
+        if (!langSwitch) return;
+        Array.from(langSwitch.querySelectorAll('.lang-btn')).forEach(b => {
+            b.classList.toggle('active', b.dataset.lang === currentLang);
+        });
+    }
 
     function applyStaticTexts() {
         const t = i18n[currentLang] || i18n.zh;
@@ -988,6 +1037,9 @@
         setHTML('contactHoursLabel', t.contactHoursLabel);
 
         setHTML('footerText', t.footer);
+
+        updateHtmlLangAttr();
+        updateLangButtons();
     }
 
     function getCategoryLabel(cat) {
@@ -1163,6 +1215,7 @@
             });
     }
 
+    // 語言切換按鈕事件
     if (langSwitch) {
         langSwitch.addEventListener('click', e => {
             const btn = e.target.closest('.lang-btn');
@@ -1171,20 +1224,19 @@
             if (!lang || lang === currentLang) return;
             currentLang = lang;
 
-            Array.from(langSwitch.querySelectorAll('.lang-btn')).forEach(b => {
-                b.classList.toggle('active', b.dataset.lang === currentLang);
-            });
-
             applyStaticTexts();
             renderTabs(globalCategories, currentCategoryId);
             renderMenu();
         });
     }
 
-    loadMenu();
+    // --- 初始化：依瀏覽器語言決定語系 ---
+    currentLang = detectInitialLang();
+    applyStaticTexts(); // 先套上正確語言的靜態文字（含 nav / 關於 / footer）
+    loadMenu();         // 再去載入 menu.json，用當前語言顯示菜單
 })();
 
-// 左上角選單：開關 + 捲動
+/* 右上角漢堡選單：開關 + 捲動 */
 (function () {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
@@ -1218,7 +1270,7 @@
     });
 })();
 
-// Lightbox 大圖功能
+/* Lightbox 大圖功能：照片 / 評論都可以點開放大 */
 (function () {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
