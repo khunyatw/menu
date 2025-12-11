@@ -85,13 +85,103 @@
             font-weight: 500;
         }
 
-        /* 語言切換 */
+        /* 左上角：漢堡選單 */
+        .nav-wrapper {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            z-index: 20;
+        }
+
+        @media (max-width: 480px) {
+            .nav-wrapper {
+                top: 10px;
+                left: 10px;
+            }
+        }
+
+        .nav-toggle {
+            border-radius: 999px;
+            border: 1px solid #D4C5B0;
+            background: #FDFBF7;
+            width: 34px;
+            height: 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .nav-toggle i {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .nav-toggle:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .nav-menu {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background: #FFFFFF;
+            border-radius: 12px;
+            border: 1px solid #E5E0D8;
+            padding: 6px 0;
+            min-width: 160px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            display: none;
+        }
+
+        .nav-menu.open {
+            display: block;
+        }
+
+        .nav-menu-item {
+            width: 100%;
+            padding: 8px 14px;
+            text-align: left;
+            font-size: 13px;
+            color: #444;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+
+        .nav-menu-item i {
+            font-size: 16px;
+            color: #C49A5A;
+        }
+
+        .nav-menu-item span {
+            display: inline-block;
+        }
+
+        .nav-menu-item small {
+            font-size: 11px;
+            color: #999;
+        }
+
+        .nav-menu-item:hover {
+            background: #F9F3E7;
+            color: #222;
+        }
+
+        /* 右上角：語言切換 */
         .lang-switch {
             position: absolute;
             top: 16px;
             right: 16px;
             display: flex;
             gap: 6px;
+            z-index: 20;
         }
 
         @media (max-width: 480px) {
@@ -187,11 +277,83 @@
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
         }
 
-        .menu-wrapper {
-            margin-top: 32px;
+        /* 內容區塊 */
+        main {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
         }
 
-        .section-header {
+        section {
+            scroll-margin-top: 90px; /* 捲動時不要被 header 擋住 */
+        }
+
+        .section-title-block {
+            margin-bottom: 16px;
+        }
+
+        .section-title-large {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .section-title-subtext {
+            font-size: 13px;
+            color: #888;
+        }
+
+        .about-text {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .about-highlight {
+            margin-top: 12px;
+            padding: 10px 12px;
+            border-left: 3px solid #D4C5B0;
+            background: #FDFBF7;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .about-highlight strong {
+            color: #A46A22;
+        }
+
+        .picture-placeholder {
+            border-radius: 16px;
+            border: 1px dashed #D4C5B0;
+            padding: 16px;
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .picture-grid {
+            margin-top: 12px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+        }
+
+        .picture-card {
+            background: #FDFBF7;
+            border-radius: 12px;
+            border: 1px solid #EEE3D5;
+            padding: 8px;
+            font-size: 12px;
+            color: #777;
+        }
+
+        /* 菜單區本身原本的樣式 */
+        .menu-wrapper {
+            margin-top: 16px;
+        }
+
+        .section-header-menu {
             display: flex;
             align-items: baseline;
             margin-bottom: 18px;
@@ -365,7 +527,28 @@
         <div class="brand-logo">KHUNYA THAI</div>
         <div class="brand-subtitle">Authentic Thai Home-Style Cuisine</div>
 
-        <!-- 語言切換 -->
+        <!-- 左上角選單 -->
+        <div class="nav-wrapper">
+            <button class="nav-toggle" id="navToggle" aria-label="Open navigation">
+                <i class="ri-menu-line"></i>
+            </button>
+            <div class="nav-menu" id="navMenu">
+                <button class="nav-menu-item" data-target="about">
+                    <i class="ri-store-2-line"></i>
+                    <span>關於我們 <small>About Us</small></span>
+                </button>
+                <button class="nav-menu-item" data-target="menu">
+                    <i class="ri-restaurant-line"></i>
+                    <span>菜單 <small>Menu</small></span>
+                </button>
+                <button class="nav-menu-item" data-target="picture">
+                    <i class="ri-image-line"></i>
+                    <span>照片 <small>Picture</small></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 右上角語言切換 -->
         <div class="lang-switch" id="langSwitch">
             <button class="lang-btn active" data-lang="zh">中</button>
             <button class="lang-btn" data-lang="th">TH</button>
@@ -377,8 +560,55 @@
         </div>
     </header>
 
-    <main class="menu-wrapper" id="menuWrapper">
-        <p class="menu-empty">載入菜單中…</p>
+    <main>
+        <!-- 關於我們 -->
+        <section id="about">
+            <div class="section-title-block">
+                <div class="section-title-large">關於我們 About Us</div>
+                <div class="section-title-subtext">
+                    昆雅泰式料理由泰國與台灣夥伴共同經營，希望把泰國日常餐桌上的味道，用溫柔而堅持的方式帶到板橋。
+                </div>
+            </div>
+            <div class="about-text">
+                我們不追求華麗擺盤，而是專注在「日常可以常吃、又保留泰國靈魂」的家常菜。  
+                醬料、咖哩與湯底堅持自己熬煮，盡量使用原始香料與食材，不過度改良成台式口味。
+                <div class="about-highlight">
+                    <strong>打拋飯、清邁金麵、泰式船麵與泰式奶茶</strong> 是我們最想推薦給你的幾道料理。  
+                    如果有機會，也歡迎你來店裡坐坐，慢慢吃、慢慢聊天。
+                </div>
+            </div>
+        </section>
+
+        <!-- 菜單 -->
+        <section id="menu">
+            <div class="section-title-block">
+                <div class="section-title-large">菜單 Menu</div>
+                <div class="section-title-subtext">
+                    點擊上方類別標籤，可切換不同料理分類；右上角可切換顯示語言。
+                </div>
+            </div>
+            <div class="menu-wrapper" id="menuWrapper">
+                <p class="menu-empty">載入菜單中…</p>
+            </div>
+        </section>
+
+        <!-- 照片 -->
+        <section id="picture">
+            <div class="section-title-block">
+                <div class="section-title-large">照片 Picture</div>
+                <div class="section-title-subtext">
+                    之後可以放餐點照片、店內空間、活動紀錄，或直接嵌入 Instagram 貼文。
+                </div>
+            </div>
+            <div class="picture-placeholder">
+                這裡目前是預留區塊，未來可以改成：IG 貼文嵌入、相片牆、或單張主視覺圖片。
+            </div>
+            <div class="picture-grid">
+                <div class="picture-card">範例：打拋系列便當照</div>
+                <div class="picture-card">範例：清邁金麵特寫</div>
+                <div class="picture-card">範例：泰式奶茶 & 粉紅奶</div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -516,8 +746,8 @@
         }).join('');
 
         menuWrapper.innerHTML = `
-            <section class="menu-section">
-                <div class="section-header">
+            <section class="menu-section-inner">
+                <div class="section-header-menu">
                     <span class="section-title-main">${catMain}</span>
                     ${catSub ? `<span class="section-title-sub">${catSub}</span>` : ''}
                 </div>
@@ -600,7 +830,7 @@
             });
     }
 
-    // 語言切換事件
+    // 語言切換
     if (langSwitch) {
         langSwitch.addEventListener('click', (e) => {
             const btn = e.target.closest('.lang-btn');
@@ -619,6 +849,40 @@
     }
 
     loadMenu();
+})();
+
+// 左上角選單：開關 + 捲動
+(function () {
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    if (!navToggle || !navMenu) return;
+
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+    });
+
+    navMenu.addEventListener('click', (e) => {
+        const btn = e.target.closest('.nav-menu-item');
+        if (!btn) return;
+
+        const targetId = btn.dataset.target;
+        if (!targetId) return;
+
+        const section = document.getElementById(targetId);
+        if (section) {
+            navMenu.classList.remove('open');
+            const rect = section.getBoundingClientRect();
+            const offset = window.scrollY + rect.top - 80;
+            window.scrollTo({ top: offset, behavior: 'smooth' });
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!navMenu.classList.contains('open')) return;
+        if (e.target.closest('.nav-wrapper')) return;
+        navMenu.classList.remove('open');
+    });
 })();
 </script>
 
