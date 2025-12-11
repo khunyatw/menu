@@ -156,10 +156,10 @@
 
         /* 左上角：漢堡選單 */
         .nav-wrapper {
-            position: absolute;
+            position: fixed;
             top: 16px;
             left: 16px;
-            z-index: 20;
+            z-index: 999;
         }
 
         @media (max-width: 480px) {
@@ -740,7 +740,6 @@
             <div class="section-title-block">
                 <div class="section-title-large" id="reviewTitle">Google 評論與地圖</div>
                 <div class="section-title-subtext" id="reviewSubtitle">
-                    評論區使用實際 Google Maps 的連結搭配截圖展示，確保資訊真實也方便導航。
                 </div>
             </div>
 
@@ -749,7 +748,7 @@
                    href="https://maps.app.goo.gl/RMUuJtk4PQQrqqKH9"
                    target="_blank" rel="noopener noreferrer">
                     <i class="ri-map-pin-line"></i>
-                    <span>在 Google 地圖上查看位置與評論</span>
+                    <span>在 Google 地圖上查看位置</span>
                 </a>
             </div>
 
@@ -860,8 +859,7 @@
             pictureTitle: 'รูปภาพ',
 
             reviewTitle: 'รีวิว & แผนที่ Google',
-            reviewSubtitle: 'โซนนี้ใช้ลิงก์จาก Google Maps ร่วมกับภาพรีวิวจริง ทำให้ดูง่ายและน่าเชื่อถือ',
-            reviewButton: 'เปิดดูรีวิวและตำแหน่งบน Google Maps',
+            reviewButton: 'ดูบน Google Maps',
 
             contactTitle: 'ติดต่อร้าน',
             contactSubtitle: 'หากต้องการสอบถามข้อมูล สำรองที่นั่ง หรือเช็คเวลาเปิดปิด ทัก LINE มาคุยกับเราได้เลย',
@@ -892,8 +890,7 @@
             pictureTitle: 'Pictures',
 
             reviewTitle: 'Google Reviews & Map',
-            reviewSubtitle: 'This section uses a real Google Maps link with screenshot previews, to keep information realistic and make navigation easy.',
-            reviewButton: 'Open Google Maps for reviews & location',
+            reviewButton: 'Open Google Maps for location',
 
             contactTitle: 'Contact Us',
             contactSubtitle: 'For questions, reservations, or business hours, feel free to add our LINE account and message us directly.',
