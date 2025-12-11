@@ -1,354 +1,486 @@
 [
   {
-    "code": "A1",
-    "category": "打拋飯(ข้าวกะเพรา)",
+    "coed": "A1",
+    "categoryZh": "打拋飯",
+    "categoryTh": "ข้าวกะเพรา",
+    "categoryEn": "Pad Kaprao",
     "nameZh": "打拋豬肉飯",
     "nameTh": "ข้าวกระเพราหมูสับ",
     "nameEn": "Stir-Fried Minced Pork with Holy Basil on Rice",
-    "price": 150
+    "price": 150,
+    "feature": "TRUE"
   },
   {
-    "code": "A2",
-    "category": "打拋飯(ข้าวกะเพรา)",
+    "coed": "A2",
+    "categoryZh": "打拋飯",
+    "categoryTh": "ข้าวกะเพรา",
+    "categoryEn": "Pad Kaprao",
     "nameZh": "打拋雞肉飯",
     "nameTh": "ข้าวกะเพราไก่",
     "nameEn": "Stir-Fried Chicken with Holy Basil on Rice",
-    "price": 150
+    "price": 150,
+    "feature": "TRUE"
   },
   {
-    "code": "A3",
-    "category": "打拋飯(ข้าวกะเพรา)",
+    "coed": "A3",
+    "categoryZh": "打拋飯",
+    "categoryTh": "ข้าวกะเพรา",
+    "categoryEn": "Pad Kaprao",
     "nameZh": "打拋海鮮飯",
     "nameTh": "ข้าวกะเพราทะเล",
     "nameEn": "Stir-Fried Seafood with Holy Basil on Rice",
-    "price": 170
+    "price": 170,
+    "feature": "FALSE"
   },
   {
-    "code": "A4",
-    "category": "打拋飯(ข้าวกะเพรา)",
+    "coed": "A4",
+    "categoryZh": "打拋飯",
+    "categoryTh": "ข้าวกะเพรา",
+    "categoryEn": "Pad Kaprao",
     "nameZh": "打拋脆皮豬肉飯",
     "nameTh": "ข้าวกระเพราหมูกรอบ",
     "nameEn": "Crispy Pork Belly with Holy Basil on Rice",
-    "price": 190
+    "price": 190,
+    "feature": "FALSE"
   },
   {
-    "code": "B1",
-    "category": "泰式家常(เมนูอาหารจานหลักแบบไทย)",
+    "coed": "B1",
+    "categoryZh": "泰式家常",
+    "categoryTh": "เมนูอาหารจานหลักแบบไทย",
+    "categoryEn": "Thai Homestyle Favorites",
     "nameZh": "脆皮豬肉炒芥蘭飯",
     "nameTh": "ข้าวคะน้าหมูกรอบ",
     "nameEn": "Crispy Pork Belly with Kale on Rice",
-    "price": 190
+    "price": 190,
+    "feature": "FALSE"
   },
   {
-    "code": "B2",
-    "category": "泰式家常(เมนูอาหารจานหลักแบบไทย)",
+    "coed": "B2",
+    "categoryZh": "泰式家常",
+    "categoryTh": "เมนูอาหารจานหลักแบบไทย",
+    "categoryEn": "Thai Homestyle Favorites",
     "nameZh": "蒜香豬肉飯",
     "nameTh": "ข้าวหมูกระเทียม",
     "nameEn": "Garlic Pork on Rice",
-    "price": 150
+    "price": 150,
+    "feature": "FALSE"
   },
   {
-    "code": "B3",
-    "category": "泰式家常(เมนูอาหารจานหลักแบบไทย)",
+    "coed": "B3",
+    "categoryZh": "泰式家常",
+    "categoryTh": "เมนูอาหารจานหลักแบบไทย",
+    "categoryEn": "Thai Homestyle Favorites",
     "nameZh": "豬肉煎蛋飯",
     "nameTh": "ข้าวไข่เจียวหมูสับ",
     "nameEn": "Minced Pork Thai Omelet on Rice",
-    "price": 150
+    "price": 150,
+    "feature": "FALSE"
   },
   {
-    "code": "B4",
-    "category": "泰式家常(เมนูอาหารจานหลักแบบไทย)",
+    "coed": "B4",
+    "categoryZh": "泰式家常",
+    "categoryTh": "เมนูอาหารจานหลักแบบไทย",
+    "categoryEn": "Thai Homestyle Favorites",
     "nameZh": "豬肉炒飯",
     "nameTh": "ข้าวผัด หมู",
     "nameEn": "Pork Fried Rice",
-    "price": 150
+    "price": 150,
+    "feature": "FALSE"
   },
   {
-    "code": "B5",
-    "category": "泰式家常(เมนูอาหารจานหลักแบบไทย)",
+    "coed": "B5",
+    "categoryZh": "泰式家常",
+    "categoryTh": "เมนูอาหารจานหลักแบบไทย",
+    "categoryEn": "Thai Homestyle Favorites",
     "nameZh": "海鮮炒飯",
     "nameTh": "ข้าวผัด ทะเล",
     "nameEn": "Seafood Fried Rice",
-    "price": 170
+    "price": 170,
+    "feature": "FALSE"
   },
   {
-    "code": "B6",
-    "category": "泰式家常(เมนูอาหารจานหลักแบบไทย)",
+    "coed": "B6",
+    "categoryZh": "泰式家常",
+    "categoryTh": "เมนูอาหารจานหลักแบบไทย",
+    "categoryEn": "Thai Homestyle Favorites",
     "nameZh": "鮮蝦粉絲煲",
     "nameTh": "กุ้งอบวุ้นเส้น",
     "nameEn": "Baked shrimp with glass noodles",
-    "price": 250
+    "price": 250,
+    "feature": "FALSE"
   },
   {
-    "code": "C1",
-    "category": "麵食(เมนูเส้น)",
+    "coed": "C1",
+    "categoryZh": "麵食",
+    "categoryTh": "เมนูเส้น",
+    "categoryEn": "Noodle",
     "nameZh": "泰式炒河粉",
     "nameTh": "ผัดไทยกุ้งสด",
     "nameEn": "Pad Thai with Shrimp",
-    "price": 190
+    "price": 190,
+    "feature": "TRUE"
   },
   {
-    "code": "C2",
-    "category": "麵食(เมนูเส้น)",
+    "coed": "C2",
+    "categoryZh": "麵食",
+    "categoryTh": "เมนูเส้น",
+    "categoryEn": "Noodle",
     "nameZh": "泰式船麵",
     "nameTh": "ก๋วยเตี๋ยวเรือ",
     "nameEn": "Thai Boat Noodles",
-    "price": 150
+    "price": 150,
+    "feature": "TRUE"
   },
   {
-    "code": "C3",
-    "category": "麵食(เมนูเส้น)",
+    "coed": "C3",
+    "categoryZh": "麵食",
+    "categoryTh": "เมนูเส้น",
+    "categoryEn": "Noodle",
     "nameZh": "清邁金麵",
     "nameTh": "ข้าวซอย",
     "nameEn": "Northern Thai Curry Noodle Soup (Khao Soi)",
-    "price": 219
+    "price": 219,
+    "feature": "TRUE"
   },
   {
-    "code": "C4",
-    "category": "麵食(เมนูเส้น)",
+    "coed": "C4",
+    "categoryZh": "麵食",
+    "categoryTh": "เมนูเส้น",
+    "categoryEn": "Noodle",
     "nameZh": "泰式壽喜燒豬",
     "nameTh": "สุกี้ยากี้ หมู",
     "nameEn": "Thai Suki with Pork",
-    "price": 150
+    "price": 150,
+    "feature": "FALSE"
   },
   {
-    "code": "C5",
-    "category": "麵食(เมนูเส้น)",
+    "coed": "C5",
+    "categoryZh": "麵食",
+    "categoryTh": "เมนูเส้น",
+    "categoryEn": "Noodle",
     "nameZh": "泰式壽喜燒海鮮",
     "nameTh": "สุกี้ยากี้ ทะเล",
     "nameEn": "Thai Suki with Seafood",
-    "price": 170
+    "price": 170,
+    "feature": "FALSE"
   },
   {
-    "code": "F1",
-    "category": "聚會分享盤(เมนูแชร์กัน)",
+    "coed": "F1",
+    "categoryZh": "聚會分享盤",
+    "categoryTh": "เมนูแชร์กัน",
+    "categoryEn": "Sharing Plate",
     "nameZh": "泰式酸辣湯",
     "nameTh": "ต้มยำกุ้ง น้ำข้น / น้ำใส",
     "nameEn": "Spicy and sour soup with shrimp",
-    "price": 250
+    "price": 250,
+    "feature": "TRUE"
   },
   {
-    "code": "G1",
-    "category": "聚會分享盤(เมนูแชร์กัน)",
+    "coed": "G1",
+    "categoryZh": "聚會分享盤",
+    "categoryTh": "เมนูแชร์กัน",
+    "categoryEn": "Sharing Plate",
     "nameZh": "炸薯條 เฟรนช์ฟราย",
     "nameTh": "เฟรนช์ฟราย",
     "nameEn": "French fried",
-    "price": 100
+    "price": 100,
+    "feature": "FALSE"
   },
   {
-    "code": "G2",
-    "category": "聚會分享盤(เมนูแชร์กัน)",
+    "coed": "G2",
+    "categoryZh": "聚會分享盤",
+    "categoryTh": "เมนูแชร์กัน",
+    "categoryEn": "Sharing Plate",
     "nameZh": "炸肉丸",
     "nameTh": "ลูกชิ้นทอด",
     "nameEn": "Stir-fried meat balls with Thai sauce",
-    "price": 100
+    "price": 100,
+    "feature": "FALSE"
   },
   {
-    "code": "G3",
-    "category": "聚會分享盤(เมนูแชร์กัน)",
+    "coed": "G3",
+    "categoryZh": "聚會分享盤",
+    "categoryTh": "เมนูแชร์กัน",
+    "categoryEn": "Sharing Plate",
     "nameZh": "炒空心菜",
     "nameTh": "ผัดผักบุ้ง",
     "nameEn": "Stir-fried morning glory with garlic and chili",
-    "price": 120
+    "price": 120,
+    "feature": "FALSE"
   },
   {
-    "code": "G4",
-    "category": "聚會分享盤(เมนูแชร์กัน)",
+    "coed": "G4",
+    "categoryZh": "聚會分享盤",
+    "categoryTh": "เมนูแชร์กัน",
+    "categoryEn": "Sharing Plate",
     "nameZh": "魚露炸雞翅",
     "nameTh": "ปีกไก่ทอดน้ำปลา",
     "nameEn": "Deep-fried chicken wings marinated in fish sauce",
-    "price": 150
+    "price": 150,
+    "feature": "FALSE"
   },
   {
-    "code": "G5",
-    "category": "聚會分享盤(เมนูแชร์กัน)",
+    "coed": "G5",
+    "categoryZh": "聚會分享盤",
+    "categoryTh": "เมนูแชร์กัน",
+    "categoryEn": "Sharing Plate",
     "nameZh": "泰式炸春捲",
     "nameTh": "ปอเปี๊ยะทอด",
     "nameEn": "Fried spring rolls",
-    "price": 150
+    "price": 150,
+    "feature": "FALSE"
   },
   {
-    "code": "G6",
-    "category": "聚會分享盤(เมนูแชร์กัน)",
+    "coed": "G6",
+    "categoryZh": "聚會分享盤",
+    "categoryTh": "เมนูแชร์กัน",
+    "categoryEn": "Sharing Plate",
     "nameZh": "辣姆",
     "nameTh": "ลาบหมู",
     "nameEn": "Spicy Minced Pork Salad (Larb Moo)",
-    "price": 170
+    "price": 170,
+    "feature": "FALSE"
   },
   {
-    "code": "G7",
-    "category": "聚會分享盤(เมนูแชร์กัน)",
+    "coed": "G7",
+    "categoryZh": "聚會分享盤",
+    "categoryTh": "เมนูแชร์กัน",
+    "categoryEn": "Sharing Plate",
     "nameZh": "月亮蝦餅",
     "nameTh": "ทอดมันกุ้งแผ่นกลม",
     "nameEn": "Deep-Fried Shrimp Cake",
-    "price": 199
+    "price": 199,
+    "feature": "FALSE"
   },
   {
-    "code": "G8",
-    "category": "聚會分享盤(เมนูแชร์กัน)",
+    "coed": "G8",
+    "categoryZh": "聚會分享盤",
+    "categoryTh": "เมนูแชร์กัน",
+    "categoryEn": "Sharing Plate",
     "nameZh": "醃生蝦",
     "nameTh": "กุ้งแช่น้ำปลา",
     "nameEn": "Shrimp marinated in fish sauce",
-    "price": 250
+    "price": 250,
+    "feature": "FALSE"
   },
   {
-    "code": "G9",
-    "category": "聚會分享盤(เมนูแชร์กัน)",
+    "coed": "G9",
+    "categoryZh": "聚會分享盤",
+    "categoryTh": "เมนูแชร์กัน",
+    "categoryEn": "Sharing Plate",
     "nameZh": "火烤豬頸肉",
     "nameTh": "คอหมูย่าง",
     "nameEn": "Grilled pork neck with Thai sauce",
-    "price": 250
+    "price": 250,
+    "feature": "FALSE"
   },
   {
-    "code": "G10",
-    "category": "聚會分享盤(เมนูแชร์กัน)",
+    "coed": "G10",
+    "categoryZh": "聚會分享盤",
+    "categoryTh": "เมนูแชร์กัน",
+    "categoryEn": "Sharing Plate",
     "nameZh": "泰北酸豬肉腸",
     "nameTh": "ไส้กรอกอีสาน",
     "nameEn": "Northeastern Thai Fermented Sausage (Sai Krok Isan)",
-    "price": 250
+    "price": 250,
+    "feature": "FALSE"
   },
   {
-    "code": "S1",
-    "category": "涼拌沙拉(ส้มตำ)",
+    "coed": "S1",
+    "categoryZh": "涼拌沙拉",
+    "categoryTh": "ส้มตำ",
+    "categoryEn": "Thai Salad",
     "nameZh": "青木瓜沙拉",
     "nameTh": "ส้มตำไทย",
     "nameEn": "Spicy papaya salad, the classic version",
-    "price": 150
+    "price": 150,
+    "feature": "TRUE"
   },
   {
-    "code": "S2",
-    "category": "涼拌沙拉(ส้มตำ)",
+    "coed": "S2",
+    "categoryZh": "涼拌沙拉",
+    "categoryTh": "ส้มตำ",
+    "categoryEn": "Thai Salad",
     "nameZh": "煎蛋沙拉",
     "nameTh": "ยำไข่ดาว",
     "nameEn": "Spicy salad with fried eggs",
-    "price": 150
+    "price": 150,
+    "feature": "FALSE"
   },
   {
-    "code": "S3",
-    "category": "涼拌沙拉(ส้มตำ)",
+    "coed": "S3",
+    "categoryZh": "涼拌沙拉",
+    "categoryTh": "ส้มตำ",
+    "categoryEn": "Thai Salad",
     "nameZh": "鹹蛋沙拉",
     "nameTh": "ส้มตำไทยไข่เค็ม",
     "nameEn": "Spicy papaya salad with salted egg",
-    "price": 170
+    "price": 170,
+    "feature": "FALSE"
   },
   {
-    "code": "S4",
-    "category": "涼拌沙拉(ส้มตำ)",
+    "coed": "S4",
+    "categoryZh": "涼拌沙拉",
+    "categoryTh": "ส้มตำ",
+    "categoryEn": "Thai Salad",
     "nameZh": "粉絲沙拉",
     "nameTh": "ยำวุ้นเส้น",
     "nameEn": "Spicy glass noodle salad with seafood or minced pork",
-    "price": 170
+    "price": 170,
+    "feature": "FALSE"
   },
   {
-    "code": "S5",
-    "category": "涼拌沙拉(ส้มตำ)",
+    "coed": "S5",
+    "categoryZh": "涼拌沙拉",
+    "categoryTh": "ส้มตำ",
+    "categoryEn": "Thai Salad",
     "nameZh": "mama沙拉",
     "nameTh": "ยำมาม่าทะเล",
     "nameEn": "Spicy seafood Thai noodle salad",
-    "price": 170
+    "price": 170,
+    "feature": "FALSE"
   },
   {
-    "code": "S6",
-    "category": "涼拌沙拉(ส้มตำ)",
+    "coed": "S6",
+    "categoryZh": "涼拌沙拉",
+    "categoryTh": "ส้มตำ",
+    "categoryEn": "Thai Salad",
     "nameZh": "涼拌鹹蛋玉米",
     "nameTh": "ตำข้าวโพดไข่เค็ม",
     "nameEn": "Spicy Corn and Salted Egg Salad",
-    "price": 190
+    "price": 190,
+    "feature": "FALSE"
   },
   {
-    "code": "S7",
-    "category": "涼拌沙拉(ส้มตำ)",
+    "coed": "S7",
+    "categoryZh": "涼拌沙拉",
+    "categoryTh": "ส้มตำ",
+    "categoryEn": "Thai Salad",
     "nameZh": "辣豬肉香腸沙拉",
     "nameTh": "ยำหมูยอ",
     "nameEn": "Pork sausage salad",
-    "price": 250
+    "price": 250,
+    "feature": "FALSE"
   },
   {
-    "code": "T1",
-    "category": "涼拌沙拉(ส้มตำ)",
+    "coed": "T1",
+    "categoryZh": "涼拌沙拉",
+    "categoryTh": "ส้มตำ",
+    "categoryEn": "Thai Salad",
     "nameZh": "醃螃蟹青木瓜沙拉",
     "nameTh": "ส้มตำปูปลาร้า",
     "nameEn": "Spicy papaya salad with fermented fish sauce and crab",
-    "price": 150
+    "price": 150,
+    "feature": "TRUE"
   },
   {
-    "code": "T2",
-    "category": "涼拌沙拉(ส้มตำ)",
+    "coed": "T2",
+    "categoryZh": "涼拌沙拉",
+    "categoryTh": "ส้มตำ",
+    "categoryEn": "Thai Salad",
     "nameZh": "涼拌黃瓜",
     "nameTh": "ตำแตง",
     "nameEn": "Spicy cucumber salad",
-    "price": 190
+    "price": 190,
+    "feature": "FALSE"
   },
   {
-    "code": "T3",
-    "category": "涼拌沙拉(ส้มตำ)",
+    "coed": "T3",
+    "categoryZh": "涼拌沙拉",
+    "categoryTh": "ส้มตำ",
+    "categoryEn": "Thai Salad",
     "nameZh": "涼拌長豆",
     "nameTh": "ตำถั่ว",
     "nameEn": "Long bean spicy salad",
-    "price": 199
+    "price": 199,
+    "feature": "FALSE"
   },
   {
-    "code": "T4",
-    "category": "涼拌沙拉(ส้มตำ)",
+    "coed": "T4",
+    "categoryZh": "涼拌沙拉",
+    "categoryTh": "ส้มตำ",
+    "categoryEn": "Thai Salad",
     "nameZh": "涼拌米粉",
     "nameTh": "ตำซั่ว",
     "nameEn": "Papaya salad with vermicelli",
-    "price": 250
+    "price": 250,
+    "feature": "FALSE"
   },
   {
-    "code": "D1",
-    "category": "飲料(เครื่องดื่ม)",
+    "coed": "D1",
+    "categoryZh": "飲料",
+    "categoryTh": "เครื่องดื่ม",
+    "categoryEn": "Beverage",
     "nameZh": "泰式奶茶",
     "nameTh": "ชาไทย",
     "nameEn": "Thai Tea",
-    "price": 70
+    "price": 70,
+    "feature": "TRUE"
   },
   {
-    "code": "D2",
-    "category": "飲料(เครื่องดื่ม)",
+    "coed": "D2",
+    "categoryZh": "飲料",
+    "categoryTh": "เครื่องดื่ม",
+    "categoryEn": "Beverage",
     "nameZh": "泰式綠奶",
     "nameTh": "ชาเขียว",
     "nameEn": "Thai Green Tea",
-    "price": 70
+    "price": 70,
+    "feature": "TRUE"
   },
   {
-    "code": "D3",
-    "category": "飲料(เครื่องดื่ม)",
+    "coed": "D3",
+    "categoryZh": "飲料",
+    "categoryTh": "เครื่องดื่ม",
+    "categoryEn": "Beverage",
     "nameZh": "泰式粉紅奶",
     "nameTh": "นมเย็น",
     "nameEn": "Thai Pink Milk",
-    "price": 70
+    "price": 70,
+    "feature": "TRUE"
   },
   {
-    "code": "D4",
-    "category": "飲料(เครื่องดื่ม)",
+    "coed": "D4",
+    "categoryZh": "飲料",
+    "categoryTh": "เครื่องดื่ม",
+    "categoryEn": "Beverage",
     "nameZh": "可樂",
     "nameTh": "",
     "nameEn": "Coke",
-    "price": 30
+    "price": 30,
+    "feature": "FALSE"
   },
   {
-    "code": "D5",
-    "category": "飲料(เครื่องดื่ม)",
+    "coed": "D5",
+    "categoryZh": "飲料",
+    "categoryTh": "เครื่องดื่ม",
+    "categoryEn": "Beverage",
     "nameZh": "雪碧",
     "nameTh": "",
     "nameEn": "Sprite",
-    "price": 30
+    "price": 30,
+    "feature": "FALSE"
   },
   {
-    "code": "D6",
-    "category": "飲料(เครื่องดื่ม)",
+    "coed": "D6",
+    "categoryZh": "飲料",
+    "categoryTh": "เครื่องดื่ม",
+    "categoryEn": "Beverage",
     "nameZh": "Sponsor",
     "nameTh": "",
     "nameEn": "",
-    "price": 30
+    "price": 30,
+    "feature": "FALSE"
   },
   {
-    "code": "D7",
-    "category": "飲料(เครื่องดื่ม)",
+    "coed": "D7",
+    "categoryZh": "飲料",
+    "categoryTh": "เครื่องดื่ม",
+    "categoryEn": "Beverage",
     "nameZh": "M-150",
     "nameTh": "",
     "nameEn": "",
-    "price": 30
+    "price": 30,
+    "feature": "FALSE"
   }
 ]
