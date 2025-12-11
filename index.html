@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khunya Thai Cuisine Menu</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: 'NotoSerifCJKsc';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Bold.otf') format('opentype');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'NotoSerifCJKsc';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Regular.otf') format('opentype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'NotoSansHans';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSansHans-Regular.otf') format('opentype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'NotoSansHans';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSansHans-Medium.otf') format('opentype');
+            font-weight: 500;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F9F7F2;
+            color: #2C2C2C;
+            font-family: 'NotoSerifCJKsc', serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 32px 16px 56px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 48px 32px 72px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 64px 40px 96px;
+            }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .brand-logo {
+            font-size: clamp(32px, 6vw, 48px);
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            color: #2C2C2C;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        .brand-logo::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: #D4C5B0;
+        }
+
+        .brand-subtitle {
+            font-family: 'NotoSansHans', sans-serif;
+            font-size: 13px;
+            color: #666666;
+            letter-spacing: 0.25em;
+            margin-top: 18px;
+            text-transform: uppercase;
+        }
+
+        .category-bar-wrapper {
+            margin-top: 24px;
+            border-bottom: 1px solid #E5E0D8;
+            padding-bottom: 8px;
+        }
+
+        .category-tabs {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 6px 2px 4px;
+            scrollbar-width: thin;
+        }
+
+        .category-tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .category-tabs::-webkit-scrollbar-thumb {
+            background: #D4C5B0;
+            border-radius: 999px;
+        }
+
+        .category-tab {
+            flex: 0 0 auto;
+            border-radius: 999px;
+            border: 1px solid #D4C5B0;
+            padding: 6px 14px;
+            font-family: 'NotoSansHans', sans-serif;
+            font-size: 13px;
+            color: #555;
+            background-color: #FDFBF7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: max-content;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .category-tab-th {
+            font-size: 11px;
+            color: #B8A489;
+            margin-top: 2px;
+        }
+
+        .category-tab.active {
+            background-color: #2C2C2C;
+            color: #F9F7F2;
+            border-color: #2C2C2C;
+        }
+
+        .category-tab.active .category-tab-th {
+            color: #F0E3CF;
+        }
+
+        .category-tab:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .menu-wrapper {
+            margin-top: 32px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #E5E0D8;
+            padding-bottom: 10px;
+        }
+
+        .section-title-cn {
+            font-size: 22px;
+            margin-right: 10px;
+            color: #2C2C2C;
+        }
+
+        .section-title-en {
+            font-family: 'NotoSansHans', sans-serif;
+            font-size: 14px;
+            color: #D4C5B0;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+        }
+
+        @media (min-width: 640px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 12px 10px;
+            border-radius: 12px;
+            background: #FDFBF7;
+            border: 1px solid #EEE3D5;
+            gap: 8px;
+        }
+
+        .menu-item:hover {
+            border-color: #D4C5B0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .item-left {
+            display: flex;
+            flex: 1;
+            padding-right: 4px;
+        }
+
+        .item-code {
+            font-family: 'NotoSansHans', sans-serif;
+            font-size: 12px;
+            color: #999999;
+            width: 40px;
+            padding-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .item-name-cn {
+            font-size: 16px;
+            color: #2C2C2C;
+            line-height: 1.4;
+        }
+
+        .item-name-th {
+            font-family: 'NotoSansHans', sans-serif;
+            font-size: 12px;
+            color: #888888;
+        }
+
+        .item-name-en {
+            font-family: 'NotoSansHans', sans-serif;
+            font-size: 11px;
+            color: #AAAAAA;
+            letter-spacing: 0.02em;
+        }
+
+        .item-price {
+            font-family: 'NotoSansHans', sans-serif;
+            font-size: 16px;
+            color: #2C2C2C;
+            font-weight: 500;
+            padding-top: 2px;
+            flex-shrink: 0;
+            margin-left: 8px;
+        }
+
+        @media (max-width: 480px) {
+            .item-code {
+                width: 32px;
+                font-size: 11px;
+            }
+            .item-name-cn {
+                font-size: 15px;
+            }
+            .item-price {
+                font-size: 15px;
+            }
+        }
+
+        .menu-empty,
+        .menu-error {
+            font-family: 'NotoSansHans', sans-serif;
+            font-size: 14px;
+            color: #777;
+            text-align: center;
+            padding: 32px 8px;
+        }
+
+        .menu-error {
+            color: #B14B4B;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-family: 'NotoSansHans', sans-serif;
+            font-size: 12px;
+            color: #999999;
+            letter-spacing: 0.16em;
+            border-top: 1px solid #E5E0D8;
+            padding-top: 24px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand-logo">KHUNYA THAI</div>
+        <div class="brand-subtitle">Authentic Thai Home-Style Cuisine</div>
+
+        <div class="category-bar-wrapper">
+            <div id="categoryTabs" class="category-tabs"></div>
+        </div>
+    </header>
+
+    <main class="menu-wrapper" id="menuWrapper">
+        <p class="menu-empty">載入菜單中…</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 KHUNYA THAI CUISINE • AUTHENTIC THAI FLAVORS</p>
+    </footer>
+</div>
+
+<script>
+(function () {
+    const menuWrapper = document.getElementById('menuWrapper');
+    const categoryTabsContainer = document.getElementById('categoryTabs');
+
+    let globalMenuData = [];
+    let globalCategories = [];
+    let currentCategory = '';
+
+    function splitCategoryLabel(label) {
+        const match = label.match(/^(.+?)\((.+)\)$/);
+        if (match) {
+            return { cn: match[1], th: match[2] };
+        }
+        return { cn: label, th: '' };
+    }
+
+    function renderTabs(categories, activeCategory) {
+        categoryTabsContainer.innerHTML = '';
+        categories.forEach((cat) => {
+            const { cn, th } = splitCategoryLabel(cat);
+            const tab = document.createElement('button');
+            tab.type = 'button';
+            tab.className = 'category-tab' + (cat === activeCategory ? ' active' : '');
+            tab.dataset.category = cat;
+            tab.innerHTML = `
+                <span>${cn}</span>
+                ${th ? `<span class="category-tab-th">${th}</span>` : ''}
+            `;
+            tab.addEventListener('click', () => {
+                setActiveCategory(cat);
+            });
+            categoryTabsContainer.appendChild(tab);
+        });
+    }
+
+    function renderMenu() {
+        if (!currentCategory) return;
+        const { cn, th } = splitCategoryLabel(currentCategory);
+        const items = globalMenuData.filter(item => item.category === currentCategory);
+
+        if (!items.length) {
+            menuWrapper.innerHTML = '<p class="menu-empty">這個類別目前沒有菜單項目。</p>';
+            return;
+        }
+
+        const itemsHtml = items.map(item => {
+            const priceHtml = (item.price || item.price === 0)
+                ? `<span class="item-price">${item.price}</span>`
+                : '';
+            const thHtml = item.nameTh
+                ? `<span class="item-name-th">${item.nameTh}</span>`
+                : '';
+            const enHtml = item.nameEn
+                ? `<span class="item-name-en">${item.nameEn}</span>`
+                : '';
+
+            return `
+                <div class="menu-item">
+                    <div class="item-left">
+                        <span class="item-code">${item.code || ''}</span>
+                        <div class="item-details">
+                            <span class="item-name-cn">${item.nameZh || ''}</span>
+                            ${thHtml}
+                            ${enHtml}
+                        </div>
+                    </div>
+                    ${priceHtml}
+                </div>
+            `;
+        }).join('');
+
+        menuWrapper.innerHTML = `
+            <section class="menu-section">
+                <div class="section-header">
+                    <span class="section-title-cn">${cn}</span>
+                    ${th ? `<span class="section-title-en">${th}</span>` : ''}
+                </div>
+                <div class="menu-grid">
+                    ${itemsHtml}
+                </div>
+            </section>
+        `;
+    }
+
+    function setActiveCategory(category) {
+        currentCategory = category;
+        Array.from(categoryTabsContainer.querySelectorAll('.category-tab')).forEach(tab => {
+            tab.classList.toggle('active', tab.dataset.category === category);
+        });
+        renderMenu();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function initMenu(menuData) {
+        if (!menuData || !menuData.length) {
+            menuWrapper.innerHTML = '<p class="menu-empty">找不到任何菜單資料，請確認 menu.json 內容。</p>';
+            return;
+        }
+
+        globalMenuData = menuData.slice();
+        const categorySet = new Set(menuData.map(item => item.category).filter(Boolean));
+        globalCategories = Array.from(categorySet);
+
+        if (!globalCategories.length) {
+            menuWrapper.innerHTML = '<p class="menu-empty">menu.json 裡沒有「category」資料。</p>';
+            return;
+        }
+
+        currentCategory = globalCategories[0];
+        renderTabs(globalCategories, currentCategory);
+        renderMenu();
+    }
+
+    function loadMenu() {
+        menuWrapper.innerHTML = '<p class="menu-empty">載入菜單中…</p>';
+
+        fetch('menu.json')
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('menu.json 載入失敗');
+                }
+                return res.json();
+            })
+            .then(data => {
+                initMenu(data);
+            })
+            .catch(err => {
+                console.error(err);
+                menuWrapper.innerHTML = '<p class="menu-error">載入菜單發生錯誤，請確認：<br>1. menu.json 是否與此 HTML 在同一個資料夾<br>2. menu.json 內容是否為合法的 JSON 格式</p>';
+            });
+    }
+
+    loadMenu();
+})();
+</script>
+
+</body>
+</html>
