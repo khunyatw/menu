@@ -145,128 +145,221 @@
     .section-title-subtext{font-size:13px;color:#888;}
 
     /* HERO (mobile: banner carousel with overlay text; desktop: text left, 3 images right) */
-    .hero-section{
-      margin-top:8px;margin-bottom:24px;
-      border-radius:24px;overflow:hidden;
-      border:1px solid #E5D6C5;
-      background:#FDFBF7;
-      position:relative;
-    }
-    .hero-layout{display:flex;flex-direction:column;gap:0;}
-    @media (min-width:900px){
-      .hero-layout{flex-direction:row;align-items:stretch;}
-    }
+    
+        /* Hero（滿版） */
+        .hero-full{
+            position: relative;
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
+            height: clamp(520px, 72vh, 820px);
+            overflow: hidden;
+            border-bottom: 1px solid #E5D6C5;
+            background: #000;
+        }
 
-    .hero-media{
-      position:relative;
-      background:#1f1f1f;
-    }
-    /* mobile banner */
-    .hero-banner{
-      display:block;
-      position:relative;
-    }
-    .hero-banner-track{
-      display:flex;
-      overflow-x:auto;
-      scroll-snap-type:x mandatory;
-      -webkit-overflow-scrolling:touch;
-      scrollbar-width:none;
-    }
-    .hero-banner-track::-webkit-scrollbar{display:none;}
-    .hero-banner-slide{
-      flex:0 0 100%;
-      scroll-snap-align:start;
-      position:relative;
-      aspect-ratio: 16 / 9;
-      background:#1f1f1f;
-    }
-    .hero-banner-slide img{
-      width:100%;height:100%;object-fit:cover;display:block;
-      filter:saturate(1.05) contrast(1.02);
-    }
+        @media (min-width: 1024px){
+            .hero-full{
+                height: clamp(560px, 78vh, 900px);
+            }
+        }
 
-    /* mobile overlay text on images */
-    .hero-overlay{
-      position:absolute;left:0;right:0;bottom:0;
-      padding:14px 14px 14px;
-      color:#fff;
-      background:linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.08));
-    }
-    .hero-title{font-size:22px;font-weight:800;line-height:1.2;margin-bottom:6px;}
-    .hero-title span{font-size:13px;font-weight:600;color:#FFD49A;margin-left:6px;}
-    .hero-subtitle{font-size:13px;line-height:1.6;color:rgba(255,255,255,.92);margin-bottom:8px;}
-    .hero-meta{font-size:12px;line-height:1.6;color:rgba(255,255,255,.90);}
-    .hero-meta strong{font-weight:700;color:#fff;}
+        .hero-slider{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            transition: transform 500ms ease;
+            will-change: transform;
+        }
 
-    .hero-ctas{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;}
-    .hero-btn{
-      border-radius:999px;padding:7px 12px;font-size:13px;
-      border:1px solid rgba(255,255,255,.28);
-      background:rgba(0,0,0,.35);
-      color:#fff;text-decoration:none;
-      display:inline-flex;align-items:center;gap:6px;
-      backdrop-filter: blur(8px);
-    }
-    .hero-btn:hover{background:rgba(0,0,0,.45);}
-    .hero-btn i{font-size:16px;}
+        .hero-slide{
+            flex: 0 0 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
 
-    /* banner dots */
-    .hero-dots{
-      position:absolute;left:0;right:0;bottom:10px;
-      display:flex;justify-content:center;gap:6px;pointer-events:none;
-    }
-    .hero-dot{
-      width:6px;height:6px;border-radius:999px;background:rgba(255,255,255,.45);
-      transition:transform .15s ease, background .15s ease;
-    }
-    .hero-dot.active{background:#fff;transform:scale(1.3);}
+        /* 文字浮在圖片上（含漸層遮罩） */
+        .hero-overlay{
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: flex-end;
+            padding: 18px 16px 18px;
+            background: linear-gradient(to top, rgba(0,0,0,0.62), rgba(0,0,0,0.15), rgba(0,0,0,0));
+        }
 
-    /* desktop hero */
-    .hero-text-desktop{
-      display:none;
-      padding:24px 26px 26px;
-      background: radial-gradient(circle at top left, #FFF5E4, #F3E6D7);
-    }
-    .hero-text-desktop .hero-title{color:#2C2C2C;}
-    .hero-text-desktop .hero-title span{color:#A46A22;}
-    .hero-text-desktop .hero-subtitle{color:#555;}
-    .hero-text-desktop .hero-meta{color:#7A5A3A;}
-    .hero-text-desktop .hero-btn{
-      background:#FDFBF7;color:#444;border-color:#D4C5B0;backdrop-filter:none;
-    }
-    .hero-text-desktop .hero-btn:hover{background:#F9F3E7;}
-    .hero-text-desktop .hero-btn i{color:#C49A5A;}
+        @media (min-width: 768px){
+            .hero-overlay{
+                padding: 28px 32px 28px;
+            }
+        }
 
-    .hero-images-desktop{
-      display:none;
-      padding:18px 18px 18px;
-      background:#FDFBF7;
-    }
-    .hero-image-stack{
-      display:flex;flex-direction:column;gap:12px;
-      height:100%;
-      justify-content:center;
-    }
-    .hero-image-card{
-      border-radius:18px;overflow:hidden;border:1px solid #EEE3D5;
-      box-shadow:0 10px 22px rgba(0,0,0,.10);
-      aspect-ratio: 16 / 9;
-      background:#1f1f1f;
-    }
-    .hero-image-card img{width:100%;height:100%;object-fit:cover;display:block;}
+        .hero-overlay-inner{
+            max-width: 680px;
+            color: #FFF;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+        }
 
-    @media (min-width:900px){
-      .hero-banner{display:none;}
-      .hero-overlay{display:none;}
-      .hero-dots{display:none;}
-      .hero-text-desktop{display:block;flex:1.2;}
-      .hero-images-desktop{display:block;flex:1;}
-      .hero-media{display:block;}
-    }
+        .hero-title{
+            font-size: clamp(22px, 3.2vw, 34px);
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #FFF;
+        }
 
-    /* Menu category tabs */
-    .category-bar-wrapper{margin-top:16px;border-bottom:1px solid #E5E0D8;padding-bottom:8px;}
+        .hero-title span{
+            font-size: clamp(12px, 1.4vw, 14px);
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            margin-left: 8px;
+        }
+
+        .hero-subtitle{
+            font-size: 14px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.92);
+            margin-bottom: 10px;
+        }
+
+        .hero-meta{
+            font-size: 13px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.88);
+            margin-bottom: 14px;
+        }
+
+        .hero-meta strong{ font-weight: 700; }
+
+        .hero-ctas{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .hero-btn-primary,
+        .hero-btn-secondary{
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-size: 13px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .hero-btn-primary{
+            background: rgba(255,255,255,0.92);
+            color: #2C2C2C;
+            border-color: rgba(255,255,255,0.55);
+            font-weight: 700;
+        }
+
+        .hero-btn-secondary{
+            background: rgba(0,0,0,0.25);
+            color: #FFF;
+            border-color: rgba(255,255,255,0.45);
+            backdrop-filter: blur(6px);
+        }
+
+        .hero-btn-primary:hover{ opacity: 0.95; }
+        .hero-btn-secondary:hover{ background: rgba(0,0,0,0.35); }
+
+        .hero-btn-primary i,
+        .hero-btn-secondary i{
+            font-size: 16px;
+        }
+
+        /* Pagination dots (mobile + desktop) */
+        .hero-dots{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 14px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(0,0,0,0.18);
+            backdrop-filter: blur(6px);
+        }
+
+        .hero-dot{
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.55);
+            border: none;
+            cursor: pointer;
+        }
+
+        .hero-dot.active{
+            background: rgba(255,255,255,0.95);
+            transform: scale(1.15);
+        }
+
+        /* Desktop: right-side thumbnails 1 2 3 left-to-right */
+        .hero-thumbs{
+            display: none;
+        }
+
+        @media (min-width: 1024px){
+            .hero-thumbs{
+                position: absolute;
+                right: 28px;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                padding: 10px;
+                border-radius: 16px;
+                background: rgba(0,0,0,0.18);
+                border: 1px solid rgba(255,255,255,0.22);
+                backdrop-filter: blur(8px);
+            }
+
+            .hero-thumb{
+                width: 120px;
+                height: 78px;
+                border-radius: 12px;
+                overflow: hidden;
+                border: 2px solid transparent;
+                padding: 0;
+                background: transparent;
+                cursor: pointer;
+                opacity: 0.85;
+                transition: transform 160ms ease, opacity 160ms ease, border-color 160ms ease;
+            }
+
+            .hero-thumb img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            .hero-thumb.active{
+                border-color: rgba(255,255,255,0.95);
+                opacity: 1;
+                transform: translateY(-2px);
+            }
+
+            .hero-thumb:hover{
+                opacity: 1;
+                transform: translateY(-2px);
+            }
+        }
+
+        /* 類別 tabs（放在菜單區下方） */
+        .category-bar-wrapper
+{margin-top:16px;border-bottom:1px solid #E5E0D8;padding-bottom:8px;}
     .category-tabs{display:flex;gap:10px;overflow-x:auto;padding:6px 2px 4px;scrollbar-width:thin;}
     .category-tabs::-webkit-scrollbar{height:4px;}
     .category-tabs::-webkit-scrollbar-thumb{background:#D4C5B0;border-radius:999px;}
@@ -450,71 +543,50 @@
 
   <main>
     <!-- HERO -->
-    <section class="hero-section" id="home">
-      <div class="hero-layout">
-        <!-- Mobile banner carousel -->
-        <div class="hero-media">
-          <div class="hero-banner" aria-label="Hero image carousel">
-            <div class="hero-banner-track" id="heroBannerTrack">
-              <!-- 請放三張圖到：images/hero/1.jpeg, 2.jpeg, 3.jpeg -->
-              <div class="hero-banner-slide"><img src="images/hero/1.jpeg" alt="Khunya Thai hero image 1"></div>
-              <div class="hero-banner-slide"><img src="images/hero/2.jpeg" alt="Khunya Thai hero image 2"></div>
-              <div class="hero-banner-slide"><img src="images/hero/3.jpeg" alt="Khunya Thai hero image 3"></div>
-            </div>
+    
+    <!-- Hero（滿版 Banner / 手機可滑動輪播 + 電腦右側縮圖 1-2-3） -->
+    <section class="hero-full" id="home" aria-label="Hero">
+      <div class="hero-slider" id="heroSlider" aria-label="Hero slider">
+        <div class="hero-slide" style="background-image:url('images/hero/1.jpeg')" role="img" aria-label="Hero image 1"></div>
+        <div class="hero-slide" style="background-image:url('images/hero/2.jpeg')" role="img" aria-label="Hero image 2"></div>
+        <div class="hero-slide" style="background-image:url('images/hero/3.jpeg')" role="img" aria-label="Hero image 3"></div>
+      </div>
 
-            <div class="hero-overlay">
-              <h2 class="hero-title" id="heroTitle">昆雅泰式料理 <span>Khunya Thai Cuisine</span></h2>
-              <p class="hero-subtitle" id="heroSubtitle">板橋巷弄裡的泰國家常餐桌，打拋飯、清邁金麵、船麵與泰式奶茶，天天都可以吃的那種。</p>
-              <p class="hero-meta" id="heroMeta">
-                <strong>地址｜</strong>新北市板橋區文化路一段311之11號<br>
-                <strong>營業時間｜</strong>11:00–14:00、17:00–21:00（週日公休）
-              </p>
-              <div class="hero-ctas">
-                <a href="https://lin.ee/fGU0Rs0L" target="_blank" rel="noopener noreferrer" class="hero-btn" id="heroCtaLine">
-                  <i class="ri-line-line"></i><span>LINE 線上詢問</span>
-                </a>
-                <a href="https://maps.app.goo.gl/RMUuJtk4PQQrqqKH9" target="_blank" rel="noopener noreferrer" class="hero-btn" id="heroCtaMap">
-                  <i class="ri-map-pin-2-line"></i><span>導航到我們</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="hero-dots" id="heroDots" aria-hidden="true">
-              <div class="hero-dot active"></div>
-              <div class="hero-dot"></div>
-              <div class="hero-dot"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Desktop left text -->
-        <div class="hero-text-desktop" aria-label="Hero text">
-          <h2 class="hero-title" id="heroTitleDesktop">昆雅泰式料理 <span>Khunya Thai Cuisine</span></h2>
-          <p class="hero-subtitle" id="heroSubtitleDesktop">板橋巷弄裡的泰國家常餐桌，打拋飯、清邁金麵、船麵與泰式奶茶，天天都可以吃的那種。</p>
-          <p class="hero-meta" id="heroMetaDesktop">
+      <div class="hero-overlay">
+        <div class="hero-overlay-inner">
+          <h2 class="hero-title" id="heroTitle">昆雅泰式料理 <span>Khunya Thai Cuisine</span></h2>
+          <p class="hero-subtitle" id="heroSubtitle">板橋巷弄裡的泰國家常餐桌，打拋飯、清邁金麵、船麵與泰式奶茶，天天都可以吃的那種。</p>
+          <p class="hero-meta" id="heroMeta">
             <strong>地址｜</strong>新北市板橋區文化路一段311之11號<br>
             <strong>營業時間｜</strong>11:00–14:00、17:00–21:00（週日公休）
           </p>
           <div class="hero-ctas">
-            <a href="https://lin.ee/fGU0Rs0L" target="_blank" rel="noopener noreferrer" class="hero-btn" id="heroCtaLineDesktop">
+            <a href="https://lin.ee/fGU0Rs0L" target="_blank" rel="noopener noreferrer" class="hero-btn-primary" id="heroCtaLine">
               <i class="ri-line-line"></i><span>LINE 線上詢問</span>
             </a>
-            <a href="https://maps.app.goo.gl/RMUuJtk4PQQrqqKH9" target="_blank" rel="noopener noreferrer" class="hero-btn" id="heroCtaMapDesktop">
+            <a href="https://maps.app.goo.gl/RMUuJtk4PQQrqqKH9" target="_blank" rel="noopener noreferrer" class="hero-btn-secondary" id="heroCtaMap">
               <i class="ri-map-pin-2-line"></i><span>導航到我們</span>
             </a>
           </div>
         </div>
 
-        <!-- Desktop right images (3) -->
-        <div class="hero-images-desktop" aria-label="Hero images">
-          <div class="hero-image-stack">
-            <div class="hero-image-card"><img src="images/hero/1.jpeg" alt="Khunya Thai hero image 1"></div>
-            <div class="hero-image-card"><img src="images/hero/2.jpeg" alt="Khunya Thai hero image 2"></div>
-            <div class="hero-image-card"><img src="images/hero/3.jpeg" alt="Khunya Thai hero image 3"></div>
-          </div>
-        </div>
+        <div class="hero-dots" id="heroDots" aria-label="Hero pagination"></div>
+      </div>
+
+      <!-- Desktop thumbnails (right side, 1 2 3 left-to-right) -->
+      <div class="hero-thumbs" id="heroThumbs" aria-label="Hero thumbnails">
+        <button class="hero-thumb" data-hero-index="0" aria-label="Hero thumbnail 1">
+          <img src="images/hero/1.jpeg" alt="Hero thumbnail 1">
+        </button>
+        <button class="hero-thumb" data-hero-index="1" aria-label="Hero thumbnail 2">
+          <img src="images/hero/2.jpeg" alt="Hero thumbnail 2">
+        </button>
+        <button class="hero-thumb" data-hero-index="2" aria-label="Hero thumbnail 3">
+          <img src="images/hero/3.jpeg" alt="Hero thumbnail 3">
+        </button>
       </div>
     </section>
+
 
     <!-- MENU (順序：Hero > Menu > Pictures > Reviews > About > Contact) -->
     <section id="menu">
@@ -1059,88 +1131,218 @@
   });
 })();
 
-/* ====== Coverflow active item logic (Photos & Reviews) ====== */
+/* ====== Coverflow：中間放大、兩側縮小模糊 + 無限循環（1>2>3>1...，左邊有 3 右邊有 2） ====== */
 (function () {
-  function setupCoverflow(trackId) {
+  function setupInfiniteCoverflow(trackId) {
     const track = document.getElementById(trackId);
     if (!track) return;
-    const items = Array.from(track.querySelectorAll('.coverflow-item'));
-    if (!items.length) return;
 
-    // create sentinels (intersection observer)
-    const observer = new IntersectionObserver((entries) => {
-      // pick the entry with biggest intersection ratio as active
-      let best = null;
-      for (const ent of entries) {
-        if (!ent.isIntersecting) continue;
-        if (!best || ent.intersectionRatio > best.intersectionRatio) best = ent;
-      }
-      if (!best) return;
+    const original = Array.from(track.children);
+    const n = original.length;
+    if (n < 2) return;
 
-      items.forEach(it => it.classList.remove('is-active'));
-      best.target.classList.add('is-active');
-    }, {
-      root: track,
-      threshold: [0.3, 0.5, 0.7, 0.9]
+    // 只做一次（避免重複 clone）
+    if (track.dataset.infiniteReady === "1") return;
+    track.dataset.infiniteReady = "1";
+
+    // prepend + append clones（總共 3 組）
+    const prependFrag = document.createDocumentFragment();
+    const appendFrag = document.createDocumentFragment();
+
+    original.forEach(node => {
+      appendFrag.appendChild(node.cloneNode(true));
+    });
+    original.forEach(node => {
+      prependFrag.appendChild(node.cloneNode(true));
     });
 
-    items.forEach(it => observer.observe(it));
+    // 插入：先 prepend，再 append
+    track.insertBefore(prependFrag, track.firstChild);
+    track.appendChild(appendFrag);
 
-    // on load, make the first active
-    items[0].classList.add('is-active');
+    // 置中到「中間那組」
+    const recenter = () => {
+      const base = track.scrollWidth / 3;
+      track.scrollLeft = base + 1;
+    };
+    // 等 layout 完成
+    requestAnimationFrame(() => {
+      recenter();
+      updateActive();
+    });
 
-    // optional: snap to nearest item on scroll end
-    let t = null;
-    track.addEventListener('scroll', () => {
-      if (t) window.clearTimeout(t);
-      t = window.setTimeout(() => {
-        // find nearest center
-        const center = track.scrollLeft + track.clientWidth / 2;
-        let nearest = null;
-        let bestDist = Infinity;
-        for (const it of items) {
-          const rect = it.getBoundingClientRect();
-          const trackRect = track.getBoundingClientRect();
-          const itCenter = (rect.left - trackRect.left) + rect.width / 2 + track.scrollLeft;
-          const dist = Math.abs(itCenter - center);
-          if (dist < bestDist) { bestDist = dist; nearest = it; }
+    // 無限循環：接近兩端就跳回中間
+    const wrapIfNeeded = () => {
+      const base = track.scrollWidth / 3;
+      if (base <= 0) return;
+
+      if (track.scrollLeft < base * 0.25) {
+        track.scrollLeft += base;
+      } else if (track.scrollLeft > base * 1.75) {
+        track.scrollLeft -= base;
+      }
+    };
+
+    function updateActive() {
+      const children = Array.from(track.children);
+      if (!children.length) return;
+
+      const centerX = track.scrollLeft + track.clientWidth / 2;
+      let best = null;
+      let bestDist = Infinity;
+
+      children.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        // element center relative to track scroll space
+        const elCenter = el.offsetLeft + el.offsetWidth / 2;
+        const dist = Math.abs(elCenter - centerX);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = el;
         }
-        if (nearest) nearest.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-      }, 120);
-    }, { passive: true });
-  }
+      });
 
-  setupCoverflow('photoStrip');
-  setupCoverflow('reviewStrip');
-})();
-
-/* ====== Hero banner dots (mobile) ====== */
-(function () {
-  const track = document.getElementById('heroBannerTrack');
-  const dotsWrap = document.getElementById('heroDots');
-  if (!track || !dotsWrap) return;
-
-  const dots = Array.from(dotsWrap.querySelectorAll('.hero-dot'));
-  const slides = Array.from(track.querySelectorAll('.hero-banner-slide'));
-
-  function setActiveDot(idx) {
-    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-  }
-
-  const obs = new IntersectionObserver((entries) => {
-    // choose most visible slide
-    let best = null;
-    for (const e of entries) {
-      if (!e.isIntersecting) continue;
-      if (!best || e.intersectionRatio > best.intersectionRatio) best = e;
+      children.forEach(el => el.classList.toggle("is-active", el === best));
     }
-    if (!best) return;
-    const idx = slides.indexOf(best.target);
-    if (idx >= 0) setActiveDot(idx);
-  }, { root: track, threshold: [0.6, 0.8, 0.95] });
 
-  slides.forEach(s => obs.observe(s));
+    let ticking = false;
+    track.addEventListener("scroll", () => {
+      wrapIfNeeded();
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          updateActive();
+          ticking = false;
+        });
+      }
+    }, { passive: true });
+
+    window.addEventListener("resize", () => {
+      recenter();
+      updateActive();
+    });
+  }
+
+  setupInfiniteCoverflow("photoStrip");
+  setupInfiniteCoverflow("reviewStrip");
 })();
+
+/* ====== Hero：滿版輪播（手機可右滑），桌機右側縮圖 1-2-3 ====== */
+(function () {
+  const slider = document.getElementById("heroSlider");
+  const dotsEl = document.getElementById("heroDots");
+  const thumbsEl = document.getElementById("heroThumbs");
+  if (!slider) return;
+
+  const slides = Array.from(slider.children);
+  const total = slides.length;
+  if (total <= 1) return;
+
+  let index = 0;
+  let timer = null;
+
+  function renderDots() {
+    if (!dotsEl) return;
+    dotsEl.innerHTML = "";
+    for (let i = 0; i < total; i++) {
+      const b = document.createElement("button");
+      b.className = "hero-dot" + (i === index ? " active" : "");
+      b.type = "button";
+      b.setAttribute("aria-label", "Go to slide " + (i + 1));
+      b.addEventListener("click", () => go(i, true));
+      dotsEl.appendChild(b);
+    }
+  }
+
+  function updateDots() {
+    if (!dotsEl) return;
+    Array.from(dotsEl.querySelectorAll(".hero-dot")).forEach((d, i) => {
+      d.classList.toggle("active", i === index);
+    });
+  }
+
+  function updateThumbs() {
+    if (!thumbsEl) return;
+    Array.from(thumbsEl.querySelectorAll(".hero-thumb")).forEach((t, i) => {
+      t.classList.toggle("active", i === index);
+    });
+  }
+
+  function go(i, fromUser=false) {
+    index = (i + total) % total;
+    slider.style.transform = "translateX(-" + (index * 100) + "%)";
+    updateDots();
+    updateThumbs();
+    if (fromUser) restart();
+  }
+
+  function start() {
+    stop();
+    timer = setInterval(() => go(index + 1, false), 4500);
+  }
+
+  function stop() {
+    if (timer) clearInterval(timer);
+    timer = null;
+  }
+
+  function restart() {
+    start();
+  }
+
+  // Dots
+  renderDots();
+  updateThumbs();
+  go(0);
+
+  // Desktop thumbs click
+  if (thumbsEl) {
+    thumbsEl.addEventListener("click", (e) => {
+      const btn = e.target.closest(".hero-thumb");
+      if (!btn) return;
+      const i = parseInt(btn.dataset.heroIndex, 10);
+      if (!Number.isFinite(i)) return;
+      go(i, true);
+    });
+  }
+
+  // Swipe (touch / pointer)
+  let startX = 0;
+  let isDown = false;
+
+  slider.addEventListener("pointerdown", (e) => {
+    isDown = true;
+    startX = e.clientX;
+    stop();
+    slider.setPointerCapture(e.pointerId);
+  });
+
+  slider.addEventListener("pointerup", (e) => {
+    if (!isDown) return;
+    isDown = false;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 40) {
+      go(index + (dx < 0 ? 1 : -1), true);
+    } else {
+      restart();
+    }
+  });
+
+  slider.addEventListener("pointercancel", () => {
+    isDown = false;
+    restart();
+  });
+
+  // Pause on hover (desktop)
+  const hero = document.getElementById("home");
+  if (hero) {
+    hero.addEventListener("mouseenter", stop);
+    hero.addEventListener("mouseleave", start);
+  }
+
+  start();
+})();
+
 </script>
 
 </body>
