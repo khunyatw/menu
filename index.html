@@ -385,7 +385,7 @@
     @media (min-width:1024px){.featured-card{flex:0 0 34%;}}
     .featured-img{
       width:100%;
-      aspect-ratio:16/9;
+      aspect-ratio:4/3;
       object-fit:cover;
       display:block;
       background:#EEE3D5;
@@ -421,6 +421,76 @@
     .section-title-main{font-size:22px;margin-right:10px;color:#2C2C2C;font-weight:600;}
     .menu-grid{display:grid;grid-template-columns:1fr;gap:18px;}
     @media (min-width:640px){.menu-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+    /* Menu card layout (image + name + price) */
+    .menu-card{
+      background:#FFFFFF;
+      border:1px solid #EEE3D5;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 4px 14px rgba(0,0,0,0.05);
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      cursor:pointer;
+      transition:transform .12s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .menu-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 28px rgba(0,0,0,0.10);
+      border-color:#D4C5B0;
+    }
+    .menu-card.featured{
+      border-color:#E29D4D;
+      background:#FFF9F1;
+    }
+    .menu-card-img{
+      width:100%;
+      aspect-ratio:4/3;
+      object-fit:cover;
+      display:block;
+      background:#EEE3D5;
+    }
+    .menu-card-body{
+      padding:10px 12px 12px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .menu-card-left{
+      flex:1;
+      min-width:0;
+    }
+    .menu-card-title{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-bottom:4px;
+    }
+    .menu-card-name{
+      font-size:15px;
+      font-weight:650;
+      color:#2C2C2C;
+      line-height:1.35;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+    }
+    .menu-card-code{
+      font-size:12px;
+      color:#999;
+    }
+    .menu-card-price{
+      font-size:15px;
+      font-weight:800;
+      color:#B14B4B;
+      white-space:nowrap;
+      padding-top:2px;
+    }
+
     .menu-item{
       display:flex;justify-content:space-between;align-items:flex-start;
       padding:12px 10px;border-radius:12px;background:#FDFBF7;border:1px solid #EEE3D5;gap:8px;
@@ -1078,6 +1148,7 @@
 
   function renderMenu() {
     if (!currentCategoryId) return;
+
     const cat = globalCategories.find(c => c.id === currentCategoryId);
     const catLabel = cat ? getCategoryLabel(cat) : '';
     const items = globalMenuData.filter(item => item.categoryZh === currentCategoryId);
@@ -1089,24 +1160,31 @@
 
     const t = i18n[currentLang] || i18n.zh;
 
-    const itemsHtml = items.map(item => {
-      const main = getItemName(item);
-      const priceHtml = (item.price || item.price === 0) ? `<span class="item-price">$${item.price}</span>` : '';
+    // Fallback images: keep the site visually coherent even if imageUrl is empty
+    const fallbackImgs = ['images/hero/1.jpeg','images/hero/2.jpeg','images/hero/3.jpeg'];
+
+    const cardsHtml = items.map((item, idx) => {
+      const name = getItemName(item);
+      const price = getItemPriceLabel(item);
+      const img = item.imageUrl || item.image || item.img || fallbackImgs[idx % fallbackImgs.length];
+
       const isFeatured = item.feature === true || item.feature === 'true' || item.feature === 'TRUE' || item.feature === 1 || item.feature === '1';
       const badgeHtml = isFeatured ? `<span class="item-badge">${t.featuredBadge}</span>` : '';
       const code = item.coed || item.code || '';
+
       return `
-        <div class="menu-item${isFeatured ? ' featured' : ''}">
-          <div class="item-left">
-            <span class="item-code">${code}</span>
-            <div class="item-details">
-              <div class="item-title-row">
-                <span class="item-name-main">${main}</span>
+        <div class="menu-card${isFeatured ? ' featured' : ''}" data-code="${code}">
+          <img class="menu-card-img" src="${img}" alt="${name}" loading="lazy">
+          <div class="menu-card-body">
+            <div class="menu-card-left">
+              <div class="menu-card-title">
+                <div class="menu-card-name">${name}</div>
                 ${badgeHtml}
               </div>
+              <div class="menu-card-code">${code}</div>
             </div>
+            <div class="menu-card-price">${price}</div>
           </div>
-          ${priceHtml}
         </div>
       `;
     }).join('');
@@ -1117,13 +1195,26 @@
           <span class="section-title-main">${catLabel}</span>
         </div>
         <div class="menu-grid">
-          ${itemsHtml}
+          ${cardsHtml}
         </div>
       </section>
     `;
+
+    // Card click -> open lightbox with dish image (same as photos)
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    if (lightbox && lightboxImg) {
+      menuWrapper.querySelectorAll('.menu-card-img').forEach(imgEl => {
+        imgEl.addEventListener('click', (e) => {
+          e.stopPropagation();
+          lightboxImg.src = imgEl.src;
+          lightbox.classList.add('show');
+        });
+      });
+    }
   }
 
-  function setActiveCategory(categoryId) {
+function setActiveCategory(categoryId) {
     currentCategoryId = categoryId;
     Array.from(categoryTabsContainer.querySelectorAll('.category-tab')).forEach(tab => {
       tab.classList.toggle('active', tab.dataset.categoryId === categoryId);
