@@ -284,7 +284,7 @@
             gap: 6px;
             z-index: 5;
             opacity: 0.15;
-            transition: opcacity 0.35 ease;
+            transition: opacity 0.35s ease;
         }
 
         .hero-dot{
@@ -299,6 +299,13 @@
         .hero-dot.active{
             background: rgba(255,255,255,0.95);
             transform: scale(1.3);
+        }
+
+        /* Dots reveal on interaction (subtle) */
+        .hero-full:hover .hero-dots,
+        .hero-full:active .hero-dots,
+        .hero-full:focus-within .hero-dots{
+            opacity: 0.55;
         }
 
         /* Desktop: right-side thumbnails 1 2 3 left-to-right */
@@ -354,7 +361,47 @@
             }
         }
 
-        /* 類別 tabs（放在菜單區下方） */
+        
+    /* Featured 招牌區（先顯示主打款，橫向滑動） */
+    .featured-wrapper{margin-top:14px;margin-bottom:8px;}
+    .featured-title{font-size:14px;font-weight:700;color:#2C2C2C;margin-bottom:10px;}
+    .featured-strip{
+      display:flex;gap:12px;overflow-x:auto;padding:2px 2px 12px;
+      scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
+    }
+    .featured-strip::-webkit-scrollbar{height:6px;}
+    .featured-strip::-webkit-scrollbar-thumb{background:#D4C5B0;border-radius:999px;}
+    .featured-card{
+      flex:0 0 76%;
+      max-width:460px;
+      background:#FFFFFF;border:1px solid #EEE3D5;border-radius:16px;overflow:hidden;
+      scroll-snap-align:start;
+      box-shadow:0 6px 16px rgba(0,0,0,0.06);
+      cursor:pointer;
+      transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+    .featured-card:hover{transform:translateY(-2px);border-color:#D4C5B0;box-shadow:0 10px 22px rgba(0,0,0,0.08);}
+    @media (min-width:768px){.featured-card{flex:0 0 42%;}}
+    @media (min-width:1024px){.featured-card{flex:0 0 34%;}}
+    .featured-img{
+      width:100%;
+      aspect-ratio:16/9;
+      object-fit:cover;
+      display:block;
+      background:#EEE3D5;
+    }
+    .featured-body{
+      padding:10px 12px 12px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .featured-name{font-size:15px;font-weight:600;line-height:1.35;color:#2C2C2C;}
+    .featured-price{font-size:15px;font-weight:800;color:#B14B4B;white-space:nowrap;}
+
+
+    /* 類別 tabs（放在菜單區下方） */
         .category-bar-wrapper
 {margin-top:16px;border-bottom:1px solid #E5E0D8;padding-bottom:8px;}
     .category-tabs{display:flex;gap:10px;overflow-x:auto;padding:6px 2px 4px;scrollbar-width:thin;}
@@ -589,7 +636,14 @@
     <section id="menu">
       <div class="section-title-block">
         <div class="section-title-large" id="menuTitle">菜單</div>
-        <div class="section-title-subtext" id="menuSubtitle">
+        
+      <!-- Featured 招牌（主打款） -->
+      <div class="featured-wrapper">
+        <div class="featured-title" id="featuredTitle">招牌推薦</div>
+        <div class="featured-strip" id="featuredStrip" aria-label="Featured signature dishes"></div>
+      </div>
+
+<div class="section-title-subtext" id="menuSubtitle">
           類別按鈕在標題下方，點選即可切換不同料理分類；右上角選單可以切換語言。
         </div>
       </div>
@@ -940,6 +994,73 @@
     return item.nameEn || item.nameZh || item.nameTh || '';
   }
 
+
+  function getItemPriceLabel(item){
+    // Display as $xxx (consistent with hero CTA / menu)
+    if (item.price === undefined || item.price === null || item.price === '') return '';
+    return '$' + item.price;
+  }
+
+  function getFeaturedTitleLabel(){
+    if (currentLang === 'zh') return '招牌推薦';
+    if (currentLang === 'th') return 'เมนูแนะนำ';
+    return 'Signature Picks';
+  }
+
+  function renderFeatured(){
+    const strip = document.getElementById('featuredStrip');
+    const titleEl = document.getElementById('featuredTitle');
+    if (titleEl) titleEl.textContent = getFeaturedTitleLabel();
+    if (!strip) return;
+
+    const featuredItems = globalMenuData
+      .filter(item => item.feature === true || item.feature === 'true' || item.feature === 'TRUE' || item.feature === 1 || item.feature === '1');
+
+    // If no featured, hide block to keep layout clean
+    const wrapper = strip.closest('.featured-wrapper');
+    if (!featuredItems.length){
+      strip.innerHTML = '';
+      if (wrapper) wrapper.style.display = 'none';
+      return;
+    }
+    if (wrapper) wrapper.style.display = '';
+
+    // imageUrl: if null, use rotating hero images as placeholders (still looks coordinated)
+    const fallbackImgs = ['images/hero/1.jpeg','images/hero/2.jpeg','images/hero/3.jpeg'];
+
+    strip.innerHTML = featuredItems.map((item, idx) => {
+      const name = getItemName(item);
+      const price = getItemPriceLabel(item);
+      const img = item.imageUrl || item.image || item.img || fallbackImgs[idx % fallbackImgs.length];
+      const code = item.coed || item.code || '';
+      return `
+        <div class="featured-card" data-code="${code}">
+          <img class="featured-img" src="${img}" alt="${name}" loading="lazy">
+          <div class="featured-body">
+            <div class="featured-name">${name}</div>
+            <div class="featured-price">${price}</div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Click featured card -> switch to its category but DO NOT jump to page top
+    strip.querySelectorAll('.featured-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const code = card.dataset.code;
+        const found = globalMenuData.find(x => (x.coed || x.code || '') === code);
+        if (!found) return;
+        setActiveCategory(found.categoryZh);
+        // Smooth scroll to the category tabs area (not top)
+        const tabs = document.getElementById('categoryTabs');
+        if (tabs) {
+          const y = window.scrollY + tabs.getBoundingClientRect().top - 90;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      });
+    });
+  }
+
   function renderTabs(categories, activeCategoryId) {
     if (!categoryTabsContainer) return;
     categoryTabsContainer.innerHTML = '';
@@ -970,7 +1091,7 @@
 
     const itemsHtml = items.map(item => {
       const main = getItemName(item);
-      const priceHtml = (item.price || item.price === 0) ? `<span class="item-price">${item.price}</span>` : '';
+      const priceHtml = (item.price || item.price === 0) ? `<span class="item-price">$${item.price}</span>` : '';
       const isFeatured = item.feature === true || item.feature === 'true' || item.feature === 'TRUE' || item.feature === 1 || item.feature === '1';
       const badgeHtml = isFeatured ? `<span class="item-badge">${t.featuredBadge}</span>` : '';
       const code = item.coed || item.code || '';
@@ -1025,7 +1146,8 @@
       nameTh: item.nameTh || '',
       nameEn: item.nameEn || '',
       price: item.price,
-      feature: item.feature
+      feature: item.feature,
+      imageUrl: item.imageUrl ?? null
     }));
 
     const catMap = new Map();
@@ -1045,6 +1167,7 @@
 
     currentCategoryId = globalCategories[0].id;
     applyStaticTexts();
+    renderFeatured();
     renderTabs(globalCategories, currentCategoryId);
     renderMenu();
   }
@@ -1071,6 +1194,7 @@
       if (!lang || lang === currentLang) return;
       currentLang = lang;
       applyStaticTexts();
+      renderFeatured();
       renderTabs(globalCategories, currentCategoryId);
       renderMenu();
     });
