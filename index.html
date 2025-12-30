@@ -693,6 +693,134 @@
     .loading{ font-size: 13px; color: var(--muted); padding: 14px 2px; }
     .error{ font-size: 13px; color: #B14B4B; padding: 14px 2px; }
 
+  
+    /* =========================
+       Square / uniam-like UI pass
+       ========================= */
+    :root{
+      /* cleaner uniam-like neutrals */
+      --bg: #F7F7F7;
+      --surface: #FFFFFF;
+      --surface2: #FFFFFF;
+      --text: #111111;
+      --muted: rgba(17,17,17,0.62);
+      --line: rgba(17,17,17,0.14);
+
+      --pill: transparent;
+      --pillText: rgba(17,17,17,0.70);
+
+      --accent: #111111;
+      --danger: #111111; /* price also monochrome like uniam */
+
+      --radius-lg: 0px;
+      --radius-md: 0px;
+      --radius-sm: 0px;
+
+      --shadow: none;
+      --shadow-soft: none;
+    }
+
+    /* Remove all rounded corners on visible blocks */
+    .hero,
+    .nav-toggle,
+    .nav-menu,
+    .lang-btn,
+    .hero-kicker,
+    .cta,
+    .hero-dot,
+    .hero-thumb,
+    .card,
+    .pill,
+    .category-tabs,
+    .category-tab,
+    .coverflow-item,
+    .map-btn,
+    .panel,
+    .modal-card,
+    .opt,
+    .modal-close{
+      border-radius: 0 !important;
+    }
+
+    /* Prefer flat borders over shadows */
+    .hero{ box-shadow: none; border: 1px solid var(--line); }
+    .nav-toggle{ box-shadow: none; background: var(--surface); }
+    .nav-menu{ box-shadow: none; }
+
+    /* Buttons: flat */
+    .cta{
+      backdrop-filter: none;
+      background: rgba(255,255,255,0.12);
+    }
+    .cta:hover{ transform: none; background: rgba(255,255,255,0.18); }
+
+    .map-btn{
+      box-shadow: none;
+      background: var(--surface);
+    }
+
+    /* Cards like uniam: flat, crisp borders, minimal hover */
+    .card{
+      box-shadow: none;
+      border: 1px solid var(--line);
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+    .card:hover{
+      transform: none;
+      box-shadow: none;
+      border-color: rgba(17,17,17,0.28);
+    }
+    .card-price{ color: var(--text); }
+
+    /* Tags: square, minimal */
+    .pill{
+      background: transparent;
+      border: 1px solid var(--line);
+      padding: 5px 8px;
+      gap: 6px;
+      font-size: 11px;
+    }
+    .pill.hot{
+      background: transparent;
+      color: rgba(17,17,17,0.82);
+    }
+
+    /* Category tabs: uniam-ish underline tabs */
+    .category-tabs{
+      background: transparent;
+      backdrop-filter: none;
+      border-radius: 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .category-tab{
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 10px 6px;
+      color: rgba(17,17,17,0.70);
+    }
+    .category-tab.active{
+      background: transparent;
+      color: var(--text);
+      border-bottom-color: var(--text);
+      font-weight: 800;
+    }
+
+    /* Panels: flat */
+    .panel{
+      background: var(--surface);
+      backdrop-filter: none;
+      box-shadow: none;
+      border: 1px solid var(--line);
+    }
+
+    /* Scrollbar thumbs: square */
+    .featured-strip::-webkit-scrollbar-thumb,
+    .coverflow-track::-webkit-scrollbar-thumb{
+      border-radius: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -1424,4 +1552,5 @@
   </script>
 </body>
 </html>
+
 
