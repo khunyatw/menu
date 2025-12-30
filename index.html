@@ -359,18 +359,28 @@
     .featured-strip::-webkit-scrollbar{ height: 6px; }
     .featured-strip::-webkit-scrollbar-thumb{ background: rgba(21,21,21,0.20); border-radius: 999px; }
 
-    /* Cards (Uber-like, uniam-like) */
-    .cards-grid{
-      display:grid;
-      grid-template-columns: 1fr;
+    /* MENU carousel (left/right swipe) */
+    .menu-carousel{
+      display: flex;
       gap: 14px;
+      overflow-x: auto;
+      padding: 6px 2px 12px;
       margin-top: 10px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
     }
-    @media (min-width: 640px){
-      .cards-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .menu-carousel::-webkit-scrollbar{ display:none; }
+
+    .menu-carousel .card{
+      flex: 0 0 82%;
+      scroll-snap-align: start;
     }
-    @media (min-width: 1024px){
-      .cards-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    @media (min-width: 768px){
+      .menu-carousel .card{ flex-basis: 340px; }
+    }
+    @media (min-width: 1200px){
+      .menu-carousel .card{ flex-basis: 360px; }
     }
 
     .card{
@@ -771,7 +781,7 @@
 
         <div class="category-tabs" id="categoryTabs"></div>
 
-        <div class="cards-grid" id="menuGrid">
+        <div class="menu-carousel" id="menuGrid">
           <div class="loading" id="menuLoading">Loading…</div>
         </div>
       </section>
@@ -968,7 +978,7 @@
         document.getElementById('navContactLabel').textContent = t.navContact;
         document.getElementById('navLangLabel').textContent = t.navLang;
 
-        document.getElementById('heroKicker').querySelector('span').textContent = t.heroKicker;
+        // Hero badge removed (no Signature Picks pill in hero)
         document.getElementById('heroTitle').textContent = t.heroTitle;
         document.getElementById('heroDesc').textContent = t.heroDesc;
         document.getElementById('heroMeta').textContent = t.heroMeta;
@@ -1414,3 +1424,4 @@
   </script>
 </body>
 </html>
+
