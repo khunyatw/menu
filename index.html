@@ -754,6 +754,20 @@
     }
     .cta:hover{ transform: none; background: rgba(255,255,255,0.18); }
 
+    /* Hero primary CTA: high-contrast orange-red */
+    .hero .cta.cta-primary{
+      background: #FF4B2B;
+      border-color: #FF4B2B;
+      color: #fff;
+      font-weight: 800;
+    }
+    .hero .cta.cta-primary:hover{
+      background: #E64226;
+      border-color: #E64226;
+    }
+    .hero .cta.cta-primary i{ color: #fff; }
+
+
     .map-btn{
       box-shadow: none;
       background: var(--surface);
@@ -876,7 +890,7 @@
           <p class="hero-desc" id="heroDesc">板橋巷弄裡的泰國家常餐桌：打拋飯、清邁金麵、船麵與泰式奶茶。</p>
           <div class="hero-meta" id="heroMeta">Hours｜11:00–14:00, 17:00–21:00 (Closed on Sundays)</div>
           <div class="hero-ctas">
-            <a class="cta" href="https://lin.ee/fGU0Rs0L" target="_blank" rel="noopener noreferrer">
+            <a class="cta cta-primary" href="https://lin.ee/fGU0Rs0L" target="_blank" rel="noopener noreferrer">
               <i class="ri-line-line"></i><span id="ctaLine">Chat on LINE</span>
             </a>
             <a class="cta" href="https://maps.app.goo.gl/RMUuJtk4PQQrqqKH9" target="_blank" rel="noopener noreferrer">
@@ -1552,5 +1566,3 @@
   </script>
 </body>
 </html>
-
-
