@@ -754,19 +754,16 @@
     }
     .cta:hover{ transform: none; background: rgba(255,255,255,0.18); }
 
-    /* Hero primary CTA: high-contrast orange-red */
-    .hero .cta.cta-primary{
-      background: #FF4B2B;
-      border-color: #FF4B2B;
-      color: #fff;
-      font-weight: 800;
+    /* Hero primary CTA: high-conversion orange-red */
+    .cta-primary{
+      background: #FF4A2D !important;
+      border-color: #FF4A2D !important;
+      color: #fff !important;
     }
-    .hero .cta.cta-primary:hover{
-      background: #E64226;
-      border-color: #E64226;
+    .cta-primary:hover{
+      background: #E9422A !important;
+      border-color: #E9422A !important;
     }
-    .hero .cta.cta-primary i{ color: #fff; }
-
 
     .map-btn{
       box-shadow: none;
@@ -1253,6 +1250,33 @@
         return `images/hero/${idx+1}.jpeg`;
       }
 
+      // Resolve menu images from /menu-images/<code>.(jpg|png|webp)
+      function getMenuImageBase(item){
+        const code = encodeURIComponent(String(item.code || '').trim());
+        return `menu-images/${code}`;
+      }
+
+      // Fallback chain: .jpg -> .png -> .webp -> placeholder
+      // Used by card images and modal image
+      window.__menuImgFallback = function(imgEl){
+        const base = imgEl.dataset.imgbase;
+        const tried = imgEl.dataset.try || 'jpg';
+
+        if(tried === 'jpg'){
+          imgEl.dataset.try = 'png';
+          imgEl.src = `${base}.png`;
+          return;
+        }
+        if(tried === 'png'){
+          imgEl.dataset.try = 'webp';
+          imgEl.src = `${base}.webp`;
+          return;
+        }
+        // final fallback
+        imgEl.onerror = null;
+        imgEl.src = pickHeroPlaceholder((imgEl.dataset.code || '').trim());
+      };
+
       function buildPills(item){
         const t = i18n[currentLang];
         const pills = [];
@@ -1273,7 +1297,8 @@
       function cardHtml(item){
         const name = getName(item);
         const desc = getDesc(item);
-        const img = item.imageUrl || pickHeroPlaceholder(item.code);
+        const imgBase = getMenuImageBase(item);
+        const img = `${imgBase}.jpg`;
         const price = (item.price || item.price === 0) ? `$${item.price}` : '';
         const pills = buildPills(item);
 
@@ -1284,7 +1309,7 @@
 
         return `
           <article class="card" data-code="${item.code}">
-            <img class="card-img" src="${img}" alt="${name}">
+            <img class="card-img" src="${img}" data-imgbase="${imgBase}" data-try="jpg" data-code="${item.code}" onerror="window.__menuImgFallback(this)" alt="${name}" loading="lazy" decoding="async">
             <div class="card-body">
               <div class="card-top">
                 <div>
@@ -1357,7 +1382,12 @@
 
       function openModal(item){
         const t = i18n[currentLang];
-        modalImg.src = item.imageUrl || pickHeroPlaceholder(item.code);
+        const imgBase = getMenuImageBase(item);
+        modalImg.dataset.imgbase = imgBase;
+        modalImg.dataset.try = 'jpg';
+        modalImg.dataset.code = item.code;
+        modalImg.onerror = ()=> window.__menuImgFallback(modalImg);
+        modalImg.src = `${imgBase}.jpg`;
         modalImg.alt = getName(item);
         modalName.textContent = getName(item);
         modalCode.textContent = item.code;
@@ -1528,6 +1558,10 @@
             const img = it.querySelector('img');
             if(!img) return;
             // simple lightbox by using modal image area
+            modalImg.onerror = null;
+            delete modalImg.dataset.imgbase;
+            delete modalImg.dataset.try;
+            delete modalImg.dataset.code;
             modalImg.src = img.src;
             modalImg.alt = img.alt || '';
             modalName.textContent = img.alt || '';
