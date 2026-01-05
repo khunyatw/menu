@@ -39,7 +39,7 @@
     "add_on": false,
     "type": "food",
     "descZH": "雞肉🐔與打拋葉🌿快炒，香氣十足不油膩，配紅殼荷包蛋🍳與白飯🍚",
-    "descTh": "ไก่ผัดกะเพราหอม ๆ ไม่มัน เสิร์ฟพร้อมไข่ดาวและข้าวสวย",
+    "descTh": "ไก่ผัดกะเพราหอม ๆ ไม่มัน 🐔🌿 เสิร์ฟพร้อมไข่ดาว 🍳 และข้าวสวย 🍚",
     "descEn": "Chicken 🐔 stir-fried with Thai basil 🌿, served with rice 🍚 and a fried egg 🍳. Aromatic and satisfying.",
     "imageUrl": null
   },
@@ -236,9 +236,9 @@
     "peanut": false,
     "add_on": false,
     "type": "food",
-    "descZH": "泰國綠咖喱🌿🥥慢火熬煮，雞腿🍗軟嫩，香濃不死辣🌶️，配白飯🍚。",
-    "descTh": "แกงเขียวหวานไก่หอมกะทิ รสเข้มข้นแต่ไม่เผ็ดเกิน เสิร์ฟพร้อมข้าวสวย",
-    "descEn": "Thai green curry 🌿🥥 with tender chicken 🍗, creamy, aromatic and gently spicy 🌶️, served with rice 🍚.",
+    "descZH": "泰國綠咖喱🌿🥥慢火熬煮搭配🐔 ，香濃不死辣🌶️，配白飯🍚。",
+    "descTh": "แกงเขียวหวานไก่หอมกะทิ 🥥🌿 รสเข้มข้นแต่ไม่เผ็ดเกิน 🌶️ เสิร์ฟพร้อมข้าวสวย 🍚 ไก่นุ่ม ๆ 🐔",
+    "descEn": "Thai green curry 🌿🥥 with chicken 🐔 , creamy, aromatic and gently spicy 🌶️, served with rice 🍚.",
     "imageUrl": null
   },
   {
