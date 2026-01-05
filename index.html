@@ -95,6 +95,58 @@
       color: #fff;
     }
 
+
+    /* Mobile burger + drawer */
+    .burger{
+      display:none;
+      width:38px;height:38px;
+      border-radius:999px;
+      border:1px solid rgba(23,23,23,.16);
+      background: rgba(255,255,255,.5);
+      align-items:center;justify-content:center;
+      cursor:pointer;
+    }
+    .burger svg{width:20px;height:20px;}
+    .burger:hover{background: rgba(255,255,255,.85);}
+
+    .drawer{position:fixed;inset:0;display:none;z-index:90;}
+    .drawer.open{display:block;}
+    .drawer-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.38);backdrop-filter: blur(2px);}
+    .drawer-panel{
+      position:absolute;top:0;right:0;height:100%;
+      width:min(360px, 88vw);
+      background: rgba(246,242,234,.98);
+      border-left: 1px solid rgba(23,23,23,.12);
+      box-shadow: 0 18px 60px rgba(0,0,0,.22);
+      padding: 14px;
+      transform: translateX(100%);
+      transition: transform .25s ease;
+      display:flex;flex-direction:column;gap:14px;
+    }
+    .drawer.open .drawer-panel{transform: translateX(0);}
+    .drawer-head{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+    .drawer-title{font-weight:950;letter-spacing:.04em;}
+    .drawer-close{
+      width:38px;height:38px;border-radius:999px;
+      border:1px solid rgba(23,23,23,.16);
+      background: rgba(255,255,255,.65);
+      display:inline-flex;align-items:center;justify-content:center;
+      cursor:pointer;
+    }
+    .drawer-close svg{width:18px;height:18px;}
+    .drawer-nav{display:flex;flex-direction:column;gap:8px;}
+    .drawer-nav a{
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(23,23,23,.12);
+      background: rgba(255,255,255,.6);
+      font-weight: 900;
+      letter-spacing: .04em;
+    }
+    .drawer-lang{margin-top:auto;display:flex;flex-direction:column;gap:10px;}
+    .drawer-lang-label{font-size:12px;color: var(--muted);font-weight:800;letter-spacing:.04em;}
+
+
     /* Layout */
     .wrap {
       max-width: var(--maxw);
@@ -344,7 +396,7 @@
       font-size: 11px;
       font-weight: 900;
       padding: 6px 8px;
-n      border-radius: 999px;
+      border-radius: 999px;
       border: 1px solid rgba(23,23,23,.14);
       background: rgba(255,255,255,.65);
     }
@@ -375,7 +427,12 @@ n      border-radius: 999px;
     }
     @media (max-width: 820px) {
       .grid2 { grid-template-columns: 1fr; }
-      .nav a { display:none; }
+      .nav-links { display:none; }
+      .lang { display:none; }
+      .burger { display:inline-flex; }
+      .brand{flex-direction:column;align-items:flex-start;gap:2px;}
+      .brand .zh{font-size:16px;}
+      .brand .en{font-size:12px;opacity:.78;}
     }
     .panel {
       border: 1px solid rgba(23,23,23,.12);
@@ -435,14 +492,50 @@ n      border-radius: 999px;
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
-        <span class="en">Khunya Thai Cuisine</span>
+        <span class="zh" data-i18n="brand_zh">昆雅泰式料理</span>
+        <span class="en" data-i18n="brand_en">Khunya Thai Cuisine</span>
       </div>
 
       <div class="nav">
+        <div class="nav-links">
+          <a href="#menu" data-i18n="nav_menu">菜單</a>
+        <a href="#about" data-i18n="nav_about">關於</a>
+        <a href="#contact" data-i18n="nav_contact">聯絡</a>
+        </div>
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" class="lang-btn" data-lang="zh" aria-pressed="true">中</button>
+          <button type="button" class="lang-btn" data-lang="th" aria-pressed="false">TH</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="burger" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-backdrop" data-close="1"></div>
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="drawer-head">
+        <div class="drawer-title">Khunya Thai Cuisine</div>
+        <button class="drawer-close" type="button" data-close="1" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="drawer-nav">
         <a href="#menu" data-i18n="nav_menu">菜單</a>
         <a href="#about" data-i18n="nav_about">關於</a>
         <a href="#contact" data-i18n="nav_contact">聯絡</a>
+      </nav>
 
+      <div class="drawer-lang">
+        <div class="drawer-lang-label" data-i18n="nav_lang_label">語言 / Language</div>
         <div class="lang" role="group" aria-label="Language">
           <button type="button" class="lang-btn" data-lang="zh" aria-pressed="true">中</button>
           <button type="button" class="lang-btn" data-lang="th" aria-pressed="false">TH</button>
@@ -450,7 +543,8 @@ n      border-radius: 999px;
         </div>
       </div>
     </div>
-  </header>
+  </div>
+
 
   <div class="spacer-top"></div>
 
@@ -554,6 +648,9 @@ n      border-radius: 999px;
     // ====== i18n ======
     const I18N = {
       zh: {
+        brand_zh: "昆雅泰式料理",
+        brand_en: "Khunya Thai Cuisine",
+        nav_lang_label: "語言 / Language",
         nav_menu: "菜單", nav_about: "關於", nav_contact: "聯絡",
         hero_title: "昆雅泰式料理",
         hero_desc: "板橋巷弄裡的泰國家常餐桌：打拋飯、清邁金麵、船麵與泰式奶茶，天天都可以吃的那種。",
@@ -583,6 +680,9 @@ n      border-radius: 999px;
         rice: "飯量可調",
       },
       th: {
+        brand_zh: "ครัวญาอาหารไทย",
+        brand_en: "Khunya Thai Cuisine",
+        nav_lang_label: "ภาษา / Language",
         nav_menu: "เมนู", nav_about: "เกี่ยวกับเรา", nav_contact: "ติดต่อ",
         hero_title: "Khunya Thai Cuisine",
         hero_desc: "อาหารไทยสไตล์บ้าน ๆ ย่านปั่นเฉียว: กะเพรา ข้าวซอย ก๋วยเตี๋ยวเรือ และชาไทย",
@@ -612,6 +712,9 @@ n      border-radius: 999px;
         rice: "ปรับปริมาณข้าว",
       },
       en: {
+        brand_zh: "Khunya Thai",
+        brand_en: "Khunya Thai Cuisine",
+        nav_lang_label: "Language",
         nav_menu: "Menu", nav_about: "About", nav_contact: "Contact",
         hero_title: "Khunya Thai Cuisine",
         hero_desc: "Thai comfort food in Banqiao: Pad Kaprao, Khao Soi, Boat Noodles and Thai Milk Tea.",
@@ -664,6 +767,46 @@ n      border-radius: 999px;
       });
     });
 
+    // ====== Mobile drawer (hamburger) ======
+    const navToggle = document.getElementById("navToggle");
+    const drawer = document.getElementById("drawer");
+
+    function openDrawer(){
+      if (!drawer) return;
+      drawer.classList.add("open");
+      drawer.setAttribute("aria-hidden", "false");
+      if (navToggle) navToggle.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+    }
+    function closeDrawer(){
+      if (!drawer) return;
+      drawer.classList.remove("open");
+      drawer.setAttribute("aria-hidden", "true");
+      if (navToggle) navToggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+
+    if (navToggle) {
+      navToggle.addEventListener("click", () => {
+        if (drawer && drawer.classList.contains("open")) closeDrawer();
+        else openDrawer();
+      });
+    }
+
+    if (drawer) {
+      drawer.addEventListener("click", (e) => {
+        const t = e.target;
+        if (t && t.closest && t.closest("[data-close='1']")) closeDrawer();
+      });
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && drawer.classList.contains("open")) closeDrawer();
+      });
+      drawer.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener("click", () => closeDrawer());
+      });
+    }
+
+
     // ====== Smoother scroll (Lenis, fallback safe) ======
     let lenis = null;
     try {
@@ -686,6 +829,7 @@ n      border-radius: 999px;
         const target = document.querySelector(id);
         if (!target) return;
         e.preventDefault();
+        try { if (drawer && drawer.classList.contains("open")) closeDrawer(); } catch(e) {}
         const y = target.getBoundingClientRect().top + window.scrollY - 70;
         if (lenis) lenis.scrollTo(y);
         else window.scrollTo({ top: y, behavior: "smooth" });
