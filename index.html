@@ -1,1671 +1,950 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
+<!doctype html>
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO: Title / Description / Canonical -->
-  <title>昆雅泰式料理 Khunya Thai Cuisine｜板橋泰式家常菜線上菜單</title>
-  <meta name="description" content="昆雅泰式料理 Khunya Thai Cuisine 位在新北市板橋區文化路一段311之11號，主打打拋飯、清邁金麵、泰式船麵與泰式奶茶。這裡是官方首頁與線上菜單，支援中文 / 泰文 / 英文切換，方便外帶與外送點餐參考。">
-  <link rel="canonical" href="https://khunyathai.com/">
-
-  <!-- SEO: Open Graph for 分享連結 -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="昆雅泰式料理 Khunya Thai Cuisine｜板橋泰式家常菜與線上菜單">
-  <meta property="og:description" content="板橋巷弄裡的泰國家常菜，主打打拋飯、清邁金麵、泰式船麵與泰式奶茶。這裡是官方首頁與線上菜單，支援中 / 泰 / 英三語顯示。">
-  <meta property="og:url" content="https://khunyathai.com/">
-  <meta property="og:image" content="https://khunyathai.com/images/hero/1.jpeg">
-
-  <!-- 可選：Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="昆雅泰式料理 Khunya Thai Cuisine｜板橋泰式家常菜與線上菜單">
-  <meta name="twitter:description" content="板橋泰式家常菜，主打打拋飯、清邁金麵與泰式船麵。">
-  <meta name="twitter:image" content="https://khunyathai.com/images/hero/1.jpeg">
-
-  <!-- 結構化資料：Restaurant / LocalBusiness -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Restaurant",
-    "name": "昆雅泰式料理 Khunya Thai Cuisine",
-    "servesCuisine": "Thai",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "No. 311-11, Sec. 1, Wenhua Rd.",
-      "addressLocality": "Banqiao District",
-      "addressRegion": "New Taipei City",
-      "addressCountry": "TW"
-    },
-    "image": "https://khunyathai.com/images/hero/1.jpeg",
-    "url": "https://khunyathai.com/",
-    "priceRange": "$$",
-    "sameAs": [
-      "https://maps.app.goo.gl/RMUuJtk4PQQrqqKH9",
-      "https://lin.ee/fGU0Rs0L"
-    ],
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        "opens": "11:00",
-        "closes": "14:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        "opens": "17:00",
-        "closes": "21:00"
-      }
-    ]
-  }
-  </script>
-
-  <!-- Icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
-  <!-- Fonts: 中文 + 泰文 -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Kanit:wght@400;500;700&display=swap">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>昆雅泰式料理 Khunya Thai Cuisine</title>
+  <meta name="description" content="板橋巷弄裡的泰國家常餐桌：打拋飯、清邁金麵、船麵與泰式奶茶。" />
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{
-      margin:0;padding:0;
-      background-color:#F9F7F2;color:#2C2C2C;
-      font-family:'Noto Sans TC','Kanit',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      overflow-x:hidden;-webkit-font-smoothing:antialiased;
+    :root {
+      --bg: #F6F2EA;
+      --surface: #FFFFFF;
+      --ink: #171717;
+      --muted: rgba(23,23,23,.65);
+      --hair: rgba(23,23,23,.16);
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.12);
+      --accent: #FF5A3C; /* 橘紅 CTA */
+      --accent2: #0B0B0B; /* 深色按鈕描邊/字 */
+      --maxw: 1080px;
     }
 
-    :root{
-      --accent:#FF5A3C;          /* 明顯橘紅（CTA / 主打推薦） */
-      --accentText:#FFFFFF;
-      --accentShadow: rgba(255, 90, 60, 0.32);
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      letter-spacing: .02em;
+      line-height: 1.65;
     }
-    .container{max-width:1080px;margin:0 auto;padding:32px 16px 56px;display:flex;flex-direction:column;align-items:stretch;}
-    @media (min-width:768px){.container{padding:48px 32px 72px;}}
-    @media (min-width:1024px){.container{padding:64px 40px 96px;}}
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-    header{text-align:center;margin-bottom:16px;position:relative;}
-    .brand-logo{
-      font-size:clamp(32px,6vw,48px);
-      letter-spacing:.1em;margin-bottom:12px;color:#2C2C2C;text-transform:uppercase;
-      position:relative;display:inline-block;font-weight:700;
+    /* Top bar */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      background: rgba(246,242,234,.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(23,23,23,.08);
     }
-    .brand-logo::after{
-      content:'';
-      position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);
-      width:60px;height:2px;background-color:#D4C5B0;
+    .topbar-inner {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
     }
-    .brand-subtitle{
-      font-size:13px;color:#666;letter-spacing:.25em;margin-top:18px;text-transform:uppercase;font-weight:500;
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      white-space: nowrap;
+    }
+    .brand .zh { font-size: 18px; }
+    .brand .en { font-size: 14px; opacity: .75; font-weight: 700; }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav a {
+      font-size: 13px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(23,23,23,.16);
+      background: rgba(255,255,255,.45);
+    }
+    .lang {
+      display: flex; gap: 6px; align-items: center;
+      border: 1px solid rgba(23,23,23,.16);
+      border-radius: 999px;
+      padding: 3px;
+      background: rgba(255,255,255,.5);
+    }
+    .lang button {
+      border: 0;
+      background: transparent;
+      padding: 7px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 12px;
+      color: rgba(23,23,23,.75);
+      font-weight: 700;
+    }
+    .lang button[aria-pressed="true"] {
+      background: var(--ink);
+      color: #fff;
     }
 
-    /* 固定在右上角的漢堡選單 */
-    .nav-wrapper{position:fixed;top:16px;right:16px;z-index:999;}
-    @media (max-width:480px){.nav-wrapper{top:10px;right:10px;}}
-    .nav-toggle{
-      border-radius:999px;border:1px solid #D4C5B0;background:#FDFBF7;
-      width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;
-      cursor:pointer;transition:all .15s ease;
+    /* Layout */
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 14px;
     }
-    .nav-toggle i{font-size:18px;color:#555;}
-    .nav-toggle:hover{transform:translateY(-1px);box-shadow:0 2px 6px rgba(0,0,0,.15);}
-    .nav-menu{
-      position:absolute;top:40px;right:0;background:#fff;border-radius:12px;border:1px solid #E5E0D8;
-      padding:6px 0;min-width:220px;box-shadow:0 4px 12px rgba(0,0,0,.08);display:none;
+    .spacer-top { height: 60px; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      margin-top: 14px;
+      border: 1px solid rgba(23,23,23,.12);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.42), rgba(0,0,0,.12)),
+        url('hero.jpg') center/cover no-repeat;
+      min-height: 360px;
     }
-    .nav-menu.open{display:block;}
-    .nav-menu-item{
-      width:100%;padding:8px 14px;text-align:left;font-size:13px;color:#444;background:transparent;border:none;
-      cursor:pointer;display:flex;align-items:center;gap:6px;transition:background .15s ease,color .15s ease;
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(1200px 400px at 10% 20%, rgba(0,0,0,.32), transparent 60%);
+      pointer-events: none;
     }
-    .nav-menu-item i{font-size:16px;color:#C49A5A;}
-    .nav-menu-item:hover{background:#F9F3E7;color:#222;}
-    .nav-menu-divider{height:1px;background:#EEE3D5;margin:4px 0;}
-    .nav-menu-lang-label{padding:6px 14px 2px;font-size:11px;color:#999;}
-    .nav-menu-lang-buttons{padding:4px 10px 8px;display:flex;gap:6px;}
-    .lang-btn{
-      border-radius:999px;border:1px solid #D4C5B0;background:#FDFBF7;padding:3px 10px;font-size:11px;
-      cursor:pointer;min-width:32px;text-align:center;color:#555;transition:all .15s ease;
+    .hero-inner {
+      position: relative;
+      padding: 44px 18px 22px;
+      color: #fff;
     }
-    .lang-btn.active{background:#2C2C2C;color:#F9F7F2;border-color:#2C2C2C;font-weight:600;}
-    .lang-btn:hover{transform:translateY(-1px);box-shadow:0 1px 4px rgba(0,0,0,.15);}
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(28px, 3.2vw, 40px);
+      letter-spacing: .06em;
+      line-height: 1.15;
+      text-shadow: 0 10px 22px rgba(0,0,0,.35);
+    }
+    .hero p {
+      max-width: 680px;
+      margin: 14px 0 0;
+      font-size: 15px;
+      opacity: .95;
+    }
+    .hero .meta {
+      margin-top: 18px;
+      font-size: 13px;
+      opacity: .95;
+    }
+    .hero .meta b { font-weight: 800; }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.35);
+      background: rgba(0,0,0,.28);
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: .04em;
+      backdrop-filter: blur(6px);
+    }
+    .btn.primary {
+      background: var(--accent);
+      border-color: rgba(255,255,255,.32);
+      box-shadow: 0 12px 30px rgba(255,90,60,.35);
+    }
+    .btn.primary:hover { filter: brightness(1.03); }
+    .btn.ghost {
+      background: rgba(0,0,0,.22);
+    }
+    .btn svg { width: 18px; height: 18px; }
 
     /* Sections */
-    main{margin-top:8px;display:flex;flex-direction:column;gap:48px;}
-    section{scroll-margin-top:90px;}
-    .section-title-block{margin-bottom:16px;}
-    .section-title-large{font-size:22px;font-weight:600;margin-bottom:4px;}
-    .section-title-subtext{font-size:13px;color:#888;}
-
-    /* HERO (mobile: banner carousel with overlay text; desktop: text left, 3 images right) */
-    
-        /* Hero（滿版） */
-        .hero-full{
-            position: relative;
-            width: 100vw;
-            margin-left: calc(50% - 50vw);
-            margin-right: calc(50% - 50vw);
-            height: clamp(520px, 72vh, 820px);
-            overflow: hidden;
-            border-bottom: 1px solid #E5D6C5;
-            background: #000;
-        }
-
-        @media (min-width: 1024px){
-            .hero-full{
-                height: clamp(560px, 78vh, 900px);
-            }
-        }
-
-        .hero-slider{
-            height: 100%;
-            width: 100%;
-            display: flex;
-            transition: transform 500ms ease;
-            will-change: transform;
-        }
-
-        .hero-slide{
-            flex: 0 0 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center calc(50% + var(--hero-bg-offset, 0px));
-            background-repeat: no-repeat;
-        }
-
-        /* 文字浮在圖片上（含漸層遮罩） */
-        .hero-overlay{
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: flex-end;
-            padding: 18px 16px 18px;
-            background: linear-gradient(to top, rgba(0,0,0,0.62), rgba(0,0,0,0.15), rgba(0,0,0,0));
-        }
-
-        @media (min-width: 768px){
-            .hero-overlay{
-                padding: 28px 32px 28px;
-            }
-        }
-
-        .hero-overlay-inner{
-            max-width: 680px;
-            color: #FFF;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.35);
-        }
-
-        .hero-title{
-            font-size: clamp(22px, 3.2vw, 34px);
-            font-weight: 800;
-            margin-bottom: 8px;
-            color: #FFF;
-        }
-
-        .hero-title span{
-            font-size: clamp(12px, 1.4vw, 14px);
-            font-weight: 600;
-            color: rgba(255,255,255,0.9);
-            margin-left: 8px;
-        }
-
-        .hero-subtitle{
-            font-size: 14px;
-            line-height: 1.7;
-            color: rgba(255,255,255,0.92);
-            margin-bottom: 10px;
-        }
-
-        .hero-meta{
-            font-size: 13px;
-            line-height: 1.7;
-            color: rgba(255,255,255,0.88);
-            margin-bottom: 14px;
-        }
-
-        .hero-meta strong{ font-weight: 700; }
-
-        .hero-ctas{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .hero-btn-primary,
-        .hero-btn-secondary{
-            border-radius: 999px;
-            padding: 8px 14px;
-            font-size: 13px;
-            border: 1px solid transparent;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .hero-btn-primary{
-            background: var(--accent);
-            color: var(--accentText);
-            border-color: rgba(255,255,255,0.25);
-            font-weight: 800;
-            box-shadow: 0 10px 24px var(--accentShadow);
-            transform: translateZ(0);
-            transition: transform 160ms ease, filter 160ms ease, box-shadow 160ms ease;
-}
-
-        .hero-btn-secondary{
-            background: rgba(0,0,0,0.25);
-            color: #FFF;
-            border-color: rgba(255,255,255,0.45);
-            backdrop-filter: blur(6px);
-        }
-
-        .hero-btn-primary:hover{
-            filter: brightness(0.98);
-            transform: translateY(-1px);
-            box-shadow: 0 14px 30px var(--accentShadow);
-}
-        .hero-btn-secondary:hover{ background: rgba(0,0,0,0.35); }
-
-        .hero-btn-primary i,
-        .hero-btn-secondary i{
-            font-size: 16px;
-        }
-
-        /* Pagination dots (mobile + desktop) */
-        .hero-dots{
-            position: absolute;
-            bottom: 34px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 6px;
-            z-index: 5;
-            opacity: 0.15;
-            transition: opcacity 0.35 ease;
-        }
-
-        .hero-dot{
-            width: 14px;
-            height: 1.5px;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.55);
-            cursor: pointer;
-            transition: all .25s ease;
-        }
-
-        .hero-dot.active{
-            background: rgba(255,255,255,0.95);
-            transform: scale(1.3);
-        }
-
-        /* Desktop: right-side thumbnails 1 2 3 left-to-right */
-        .hero-thumbs{
-            display: none;
-        }
-
-        @media (min-width: 1024px){
-            .hero-thumbs{
-                position: absolute;
-                right: 28px;
-                top: 50%;
-                transform: translateY(-50%);
-                display: flex;
-                gap: 10px;
-                align-items: center;
-                padding: 10px;
-                border-radius: 16px;
-                background: rgba(0,0,0,0.18);
-                border: 1px solid rgba(255,255,255,0.22);
-                backdrop-filter: blur(8px);
-            }
-
-            .hero-thumb{
-                width: 120px;
-                height: 78px;
-                border-radius: 12px;
-                overflow: hidden;
-                border: 2px solid transparent;
-                padding: 0;
-                background: transparent;
-                cursor: pointer;
-                opacity: 0.85;
-                transition: transform 160ms ease, opacity 160ms ease, border-color 160ms ease;
-            }
-
-            .hero-thumb img{
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
-            }
-
-            .hero-thumb.active{
-                border-color: rgba(255,255,255,0.95);
-                opacity: 1;
-                transform: translateY(-2px);
-            }
-
-            .hero-thumb:hover{
-                opacity: 1;
-                transform: translateY(-2px);
-            }
-        }
-
-            /* 類別 tabs（放在菜單區下方）：改成「分類跳轉」 */
-    .category-bar-wrapper{margin-top:16px;border-bottom:1px solid #E5E0D8;padding-bottom:10px;}
-    .category-tabs{
-      display:flex;gap:10px;overflow-x:auto;padding:6px 2px 6px;scrollbar-width:thin;
-      scroll-snap-type:x mandatory;
+    section {
+      padding: 32px 0;
     }
-    .category-tabs::-webkit-scrollbar{height:4px;}
-    .category-tabs::-webkit-scrollbar-thumb{background:#D4C5B0;border-radius:999px;}
-    .category-tab{
-      flex:0 0 auto;border-radius:999px;border:1px solid #2C2C2C;padding:6px 14px;font-size:13px;
-      color:#2C2C2C;background-color:transparent;display:flex;align-items:center;min-width:max-content;cursor:pointer;
-      transition:transform .15s ease, background .15s ease, color .15s ease;
-      scroll-snap-align:start;
-      letter-spacing:.08em;
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(23,23,23,.12);
+      margin-bottom: 16px;
     }
-    .category-tab.active{background-color:#2C2C2C;color:#F9F7F2;}
-    .category-tab:hover{transform:translateY(-1px);}
-
-    /* Menu: category sections + horizontal carousels */
-    .menu-wrapper{margin-top:18px;display:flex;flex-direction:column;gap:26px;}
-    .menu-category{
-      padding-top:10px;
+    .section-head h2 {
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: .06em;
     }
-    .menu-category-header{
-      display:flex;align-items:baseline;justify-content:space-between;gap:12px;
-      margin:6px 0 10px;
-      padding-bottom:8px;
-      border-bottom:1px solid #E5E0D8;
-    }
-    .menu-category-title{
-      font-size:18px;font-weight:700;color:#2C2C2C;
-      letter-spacing:.08em;
-    }
-    .menu-category-subtitle{
-      font-size:12px;color:#777;letter-spacing:.12em;
-      white-space:nowrap;
+    .section-head .sub {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 520px;
     }
 
-    .menu-carousel{
-      display:flex;
-      gap:14px;
-      overflow-x:auto;
-      padding:14px 2px 16px;
-      scroll-snap-type:x mandatory;
-      -webkit-overflow-scrolling:touch;
-      scrollbar-width:thin;
+    /* Category blocks */
+    .cat {
+      margin: 18px 0 26px;
     }
-    .menu-carousel::-webkit-scrollbar{height:6px;}
-    .menu-carousel::-webkit-scrollbar-thumb{background:#D4C5B0;border-radius:999px;}
+    .cat-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .cat-title {
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      margin: 0;
+    }
+    .carousel-controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .iconbtn {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid rgba(23,23,23,.16);
+      background: rgba(255,255,255,.65);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .iconbtn:hover { background: rgba(255,255,255,.9); }
+    .iconbtn svg { width: 18px; height: 18px; }
 
-    .menu-card{
-      flex:0 0 78%;
-      max-width:460px;
-      scroll-snap-align:center;
-      border:1px solid #2C2C2C;
-      background:#FDFBF7;
-      border-radius:18px;
-      padding:14px 14px 12px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      transition:transform .16s ease, box-shadow .16s ease;
-      cursor:pointer;
+    .track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(240px, 1fr);
+      gap: 12px;
+      overflow-x: auto;
+      padding: 6px 2px 10px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
     }
-    @media (min-width:640px){ .menu-card{flex-basis:46%;} }
-    @media (min-width:1024px){ .menu-card{flex-basis:30%;} }
+    .track::-webkit-scrollbar { height: 10px; }
+    .track::-webkit-scrollbar-thumb { background: rgba(23,23,23,.15); border-radius: 999px; }
+    .track::-webkit-scrollbar-track { background: rgba(23,23,23,.05); border-radius: 999px; }
 
-    .menu-card:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 22px rgba(0,0,0,.10);
+    /* Card – like your sample */
+    .card {
+      scroll-snap-align: start;
+      border: 1px solid rgba(23,23,23,.14);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.65);
+      overflow: hidden;
+      box-shadow: 0 14px 40px rgba(0,0,0,.06);
+      transition: transform .25s ease, box-shadow .25s ease;
     }
-
-    .menu-card-top{
-      display:flex;align-items:center;justify-content:space-between;gap:10px;
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 50px rgba(0,0,0,.10);
     }
-    .menu-card-pill{
-      display:inline-flex;align-items:center;gap:6px;
-      border:1px solid #2C2C2C;
-      border-radius:999px;
-      padding:6px 12px;
-      font-size:12px;
-      font-weight:700;
-      letter-spacing:.08em;
-      background:transparent;
-      color:#2C2C2C;
-      white-space:nowrap;
+    .card-top {
+      padding: 12px 12px 0;
     }
-    .menu-card-pill.is-featured{
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(23,23,23,.14);
+      background: rgba(255,255,255,.7);
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: .06em;
+    }
+    .pill.feature {
       background: var(--accent);
-      color: var(--accentText);
-      border-color: var(--accent);
-}
-    .menu-card-price{
-      font-size:16px;
-      font-weight:800;
-      letter-spacing:.04em;
-      color:#2C2C2C;
-      white-space:nowrap;
+      border-color: rgba(255,255,255,.35);
+      color: #fff;
+    }
+    .media {
+      padding: 10px 12px 0;
+    }
+    .imgwrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: calc(var(--radius) - 6px);
+      border: 1px solid rgba(23,23,23,.12);
+      overflow: hidden;
+      background: rgba(23,23,23,.04);
+      position: relative;
+    }
+    .imgwrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translateY(0px);
+      transition: transform .35s ease;
     }
 
-    .menu-card-media{
-      width:100%;
-      aspect-ratio:1 / 1;
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid #EEE3D5;
-      background:#EFE7DB;
+    .card-body {
+      padding: 12px 12px 14px;
     }
-    .menu-card-img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      transform: translateY(var(--img-parallax, 0px)) scale(1.06);
-      will-change: transform;
-      transition: transform 300ms ease;
+    .title {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 950;
+      letter-spacing: .04em;
+      line-height: 1.2;
     }
-
-    .menu-card-title{
-      font-size:16px;
-      font-weight:700;
-      color:#2C2C2C;
-      line-height:1.45;
-      letter-spacing:.04em;
+    .desc {
+      margin: 8px 0 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+      min-height: 42px;
     }
-    .menu-card-desc{
-      font-size:13px;
-      line-height:1.75;
-      color:#555;
-      letter-spacing:.02em;
-      min-height:44px; /* keep rhythm even when desc missing */
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
     }
-
-    .menu-card-flags{
-      display:flex;
-      flex-wrap:wrap;
-      gap:6px;
-      margin-top:2px;
+    .price {
+      font-weight: 950;
+      letter-spacing: .04em;
     }
-    .menu-flag{
-      display:inline-flex;align-items:center;gap:6px;
-      font-size:11px;
-      color:#2C2C2C;
-      border:1px solid #EEE3D5;
-      background:#F9F7F2;
-      border-radius:999px;
-      padding:4px 10px;
-      letter-spacing:.06em;
-      white-space:nowrap;
+    .badges {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
-    .menu-empty,.menu-error{font-size:14px;color:#777;text-align:center;padding:32px 8px;}
-    .menu-error{color:#B14B4B;}
-/* Coverflow Carousel (Photos & Reviews) */
-    .coverflow{
-      position:relative;
-      margin-top:8px;
-    }
-    .coverflow-track{
-      display:flex;
-      gap:14px;
-      overflow-x:auto;
-      padding:10px 2px 16px;
-      scroll-snap-type:x mandatory;
-      -webkit-overflow-scrolling:touch;
-      scrollbar-width:thin;
-    }
-    .coverflow-track::-webkit-scrollbar{height:6px;}
-    .coverflow-track::-webkit-scrollbar-thumb{background:#D4C5B0;border-radius:999px;}
-    .coverflow-item{
-      flex:0 0 70%;
-      max-width:520px;
-      scroll-snap-align:center;
-      position:relative;
-      transition:transform .22s ease, filter .22s ease, opacity .22s ease;
-      cursor:pointer;
-      opacity:.80;
-      filter: blur(1.2px) saturate(.95);
-      transform: scale(.92);
-    }
-    @media (min-width:768px){
-      .coverflow-item{flex:0 0 42%;}
-    }
-    .coverflow-item.is-active{
-      opacity:1;
-      filter:none;
-      transform: scale(1.02);
-    }
-    .coverflow-img{
-      width:100%;
-      border-radius:18px;
-      border:1px solid #EEE3D5;
-      background:#EDE4D8;
-      object-fit:cover;
-      aspect-ratio: 3 / 4;
-      display:block;
-      box-shadow:0 10px 22px rgba(0,0,0,.10);
-    }
-    /* Reviews keep original ratio (contain) but still coverflow */
-    .coverflow-img.is-review{
-      aspect-ratio:auto;
-      object-fit:contain;
-      background:transparent;
-      box-shadow:none;
-      border:1px solid #EEE3D5;
+    .badge {
+      font-size: 11px;
+      font-weight: 900;
+      padding: 6px 8px;
+n      border-radius: 999px;
+      border: 1px solid rgba(23,23,23,.14);
+      background: rgba(255,255,255,.65);
     }
 
-    /* Reviews link button */
-    .review-actions{margin-bottom:12px;}
-    .review-button{
-      display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 14px;border-radius:999px;
-      border:1px solid #D4C5B0;background:#FDFBF7;font-size:13px;color:#444;text-decoration:none;cursor:pointer;
-      transition:all .15s ease;
+    /* Loading / errors */
+    .loading {
+      color: var(--muted);
+      padding: 26px 0;
+      text-align: center;
+      font-weight: 800;
+      letter-spacing: .06em;
     }
-    .review-button i{font-size:16px;color:#EA4335;}
-    .review-button:hover{background:#F9F3E7;transform:translateY(-1px);box-shadow:0 2px 6px rgba(0,0,0,.12);}
+    .error {
+      color: #8a1f1f;
+      background: rgba(255,90,60,.10);
+      border: 1px solid rgba(255,90,60,.25);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      font-weight: 800;
+      letter-spacing: .04em;
+    }
 
-    /* About */
-    .about-text{font-size:14px;line-height:1.8;color:#444;}
-    .about-highlight{
-      margin-top:12px;padding:10px 12px;border-left:3px solid #D4C5B0;background:#FDFBF7;font-size:13px;color:#555;
+    /* About / Contact simple cards */
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 12px;
     }
-    .about-highlight strong{color:#A46A22;}
-
-    /* Contact */
-    .contact-info{
-      margin-top:12px;padding:10px 12px;border-radius:12px;border:1px solid #E5E0D8;background:#FDFBF7;
-      font-size:14px;color:#444;
+    @media (max-width: 820px) {
+      .grid2 { grid-template-columns: 1fr; }
+      .nav a { display:none; }
     }
-    .contact-info-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px;}
-    .contact-info-row:last-child{margin-bottom:0;}
-    .contact-label{min-width:72px;font-weight:600;color:#705032;}
-    .contact-value{flex:1;}
-
-    footer{
-      margin-top:40px;text-align:center;font-size:12px;color:#999;letter-spacing:.16em;border-top:1px solid #E5E0D8;
-      padding-top:24px;width:100%;
+    .panel {
+      border: 1px solid rgba(23,23,23,.12);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.65);
+      padding: 16px;
+      box-shadow: 0 12px 34px rgba(0,0,0,.06);
     }
+    .panel h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      letter-spacing: .04em;
+    }
+    .panel p { margin: 0; color: var(--muted); }
 
     /* Lightbox */
-    .lightbox{
-      position:fixed;top:0;left:0;width:100%;height:100%;
-      background:rgba(0,0,0,.85);
-      display:none;justify-content:center;align-items:center;z-index:2000;padding:20px;
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.75);
+      z-index: 80;
+      padding: 16px;
     }
-    .lightbox.show{display:flex;}
-    .lightbox img{max-width:92%;max-height:92%;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.5);}
-  
-    /* Scroll-trigger reveal (無外部套件) */
-    .reveal{
+    .lightbox.show { display: flex; }
+    .lightbox img {
+      max-width: min(920px, 96vw);
+      max-height: 88vh;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      background: #111;
+    }
+
+    /* Scroll reveal */
+    .reveal {
       opacity: 0;
-      transform: translateY(16px) scale(0.995);
-      transition: opacity 620ms cubic-bezier(.2,.8,.2,1), transform 620ms cubic-bezier(.2,.8,.2,1);
+      transform: translateY(14px);
+      transition: opacity .8s ease, transform .8s ease;
       will-change: opacity, transform;
     }
-    .reveal.is-in{
+    .reveal.in {
       opacity: 1;
-      transform: none;
-    }
-    @media (prefers-reduced-motion: reduce){
-      .reveal{opacity:1;transform:none;transition:none;}
+      transform: translateY(0);
     }
 
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .card, .card:hover { transform:none; transition:none; }
+    }
   </style>
 </head>
+
 <body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="zh">昆雅泰式料理</span>
+        <span class="en">Khunya Thai Cuisine</span>
+      </div>
 
-<div class="container">
-  <header>
-    <h1 class="brand-logo">KHUNYA THAI</h1>
-    <div class="brand-subtitle">Authentic Thai Home-Style Cuisine</div>
+      <div class="nav">
+        <a href="#menu" data-i18n="nav_menu">菜單</a>
+        <a href="#about" data-i18n="nav_about">關於</a>
+        <a href="#contact" data-i18n="nav_contact">聯絡</a>
 
-    <!-- 右上角固定選單 + 語言切換 -->
-    <div class="nav-wrapper">
-      <button class="nav-toggle" id="navToggle" aria-label="Open navigation">
-        <i class="ri-menu-line"></i>
-      </button>
-      <div class="nav-menu" id="navMenu">
-        <button class="nav-menu-item" data-target="menu">
-          <i class="ri-restaurant-line"></i>
-          <span id="navMenuLabel">菜單</span>
-        </button>
-<button class="nav-menu-item" data-target="about">
-          <i class="ri-store-2-line"></i>
-          <span id="navAboutLabel">關於我們</span>
-        </button>
-        <button class="nav-menu-item" data-target="contact">
-          <i class="ri-chat-1-line"></i>
-          <span id="navContactLabel">聯絡我</span>
-        </button>
-
-        <div class="nav-menu-divider"></div>
-
-        <div class="nav-menu-lang-label" id="navLangLabel">語言 / Language</div>
-        <div class="nav-menu-lang-buttons" id="langSwitch">
-          <button class="lang-btn active" data-lang="zh">中</button>
-          <button class="lang-btn" data-lang="th">TH</button>
-          <button class="lang-btn" data-lang="en">EN</button>
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" class="lang-btn" data-lang="zh" aria-pressed="true">中</button>
+          <button type="button" class="lang-btn" data-lang="th" aria-pressed="false">TH</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
         </div>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- HERO -->
-    
-    <!-- Hero（滿版 Banner / 手機可滑動輪播 + 電腦右側縮圖 1-2-3） -->
-    <section class="hero-full" id="home" aria-label="Hero">
-      <div class="hero-slider" id="heroSlider" aria-label="Hero slider">
-        <div class="hero-slide" style="background-image:url('images/hero/1.jpeg')" role="img" aria-label="Hero image 1"></div>
-        <div class="hero-slide" style="background-image:url('images/hero/2.jpeg')" role="img" aria-label="Hero image 2"></div>
-        <div class="hero-slide" style="background-image:url('images/hero/3.jpeg')" role="img" aria-label="Hero image 3"></div>
-      </div>
+  <div class="spacer-top"></div>
 
-      <div class="hero-overlay">
-        <div class="hero-overlay-inner">
-          <h2 class="hero-title" id="heroTitle">昆雅泰式料理 <span>Khunya Thai Cuisine</span></h2>
-          <p class="hero-subtitle" id="heroSubtitle">板橋巷弄裡的泰國家常餐桌，打拋飯、清邁金麵、船麵與泰式奶茶，天天都可以吃的那種。</p>
-          <p class="hero-meta" id="heroMeta">
-            <strong>地址｜</strong>新北市板橋區文化路一段311之11號<br>
-            <strong>營業時間｜</strong>11:00–14:00、17:00–21:00（週日公休）
-          </p>
-          <div class="hero-ctas">
-            <a href="https://lin.ee/fGU0Rs0L" target="_blank" rel="noopener noreferrer" class="hero-btn-primary" id="heroCtaLine">
-              <i class="ri-line-line"></i><span>LINE 線上詢問</span>
-            </a>
-            <a href="https://maps.app.goo.gl/RMUuJtk4PQQrqqKH9" target="_blank" rel="noopener noreferrer" class="hero-btn-secondary" id="heroCtaMap">
-              <i class="ri-map-pin-2-line"></i><span>導航到我們</span>
-            </a>
-          </div>
+  <main class="wrap">
+    <div class="hero reveal" id="top">
+      <div class="hero-inner">
+        <h1 data-i18n="hero_title">昆雅泰式料理</h1>
+        <p data-i18n="hero_desc">板橋巷弄裡的泰國家常餐桌：打拋飯、清邁金麵、船麵與泰式奶茶，天天都可以吃的那種。</p>
+
+        <div class="meta">
+          <div><b data-i18n="addr_label">地址</b>｜<span data-i18n="addr_text">新北市板橋區文化路一段311之11號</span></div>
+          <div><b data-i18n="hours_label">營業時間</b>｜<span data-i18n="hours_text">11:00–14:00、17:00–21:00（週日公休）</span></div>
         </div>
 
-        <div class="hero-dots" id="heroDots" aria-label="Hero pagination"></div>
+        <div class="cta-row">
+          <a class="btn primary" href="https://line.me/R/ti/p/@YOUR_LINE_ID" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c-5.523 0-10 3.58-10 8 0 3.676 3.07 6.795 7.242 7.719.282.06.666.184.762.424.087.218.057.56.028.783 0 0-.101.613-.123.742-.037.219-.172.857.751.467.923-.39 4.986-2.935 6.806-5.02C20.214 13.92 22 11.17 22 11c0-4.42-4.477-8-10-8Z" stroke="currentColor" stroke-width="1.5"/><path d="M8 10h2v4H8v-4Zm3 0h2v4h-2v-4Zm3 0h2v4h-2v-4Z" fill="currentColor"/></svg>
+            <span data-i18n="cta_line">LINE 線上詢問</span>
+          </a>
+
+          <a class="btn ghost" href="https://maps.google.com/?q=昆雅泰式料理 板橋" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s7-4.438 7-11a7 7 0 1 0-14 0c0 6.562 7 11 7 11Z" stroke="currentColor" stroke-width="1.5"/><path d="M12 13.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" fill="currentColor"/></svg>
+            <span data-i18n="cta_nav">導航到我們</span>
+          </a>
+        </div>
       </div>
+    </div>
 
-      <!-- Desktop thumbnails (right side, 1 2 3 left-to-right) -->
-      <div class="hero-thumbs" id="heroThumbs" aria-label="Hero thumbnails">
-        <button class="hero-thumb" data-hero-index="0" aria-label="Hero thumbnail 1">
-          <img src="images/hero/1.jpeg" alt="Hero thumbnail 1">
-        </button>
-        <button class="hero-thumb" data-hero-index="1" aria-label="Hero thumbnail 2">
-          <img src="images/hero/2.jpeg" alt="Hero thumbnail 2">
-        </button>
-        <button class="hero-thumb" data-hero-index="2" aria-label="Hero thumbnail 3">
-          <img src="images/hero/3.jpeg" alt="Hero thumbnail 3">
-        </button>
-      </div>
-    </section>
-
-
-    <!-- MENU (順序：Hero > Menu > About > Contact) -->
     <section id="menu">
-      <div class="section-title-block">
-        <div class="section-title-large" id="menuTitle">菜單</div>
-        <div class="section-title-subtext" id="menuSubtitle">
-          每個分類都是左右滑動的料理小卡；點小卡可放大圖片。右上角選單可切換語言。
+      <div class="section-head reveal">
+        <div>
+          <h2 data-i18n="menu_title">菜單</h2>
+          <div class="sub" data-i18n="menu_sub">每個分類都是左右滑動的料理小卡；點小卡可放大圖片。右上角選單可切換語言。</div>
         </div>
       </div>
 
-      <div class="category-bar-wrapper">
-        <div id="categoryTabs" class="category-tabs"></div>
-      </div>
-
-      <div class="menu-wrapper" id="menuWrapper">
-        <p class="menu-empty">載入菜單中…</p>
-      </div>
+      <div id="menuStatus" class="loading">載入菜單中…</div>
+      <div id="menuRoot"></div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about">
-      <div class="section-title-block">
-        <div class="section-title-large" id="aboutTitle">關於我們</div>
-        <div class="section-title-subtext" id="aboutSubtitle">
-          昆雅泰式料由泰國與台灣夥伴共同經營，希望把泰國日常餐桌上的味道，用溫柔而堅持的方式帶到板橋。
+      <div class="section-head reveal">
+        <div>
+          <h2 data-i18n="about_title">關於我們</h2>
+          <div class="sub" data-i18n="about_sub">我們希望把你在泰國吃到的那份「日常與回憶」帶回板橋。香氣、鍋氣、與不妥協的配料，讓每一口都值得。</div>
         </div>
       </div>
-      <div class="about-text" id="aboutBody">
-        我們不追求華麗擺盤，而是專注在「日常可以常吃、又保留泰國靈魂」的家常菜。<br>
-        醬料、咖哩與湯底堅持自己熬煮，盡量使用原始香料與食材，不過度改良成台式口味。
-      </div>
-      <div class="about-highlight" id="aboutHighlight">
-        <strong>打拋飯、清邁金麵、泰式船麵與泰式奶茶</strong> 是我們最想推薦給你的幾道料理。<br>
-        如果有機會，也歡迎你來店裡坐坐，慢慢吃、慢慢聊天。
+
+      <div class="grid2">
+        <div class="panel reveal">
+          <h3 data-i18n="about_p1_title">泰式家常，日常可吃</h3>
+          <p data-i18n="about_p1">打拋用泰國打拋葉、船麵湯頭層次分明、咖哩香氣飽滿；我們追求的是「越吃越想念」的口味。</p>
+        </div>
+        <div class="panel reveal">
+          <h3 data-i18n="about_p2_title">外帶也要好吃</h3>
+          <p data-i18n="about_p2">出餐與打包流程持續優化，讓外帶與外送也保有鍋氣與口感。</p>
+        </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
-      <div class="section-title-block">
-        <div class="section-title-large" id="contactTitle">聯絡我</div>
-        <div class="section-title-subtext" id="contactSubtitle">
-          有任何問題、想預訂或確認營業時間，都可以透過 LINE 加入我們，直接聊。
+      <div class="section-head reveal">
+        <div>
+          <h2 data-i18n="contact_title">聯絡</h2>
+          <div class="sub" data-i18n="contact_sub">有任何問題、想預訂或想合作，直接用 LINE 最快。</div>
         </div>
       </div>
 
-      <div class="review-actions">
-        <a href="https://lin.ee/fGU0Rs0L" target="_blank" rel="noopener noreferrer">
-          <img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" height="36" border="0">
-        </a>
-      </div>
-
-      <div class="contact-info">
-        <div class="contact-info-row">
-          <span class="contact-label" id="contactLineLabel">LINE</span>
-          <span class="contact-value">@143llbev</span>
+      <div class="grid2">
+        <div class="panel reveal">
+          <h3 data-i18n="contact_line_title">LINE</h3>
+          <p><a href="https://line.me/R/ti/p/@YOUR_LINE_ID" target="_blank" rel="noopener" style="font-weight:900">line.me/R/ti/p/@YOUR_LINE_ID</a></p>
+          <p style="margin-top:8px" data-i18n="contact_line_tip">你可以直接貼上 Uber 訂單問題、客製需求，我們會盡快回覆。</p>
         </div>
-        <div class="contact-info-row">
-          <span class="contact-label" id="contactAddressLabel">地址</span>
-          <span class="contact-value">新北市板橋區文化路一段311之11號</span>
-        </div>
-        <div class="contact-info-row">
-          <span class="contact-label" id="contactHoursLabel">營業時間</span>
-          <span class="contact-value">11:00–14:00、17:00–21:00（週日公休）</span>
+        <div class="panel reveal">
+          <h3 data-i18n="contact_addr_title">地址 / 營業時間</h3>
+          <p data-i18n="contact_addr">新北市板橋區文化路一段311之11號</p>
+          <p style="margin-top:8px" data-i18n="contact_hours">11:00–14:00、17:00–21:00（週日公休）</p>
         </div>
       </div>
     </section>
+
+    <footer style="padding:18px 0 38px; color: rgba(23,23,23,.55); font-size: 12px;">
+      © <span id="year"></span> Khunya Thai Cuisine
+    </footer>
   </main>
 
-  <footer>
-    <p id="footerText">&copy; 2024 KHUNYA THAI CUISINE • AUTHENTIC THAI FLAVORS</p>
-  </footer>
-</div>
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <img id="lightboxImg" alt="menu image" />
+  </div>
 
-<!-- Lightbox 大圖顯示 -->
-<div id="lightbox" class="lightbox">
-  <img id="lightbox-img" src="" alt="Preview image">
-</div>
+  <!-- Lenis smoother scroll (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script>
+    // ====== Utilities ======
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
-<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ====== Smooth scroll (Lenis) + Reveal + Parallax ====== */
-(function () {
-  // 1) Smoother scroll (optional, via Lenis CDN)
-  let lenis = null;
-  try {
-    if (window.Lenis) {
-      lenis = new Lenis({
-        lerp: 0.08,
-        smoothWheel: true,
-        smoothTouch: false,
-        wheelMultiplier: 0.9
-      });
-      const raf = (time) => {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      };
-      requestAnimationFrame(raf);
-      window.__lenis = lenis;
-    }
-  } catch (e) {
-    // fail silently
-  }
-
-  // unified scroll helper (used by nav + category jump)
-  window.__scrollToSection = function (targetEl, offset = -80) {
-    if (!targetEl) return;
-    if (window.__lenis && typeof window.__lenis.scrollTo === 'function') {
-      window.__lenis.scrollTo(targetEl, {
-        offset,
-        duration: 1.1,
-        easing: (t) => 1 - Math.pow(1 - t, 3)
-      });
-      return;
-    }
-    const rect = targetEl.getBoundingClientRect();
-    const top = window.scrollY + rect.top + offset;
-    window.scrollTo({ top, behavior: 'smooth' });
-  };
-
-  // 2) Scroll-trigger reveal (IntersectionObserver)
-  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let revealObserver = null;
-
-  function ensureRevealObserver() {
-    if (prefersReduced) return null;
-    if (revealObserver) return revealObserver;
-    revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-in');
-        revealObserver.unobserve(entry.target);
-      });
-    }, { threshold: 0.18, rootMargin: '0px 0px -10% 0px' });
-    return revealObserver;
-  }
-
-  window.__applyReveals = function () {
-    const io = ensureRevealObserver();
-    if (!io) return;
-    document.querySelectorAll('.reveal:not(.is-in)').forEach((el) => io.observe(el));
-  };
-
-  function markStaticReveals() {
-    const selectors = [
-      '.hero-overlay-inner',
-      '#menu .section-title-block',
-      '#about .section-title-block',
-      '#about .about-text',
-      '#about .about-highlight',
-      '#contact .section-title-block',
-      '#contact .review-actions',
-      '#contact .contact-info'
-    ];
-    selectors.forEach((sel) => {
-      document.querySelectorAll(sel).forEach((el, idx) => {
-        el.classList.add('reveal');
-        el.style.transitionDelay = `${Math.min(idx, 8) * 40}ms`;
-      });
-    });
-    window.__applyReveals();
-  }
-  markStaticReveals();
-
-  // 3) Parallax (hero background-position + small image drift)
-  let ticking = false;
-  const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
-
-  function updateParallax() {
-    ticking = false;
-
-    // Hero background parallax (safe: does not conflict with slider transform)
-    const hero = document.querySelector('.hero-full');
-    if (hero) {
-      const rect = hero.getBoundingClientRect();
-      if (rect.bottom > -220 && rect.top < window.innerHeight + 220) {
-        const offset = clamp(Math.round(rect.top * -0.18), -38, 38);
-        hero.style.setProperty('--hero-bg-offset', `${offset}px`);
+    // ====== i18n ======
+    const I18N = {
+      zh: {
+        nav_menu: "菜單", nav_about: "關於", nav_contact: "聯絡",
+        hero_title: "昆雅泰式料理",
+        hero_desc: "板橋巷弄裡的泰國家常餐桌：打拋飯、清邁金麵、船麵與泰式奶茶，天天都可以吃的那種。",
+        addr_label: "地址", addr_text: "新北市板橋區文化路一段311之11號",
+        hours_label: "營業時間", hours_text: "11:00–14:00、17:00–21:00（週日公休）",
+        cta_line: "LINE 線上詢問",
+        cta_nav: "導航到我們",
+        menu_title: "菜單",
+        menu_sub: "每個分類都是左右滑動的料理小卡；點小卡可放大圖片。右上角選單可切換語言。",
+        about_title: "關於我們",
+        about_sub: "我們希望把你在泰國吃到的那份「日常與回憶」帶回板橋。香氣、鍋氣、與不妥協的配料，讓每一口都值得。",
+        about_p1_title: "泰式家常，日常可吃",
+        about_p1: "打拋用泰國打拋葉、船麵湯頭層次分明、咖哩香氣飽滿；我們追求的是「越吃越想念」的口味。",
+        about_p2_title: "外帶也要好吃",
+        about_p2: "出餐與打包流程持續優化，讓外帶與外送也保有鍋氣與口感。",
+        contact_title: "聯絡",
+        contact_sub: "有任何問題、想預訂或想合作，直接用 LINE 最快。",
+        contact_line_title: "LINE",
+        contact_line_tip: "你可以直接貼上 Uber 訂單問題、客製需求，我們會盡快回覆。",
+        contact_addr_title: "地址 / 營業時間",
+        contact_addr: "新北市板橋區文化路一段311之11號",
+        contact_hours: "11:00–14:00、17:00–21:00（週日公休）",
+        feature: "主打推薦",
+        spicy: "可調辣",
+        coriander: "含香菜",
+        peanut: "含花生",
+        rice: "飯量可調",
+      },
+      th: {
+        nav_menu: "เมนู", nav_about: "เกี่ยวกับเรา", nav_contact: "ติดต่อ",
+        hero_title: "Khunya Thai Cuisine",
+        hero_desc: "อาหารไทยสไตล์บ้าน ๆ ย่านปั่นเฉียว: กะเพรา ข้าวซอย ก๋วยเตี๋ยวเรือ และชาไทย",
+        addr_label: "ที่อยู่", addr_text: "No.311-11, Sec.1 Wenhua Rd., Banqiao, New Taipei",
+        hours_label: "เวลา", hours_text: "11:00–14:00, 17:00–21:00 (ปิดวันอาทิตย์)",
+        cta_line: "ติดต่อ LINE",
+        cta_nav: "นำทาง",
+        menu_title: "เมนู",
+        menu_sub: "แต่ละหมวดเลื่อนซ้าย‑ขวาได้ แตะการ์ดเพื่อดูรูปขยาย เปลี่ยนภาษาได้ที่มุมขวาบน",
+        about_title: "เกี่ยวกับเรา",
+        about_sub: "เราตั้งใจพาความทรงจำรสชาติไทยกลับมาให้คุณที่ปั่นเฉียว ทั้งกลิ่นและรสที่คิดถึง",
+        about_p1_title: "รสไทยแบบกินได้ทุกวัน",
+        about_p1: "กะเพราใช้ใบกะเพราแท้ น้ำซุปก๋วยเตี๋ยวเรือเข้มข้น และแกงหอมจัด",
+        about_p2_title: "ซื้อกลับบ้านก็ต้องอร่อย",
+        about_p2: "เราปรับปรุงขั้นตอนแพ็กให้รสชาติยังดีเหมือนทานที่ร้าน",
+        contact_title: "ติดต่อ",
+        contact_sub: "ถ้ามีคำถามหรืออยากสั่งจอง ติดต่อทาง LINE ได้เร็วที่สุด",
+        contact_line_title: "LINE",
+        contact_line_tip: "ส่งคำถามหรือรายละเอียดออเดอร์มาได้เลย เราจะตอบกลับเร็วที่สุด",
+        contact_addr_title: "ที่อยู่ / เวลา",
+        contact_addr: "No.311-11, Sec.1 Wenhua Rd., Banqiao, New Taipei",
+        contact_hours: "11:00–14:00, 17:00–21:00 (ปิดวันอาทิตย์)",
+        feature: "เมนูแนะนำ",
+        spicy: "ปรับความเผ็ด",
+        coriander: "มีผักชี",
+        peanut: "มีถั่วลิสง",
+        rice: "ปรับปริมาณข้าว",
+      },
+      en: {
+        nav_menu: "Menu", nav_about: "About", nav_contact: "Contact",
+        hero_title: "Khunya Thai Cuisine",
+        hero_desc: "Thai comfort food in Banqiao: Pad Kaprao, Khao Soi, Boat Noodles and Thai Milk Tea.",
+        addr_label: "Address", addr_text: "No.311-11, Sec.1 Wenhua Rd., Banqiao, New Taipei",
+        hours_label: "Hours", hours_text: "11:00–14:00, 17:00–21:00 (Closed Sun)",
+        cta_line: "Chat on LINE",
+        cta_nav: "Get Directions",
+        menu_title: "Menu",
+        menu_sub: "Swipe each category left/right. Tap a card to enlarge the image. Switch language at top-right.",
+        about_title: "About",
+        about_sub: "We bring back the everyday Thai flavors you miss—aroma, wok hei, and generous ingredients.",
+        about_p1_title: "Everyday Thai comfort",
+        about_p1: "Holy basil, bold broths, fragrant curries—built to taste like Thailand, day after day.",
+        about_p2_title: "Takeout that holds up",
+        about_p2: "We keep improving packing and workflow so takeout stays delicious.",
+        contact_title: "Contact",
+        contact_sub: "Questions, reservations or collaborations—LINE is the fastest way.",
+        contact_line_title: "LINE",
+        contact_line_tip: "Send your Uber/order questions or custom requests—we’ll reply asap.",
+        contact_addr_title: "Address / Hours",
+        contact_addr: "No.311-11, Sec.1 Wenhua Rd., Banqiao, New Taipei",
+        contact_hours: "11:00–14:00, 17:00–21:00 (Closed Sun)",
+        feature: "Featured",
+        spicy: "Spicy",
+        coriander: "Coriander",
+        peanut: "Peanut",
+        rice: "Rice option",
       }
+    };
+
+    let currentLang = "zh";
+    function t(key) {
+      return (I18N[currentLang] && I18N[currentLang][key]) || (I18N.zh[key] ?? key);
+    }
+    function applyI18n() {
+      $$("[data-i18n]").forEach(el => {
+        const k = el.getAttribute("data-i18n");
+        el.textContent = t(k);
+      });
+      $$(".lang-btn").forEach(btn => {
+        btn.setAttribute("aria-pressed", btn.dataset.lang === currentLang ? "true" : "false");
+      });
+      renderMenu(lastMenuData);
     }
 
-    // Menu card image subtle drift
-    document.querySelectorAll('.menu-card-media').forEach((media) => {
-      const r = media.getBoundingClientRect();
-      if (r.bottom < -140 || r.top > window.innerHeight + 140) return;
-      const mid = r.top + r.height / 2;
-      const delta = (mid - window.innerHeight / 2) / window.innerHeight; // ~ -0.5..0.5
-      const y = clamp(Math.round(delta * -14), -16, 16);
-      const img = media.querySelector('.menu-card-img');
-      if (img) img.style.setProperty('--img-parallax', `${y}px`);
+    $$(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        currentLang = btn.dataset.lang;
+        applyI18n();
+      });
     });
-  }
 
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(updateParallax);
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  updateParallax();
-})();
-
-
- + 菜單載入 + 文案切換 ====== */
-(function () {
-  const menuWrapper = document.getElementById('menuWrapper');
-  const categoryTabsContainer = document.getElementById('categoryTabs');
-  const langSwitch = document.getElementById('langSwitch');
-
-  let globalMenuData = [];
-  let globalCategories = [];
-  let currentCategoryId = '';
-  let currentLang = 'zh';
-
-  const i18n = {
-    zh: {
-      navAbout: '關於我們',
-      navMenu: '菜單',
-      navPicture: '照片',
-      navReview: 'Google 評論與地圖',
-      navContact: '聯絡我',
-      navLangLabel: '語言 / Language',
-
-      heroTitle: '昆雅泰式料理 <span>Khunya Thai Cuisine</span>',
-      heroSubtitle: '板橋巷弄裡的泰國家常餐桌，打拋飯、清邁金麵、船麵與泰式奶茶，天天都可以吃的那種。',
-      heroMeta: '<strong>地址｜</strong>新北市板橋區文化路一段311之11號<br><strong>營業時間｜</strong>11:00–14:00、17:00–21:00（週日公休）',
-      heroCtaLine: 'LINE 線上詢問',
-      heroCtaMap: '導航到我們',
-
-      menuTitle: '菜單',
-      menuSubtitle: '類別按鈕在標題下方，點選即可切換不同料理分類；右上角選單可以切換語言。',
-
-      pictureTitle: '照片',
-      pictureSubtitle: '',
-
-      reviewTitle: 'Google 評論與地圖',
-      reviewSubtitle: '每一次看到客人再次回到我們的餐桌，對我們來說都是最真實、最動人的肯定。<br>謝謝你們願意把用餐的時光交給我們，也謝謝你們喜歡我們用心準備的每一道料理。<br>你們的支持，是我們持續精進、追求更好味道的最大動力。',
-      reviewButton: '在 Google 地圖上查看位置與評論',
-
-      aboutTitle: '關於我們',
-      aboutSubtitle: '昆雅泰式料由泰國與台灣夥伴共同經營，希望把泰國日常餐桌上的味道，用溫柔而堅持的方式帶到板橋。',
-      aboutBody: '我們不追求華麗擺盤，而是專注在「日常可以常吃、又保留泰國靈魂」的家常菜。<br>醬料、咖哩與湯底堅持自己熬煮，盡量使用原始香料與食材，不過度改良成台式口味。',
-      aboutHighlight: '<strong>打拋飯、清邁金麵、泰式船麵與泰式奶茶</strong> 是我們最想推薦給你的幾道料理。<br>如果有機會，也歡迎你來店裡坐坐，慢慢吃、慢慢聊天。',
-
-      contactTitle: '聯絡我',
-      contactSubtitle: '有任何問題、想預訂或確認營業時間，都可以透過 LINE 加入我們，直接聊。',
-      contactLineLabel: 'LINE',
-      contactAddressLabel: '地址',
-      contactHoursLabel: '營業時間',
-
-      featuredBadge: '主打推薦',
-      footer: '&copy; 2024 KHUNYA THAI CUISINE • AUTHENTIC THAI FLAVORS'
-    },
-    th: {
-      navAbout: 'เกี่ยวกับเรา',
-      navMenu: 'เมนู',
-      navPicture: 'รูปภาพ',
-      navReview: 'รีวิว & แผนที่ Google',
-      navContact: 'ติดต่อร้าน',
-      navLangLabel: 'ภาษา / Language',
-
-      heroTitle: 'คุณย่า อาหารไทย <span>Khunya Thai Cuisine</span>',
-      heroSubtitle: 'ร้านอาหารไทยแบบโฮมเมดเล็ก ๆ ในบันเฉียว เสิร์ฟข้าวกะเพรา ข้าวซอย ก๋วยเตี๋ยวเรือ และชาไทย กินได้ทุกวันไม่เบื่อ',
-      heroMeta: '<strong>ที่อยู่｜</strong>เขตปั่นเฉียว เมืองนิวไทเป ถนนเหวินหัว เซค 1 เลขที่ 311-11<br><strong>เวลา｜</strong>11:00–14:00, 17:00–21:00 (หยุดวันอาทิตย์)',
-      heroCtaLine: 'คุยกับร้านผ่าน LINE',
-      heroCtaMap: 'เปิดแผนที่นำทาง',
-
-      menuTitle: 'เมนู',
-      menuSubtitle: 'ปุ่มหมวดหมู่จะอยู่ใต้หัวข้อเมนู สามารถเปลี่ยนประเภทอาหารได้ และเปลี่ยนภาษาได้จากเมนูมุมขวาบน',
-
-      pictureTitle: 'รูปภาพ',
-      pictureSubtitle: '',
-
-      reviewTitle: 'รีวิว & แผนที่ Google',
-      reviewSubtitle: 'ทุกครั้งที่เราได้เห็นลูกค้ากลับมาทานอีกครั้ง<br>ถือเป็นคำชื่นชมที่จริงใจและมีความหมายที่สุดสำหรับเรา<br>ขอบคุณที่มอบช่วงเวลาแห่งการรับประทานอาหารให้กับเรา<br>และขอบคุณที่ชื่นชอบอาหารที่เราตั้งใจทำทุกจาน<br>กำลังใจจากทุกคน ทำให้เรามุ่งมั่นพัฒนารสชาติให้ดียิ่งขึ้นเสมอ',
-      reviewButton: 'เปิดดูรีวิวและตำแหน่งบน Google Maps',
-
-      aboutTitle: 'เกี่ยวกับเรา',
-      aboutSubtitle: 'คุณย่า อาหารไทย เกิดจากการร่วมมือระหว่างเพื่อนชาวไทยและชาวไต้หวัน อยากนำรสชาติอาหารบ้าน ๆ ของไทย มาถ่ายทอดที่บันเฉียวอย่างจริงใจ',
-      aboutBody: 'เราไม่ได้เน้นการจัดจานหรูหรา แต่ตั้งใจทำอาหารที่ “กินได้ทุกวัน และยังคงความเป็นไทยแท้”<br>น้ำพริก เครื่องแกง และน้ำซุป พยายามทำเองให้มากที่สุด ใช้สมุนไพรและวัตถุดิบแบบดั้งเดิม ไม่ดัดแปลงให้เป็นรสไต้หวันมากเกินไป',
-      aboutHighlight: '<strong>ข้าวกะเพรา ข้าวซอย ก๋วยเตี๋ยวเรือ และชาไทย</strong> คือเมนูที่เราอยากให้คุณได้ลองมากที่สุด<br>ถ้ามีเวลา แวะมานั่งกินช้า ๆ คุยกันสบาย ๆ ที่ร้านได้นะ',
-
-      contactTitle: 'ติดต่อร้าน',
-      contactSubtitle: 'หากต้องการสอบถามข้อมูล สำรองที่นั่ง หรือเช็คเวลาเปิดปิด ทัก LINE มาคุยกับเราได้เลย',
-      contactLineLabel: 'LINE',
-      contactAddressLabel: 'ที่อยู่',
-      contactHoursLabel: 'เวลาเปิดทำการ',
-
-      featuredBadge: 'เมนูแนะนำ',
-      footer: '&copy; 2024 KHUNYA THAI CUISINE • AUTHENTIC THAI FLAVORS'
-    },
-    en: {
-      navAbout: 'About Us',
-      navMenu: 'Menu',
-      navPicture: 'Pictures',
-      navReview: 'Google Reviews & Map',
-      navContact: 'Contact Us',
-      navLangLabel: 'Language',
-
-      heroTitle: 'Khunya Thai Cuisine <span>昆雅泰式料理</span>',
-      heroSubtitle: 'A small home-style Thai kitchen in Banqiao, serving basil rice, Chiang Mai khao soi, boat noodles and Thai milk tea—comfort food you can enjoy any day.',
-      heroMeta: '<strong>Address｜</strong>No. 311-11, Sec. 1, Wenhua Rd., Banqiao, New Taipei City<br><strong>Hours｜</strong>11:00–14:00, 17:00–21:00 (Closed on Sundays)',
-      heroCtaLine: 'Chat on LINE',
-      heroCtaMap: 'Open in Maps',
-
-      menuTitle: 'Menu',
-      menuSubtitle: 'Category buttons are placed under the menu title. Tap to switch dish types; change language from the top-right menu.',
-
-      pictureTitle: 'Pictures',
-      pictureSubtitle: '',
-
-      reviewTitle: 'Google Reviews & Map',
-      reviewSubtitle: 'Every time we see our guests return, it is one of the most meaningful forms of appreciation we could receive.<br>Thank you for choosing to spend your mealtime with us, and for enjoying the dishes we prepare with care.<br>Your support inspires us to keep improving and to pursue even better flavors every day.',
-      reviewButton: 'Open Google Maps for reviews & location',
-
-      aboutTitle: 'About Us',
-      aboutSubtitle: 'Khunya Thai Cuisine is run by Thai and Taiwanese partners, bringing everyday Thai flavors to Banqiao with care and persistence.',
-      aboutBody: 'We do not chase fancy plating. Instead, we focus on home-style dishes that you can enjoy often, while keeping an authentic Thai soul.<br>Our sauces, curries, and soups are mostly made in-house, using real herbs and ingredients, without over-adjusting everything to “Taiwanese style”.',
-      aboutHighlight: '<strong>Basil rice, Chiang Mai Khao Soi, Thai boat noodles and Thai milk tea</strong> are the dishes we most recommend.<br>If you have time, we would love to have you sit down, eat slowly, and chat with us at the restaurant.',
-
-      contactTitle: 'Contact Us',
-      contactSubtitle: 'For questions, reservations, or business hours, feel free to add our LINE account and message us directly.',
-      contactLineLabel: 'LINE',
-      contactAddressLabel: 'Address',
-      contactHoursLabel: 'Hours',
-
-      featuredBadge: 'Signature',
-      footer: '&copy; 2024 KHUNYA THAI CUISINE • AUTHENTIC THAI FLAVORS'
+    // ====== Smoother scroll (Lenis, fallback safe) ======
+    let lenis = null;
+    try {
+      if (window.Lenis) {
+        lenis = new Lenis({ duration: 1.05, smoothWheel: true, smoothTouch: false });
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+      }
+    } catch (e) {
+      // silent fallback
     }
-  };
-
-  function detectInitialLang() {
-    const navLang =
-      (navigator.languages && navigator.languages[0]) ||
-      navigator.language ||
-      navigator.userLanguage ||
-      '';
-    const lower = String(navLang).toLowerCase();
-    if (lower.startsWith('zh')) return 'zh';
-    if (lower.startsWith('th')) return 'th';
-    return 'en';
-  }
-
-  function updateHtmlLangAttr() {
-    const html = document.documentElement;
-    if (!html) return;
-    html.lang = (currentLang === 'zh') ? 'zh-TW' : (currentLang === 'th') ? 'th' : 'en';
-  }
-
-  function updateLangButtons() {
-    if (!langSwitch) return;
-    Array.from(langSwitch.querySelectorAll('.lang-btn')).forEach(b => {
-      b.classList.toggle('active', b.dataset.lang === currentLang);
+    // anchor scroll
+    $$('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", (e) => {
+        const id = a.getAttribute("href");
+        if (!id || id === "#") return;
+        const target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        const y = target.getBoundingClientRect().top + window.scrollY - 70;
+        if (lenis) lenis.scrollTo(y);
+        else window.scrollTo({ top: y, behavior: "smooth" });
+      });
     });
-  }
 
-  function applyStaticTexts() {
-    const t = i18n[currentLang] || i18n.zh;
-    const setHTML = (id, html) => {
-      const el = document.getElementById(id);
-      if (el && html !== undefined) el.innerHTML = html;
-    };
-    const setSpan = (id, text) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const span = el.querySelector('span');
-      if (span) span.textContent = text;
-    };
+    // ====== Scroll reveal ======
+    const io = new IntersectionObserver((entries) => {
+      for (const ent of entries) {
+        if (ent.isIntersecting) {
+          ent.target.classList.add("in");
+          io.unobserve(ent.target);
+        }
+      }
+    }, { threshold: 0.16 });
+    $$(".reveal").forEach(el => io.observe(el));
 
-    setHTML('navAboutLabel', t.navAbout);
-    setHTML('navMenuLabel', t.navMenu);
-    setHTML('navPictureLabel', t.navPicture);
-    setHTML('navReviewLabel', t.navReview);
-    setHTML('navContactLabel', t.navContact);
-    setHTML('navLangLabel', t.navLangLabel);
-
-    setHTML('heroTitle', t.heroTitle);
-    setHTML('heroSubtitle', t.heroSubtitle);
-    setHTML('heroMeta', t.heroMeta);
-    setHTML('heroTitleDesktop', t.heroTitle);
-    setHTML('heroSubtitleDesktop', t.heroSubtitle);
-    setHTML('heroMetaDesktop', t.heroMeta);
-
-    setSpan('heroCtaLine', t.heroCtaLine);
-    setSpan('heroCtaMap', t.heroCtaMap);
-    setSpan('heroCtaLineDesktop', t.heroCtaLine);
-    setSpan('heroCtaMapDesktop', t.heroCtaMap);
-
-    setHTML('menuTitle', t.menuTitle);
-    setHTML('menuSubtitle', t.menuSubtitle);
-
-    setHTML('pictureTitle', t.pictureTitle);
-    setHTML('pictureSubtitle', t.pictureSubtitle);
-
-    setHTML('reviewTitle', t.reviewTitle);
-    setHTML('reviewSubtitle', t.reviewSubtitle);
-    setHTML('reviewButton', t.reviewButton);
-
-    setHTML('aboutTitle', t.aboutTitle);
-    setHTML('aboutSubtitle', t.aboutSubtitle);
-    setHTML('aboutBody', t.aboutBody);
-    setHTML('aboutHighlight', t.aboutHighlight);
-
-    setHTML('contactTitle', t.contactTitle);
-    setHTML('contactSubtitle', t.contactSubtitle);
-    setHTML('contactLineLabel', t.contactLineLabel);
-    setHTML('contactAddressLabel', t.contactAddressLabel);
-    setHTML('contactHoursLabel', t.contactHoursLabel);
-
-    setHTML('footerText', t.footer);
-
-    updateHtmlLangAttr();
-    updateLangButtons();
-  }
-
-  function getCategoryLabel(cat) {
-    if (currentLang === 'zh') return cat.zh || cat.en || cat.th || '';
-    if (currentLang === 'th') return cat.th || cat.en || cat.zh || '';
-    return cat.en || cat.zh || cat.th || '';
-  }
-
-  function getItemName(item) {
-    if (currentLang === 'zh') return item.nameZh || item.nameEn || item.nameTh || '';
-    if (currentLang === 'th') return item.nameTh || item.nameEn || item.nameZh || '';
-    return item.nameEn || item.nameZh || item.nameTh || '';
-  }
-
-  function renderTabs(categories, activeCategoryId) {
-    if (!categoryTabsContainer) return;
-    categoryTabsContainer.innerHTML = '';
-    categories.forEach(cat => {
-      const label = getCategoryLabel(cat);
-      const tab = document.createElement('button');
-      tab.type = 'button';
-      tab.className = 'category-tab' + (cat.id === activeCategoryId ? ' active' : '');
-      tab.dataset.categoryId = cat.id;
-      tab.textContent = label;
-      tab.addEventListener('click', () => setActiveCategory(cat.id));
-      categoryTabsContainer.appendChild(tab);
+    // ====== Lightbox ======
+    const lightbox = $("#lightbox");
+    const lightboxImg = $("#lightboxImg");
+    lightbox.addEventListener("click", () => {
+      lightbox.classList.remove("show");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImg.src = "";
     });
-  }
 
-  function renderMenu() {
-    if (!menuWrapper) return;
-    if (!globalCategories || !globalCategories.length) return;
+    // ====== Menu rendering ======
+    let lastMenuData = null;
 
-    const t = i18n[currentLang] || i18n.zh;
+    function getItemName(it) {
+      if (currentLang === "th") return it.nameTh || it.nameZh || it.nameEn || "";
+      if (currentLang === "en") return it.nameEn || it.nameZh || it.nameTh || "";
+      return it.nameZh || it.nameEn || it.nameTh || "";
+    }
+    function getItemDesc(it) {
+      if (currentLang === "th") return it.descTh || it.descZH || it.descEn || "";
+      if (currentLang === "en") return it.descEn || it.descZH || it.descTh || "";
+      return it.descZH || it.descEn || it.descTh || "";
+    }
+    function getCategoryName(it) {
+      if (currentLang === "th") return it.categoryTh || it.categoryZh || it.categoryEn || "Menu";
+      if (currentLang === "en") return it.categoryEn || it.categoryZh || it.categoryTh || "Menu";
+      return it.categoryZh || it.categoryEn || it.categoryTh || "菜單";
+    }
 
-    const escHtml = (s) => String(s ?? '')
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+    function resolveImage(code, imageUrl) {
+      if (imageUrl) return imageUrl;
+      return `menu-images/${code}.jpg`;
+    }
 
-    const getDesc = (item) => {
-      if (currentLang === 'zh') return item.descZH || '';
-      if (currentLang === 'th') return item.descTh || '';
-      return item.descEn || '';
-    };
+    function createBadge(text) {
+      const span = document.createElement("span");
+      span.className = "badge";
+      span.textContent = text;
+      return span;
+    }
 
-    const getFlags = (item) => {
-      const flags = [];
-      if (item.spice) flags.push(currentLang === 'th' ? '🌶 ปรับความเผ็ดได้' : (currentLang === 'en' ? '🌶 Spice level adjustable' : '🌶 辣度可調'));
-      if (item.coriander) flags.push(currentLang === 'th' ? '🌿 มีผักชี' : (currentLang === 'en' ? '🌿 Contains cilantro' : '🌿 含香菜'));
-      if (item.peanut) flags.push(currentLang === 'th' ? '🥜 มีถั่วลิสง' : (currentLang === 'en' ? '🥜 Contains peanuts' : '🥜 含花生'));
-      return flags;
-    };
+    function renderMenu(data) {
+      if (!data) return;
+      const root = $("#menuRoot");
+      root.innerHTML = "";
 
-    const buildImgTag = (item, altText) => {
-      // Priority: imageUrl (if provided) > menu-images/<code>.jpg|jpeg|png|webp
-      const code = (item.code || item.coed || '').trim();
-      const base = code ? `menu-images/${code}` : '';
-      const primary = item.imageUrl ? item.imageUrl : (base ? `${base}.jpg` : '');
-      const alts = item.imageUrl ? [] : (base ? [`${base}.jpeg`, `${base}.png`, `${base}.webp`] : []);
-      const dataAlt = alts.join('|');
-      const safeAlt = escHtml(altText || code || 'menu item');
-      const srcAttr = primary ? `src="${escHtml(primary)}"` : '';
-      const altAttr = `alt="${safeAlt}"`;
-      const dataAttr = dataAlt ? `data-alt="${escHtml(dataAlt)}"` : '';
-      return `<img class="menu-card-img" ${srcAttr} ${altAttr} ${dataAttr} loading="lazy" decoding="async">`;
-    };
+      // group by category key (use zh as stable grouping)
+      const groups = new Map();
+      for (const it of data) {
+        const key = it.categoryZh || it.categoryEn || it.categoryTh || "Other";
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push(it);
+      }
 
-    const categoriesHtml = globalCategories.map(cat => {
-      const catLabel = getCategoryLabel(cat);
-      const items = globalMenuData.filter(item => item.categoryZh === cat.id);
+      // Featured first section (optional)
+      const featured = data.filter(it => it.feature);
+      if (featured.length) {
+        const sec = buildCategorySection(t("feature"), featured, "featured");
+        root.appendChild(sec);
+      }
 
-      if (!items.length) return '';
+      for (const [key, items] of groups.entries()) {
+        // skip items already shown in featured carousel (but still keep in their category? up to you)
+        const secTitle = getCategoryName(items[0]);
+        const sec = buildCategorySection(secTitle, items, key);
+        root.appendChild(sec);
+      }
 
-      const cardsHtml = items.map(item => {
-        const name = getItemName(item);
-        const desc = getDesc(item);
-        const price = (item.price || item.price === 0) ? `${item.price}` : '';
-        const isFeatured = item.feature === true || item.feature === 'true' || item.feature === 'TRUE' || item.feature === 1 || item.feature === '1';
-        const pillClass = 'menu-card-pill' + (isFeatured ? ' is-featured' : '');
-        const pillText = isFeatured ? (t.featuredBadge || '主打推薦') : ((item.code || item.coed || '').trim());
-        const flags = getFlags(item);
-        const flagsHtml = flags.length ? `<div class="menu-card-flags">${flags.map(f => `<span class="menu-flag">${escHtml(f)}</span>`).join('')}</div>` : '';
+      // Observe reveals created dynamically
+      $$("#menuRoot .reveal").forEach(el => io.observe(el));
+    }
 
-        return `
-          <article class="menu-card" data-code="${escHtml(item.code || item.coed || '')}">
-            <div class="menu-card-top">
-              <span class="${pillClass}">${escHtml(pillText)}</span>
-              <span class="menu-card-price">${escHtml(price)}</span>
-            </div>
-            <div class="menu-card-media">
-              ${buildImgTag(item, name)}
-            </div>
-            <div class="menu-card-title">${escHtml(name)}</div>
-            <div class="menu-card-desc">${escHtml(desc)}</div>
-            ${flagsHtml}
-          </article>
-        `;
-      }).join('');
+    function buildCategorySection(title, items, key) {
+      const wrap = document.createElement("div");
+      wrap.className = "cat";
 
-      // Secondary label: show EN category as a subtle hint when not in EN
-      const secondary = (currentLang === 'en') ? '' : (cat.en ? escHtml(cat.en) : '');
-
-      return `
-        <div class="menu-category" data-cat-id="${escHtml(cat.id)}">
-          <div class="menu-category-header">
-            <div class="menu-category-title">${escHtml(catLabel)}</div>
-            <div class="menu-category-subtitle">${secondary}</div>
-          </div>
-          <div class="menu-carousel" aria-label="${escHtml(catLabel)}">
-            ${cardsHtml}
-          </div>
+      const titleRow = document.createElement("div");
+      titleRow.className = "cat-title-row reveal";
+      titleRow.innerHTML = `
+        <h3 class="cat-title">${title}</h3>
+        <div class="carousel-controls" aria-label="carousel controls">
+          <button class="iconbtn" type="button" aria-label="prev">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M15 18 9 12l6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="iconbtn" type="button" aria-label="next">
+            <svg viewBox="0 0 24 24" fill="none"><path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
         </div>
       `;
-    }).join('');
+      wrap.appendChild(titleRow);
 
-    menuWrapper.innerHTML = categoriesHtml || '<p class="menu-empty">目前沒有可顯示的菜單項目。</p>';
+      const track = document.createElement("div");
+      track.className = "track";
+      track.setAttribute("data-key", key);
 
-    // Image fallback for menu cards
-    const imgs = Array.from(menuWrapper.querySelectorAll('.menu-card-img'));
-    imgs.forEach(img => {
-      const alts = (img.dataset.alt || '').split('|').filter(Boolean);
-      if (!alts.length) return;
-      img.dataset.altIndex = '0';
-      img.addEventListener('error', () => {
-        const i = parseInt(img.dataset.altIndex || '0', 10);
-        if (i >= alts.length) return;
-        img.dataset.altIndex = String(i + 1);
-        img.src = alts[i];
-      }, { once: false });
-    });
+      for (const it of items) {
+        const card = document.createElement("article");
+        card.className = "card reveal";
+        const pillClass = it.feature ? "pill feature" : "pill";
+        const pillText = it.feature ? t("feature") : getCategoryName(it);
+        const name = escapeHtml(getItemName(it));
+        const desc = escapeHtml(getItemDesc(it));
+        const price = Number(it.price || 0);
 
+        const imgSrc = resolveImage(it.code, it.imageUrl);
 
-    // Reveal animation for dynamic nodes (category headers + cards)
-    try {
-      const headers = Array.from(menuWrapper.querySelectorAll('.menu-category-header'));
-      headers.forEach((el, i) => {
-        el.classList.add('reveal');
-        el.style.transitionDelay = `${Math.min(i, 8) * 40}ms`;
-      });
+        card.innerHTML = `
+          <div class="card-top">
+            <span class="${pillClass}">${pillText}</span>
+          </div>
+          <div class="media">
+            <div class="imgwrap">
+              <img loading="lazy" alt="${name}" src="${imgSrc}" data-code="${it.code}" />
+            </div>
+          </div>
+          <div class="card-body">
+            <h4 class="title">${name}</h4>
+            <p class="desc">${desc}</p>
+            <div class="row">
+              <div class="price">$${price}</div>
+              <div class="badges"></div>
+            </div>
+          </div>
+        `;
 
-      const cards = Array.from(menuWrapper.querySelectorAll('.menu-card'));
-      cards.forEach((el, i) => {
-        el.classList.add('reveal');
-        el.style.transitionDelay = `${Math.min(i % 10, 9) * 30}ms`;
-      });
+        const badges = card.querySelector(".badges");
+        if (it.spice) badges.appendChild(createBadge("🌶 " + t("spicy")));
+        if (it.coriander) badges.appendChild(createBadge("🌿 " + t("coriander")));
+        if (it.peanut) badges.appendChild(createBadge("🥜 " + t("peanut")));
+        if (it.rice) badges.appendChild(createBadge("🍚 " + t("rice")));
 
-      if (window.__applyReveals) window.__applyReveals();
-    } catch (e) {}
-
-    // Ensure active tab reflects currentCategoryId, but do not scroll on (re)render.
-    if (currentCategoryId) setActiveCategory(currentCategoryId, false);
-  }
-
-  function setActiveCategory(categoryId, shouldScroll = true) {
-    currentCategoryId = categoryId;
-
-    if (categoryTabsContainer) {
-      Array.from(categoryTabsContainer.querySelectorAll('.category-tab')).forEach(tab => {
-        tab.classList.toggle('active', tab.dataset.categoryId === categoryId);
-      });
-    }
-
-    if (!shouldScroll) return;
-
-    // Scroll to category block
-    const esc = (window.CSS && CSS.escape) ? CSS.escape : (s) => String(s).replace(/["\\]/g, "\\$&");
-    const selector = `.menu-category[data-cat-id="${esc(categoryId)}"]`;
-    const target = menuWrapper ? menuWrapper.querySelector(selector) : null;
-    if (target) window.__scrollToSection ? window.__scrollToSection(target, -80) : target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  function initMenu(menuData) {
-    if (!menuData || !menuData.length) {
-      menuWrapper.innerHTML = '<p class="menu-empty">找不到任何菜單資料，請確認 menu.json 內容。</p>';
-      return;
-    }
-
-    globalMenuData = menuData.map(item => ({
-      code: item.code ?? item.coed ?? '',
-      coed: item.coed ?? item.code ?? '',
-      categoryZh: item.categoryZh || '',
-      categoryTh: item.categoryTh || '',
-      categoryEn: item.categoryEn || '',
-      nameZh: item.nameZh || '',
-      nameTh: item.nameTh || '',
-      nameEn: item.nameEn || '',
-      descZH: item.descZH || '',
-      descTh: item.descTh || '',
-      descEn: item.descEn || '',
-      price: item.price,
-      feature: item.feature,
-      spice: !!item.spice,
-      coriander: !!item.coriander,
-      peanut: !!item.peanut,
-      rice: item.rice,
-      ice_sugar: item.ice_sugar,
-      add_on: !!item.add_on,
-      type: item.type || '',
-      imageUrl: item.imageUrl || null
-    }));
-
-    const catMap = new Map();
-    globalMenuData.forEach(item => {
-      const id = item.categoryZh || '';
-      if (!id) return;
-      if (!catMap.has(id)) {
-        catMap.set(id, { id, zh: item.categoryZh || '', th: item.categoryTh || '', en: item.categoryEn || '' });
-      }
-    });
-    globalCategories = Array.from(catMap.values());
-
-    if (!globalCategories.length) {
-      menuWrapper.innerHTML = '<p class="menu-empty">menu.json 裡沒有 categoryZh 資料。</p>';
-      return;
-    }
-
-    currentCategoryId = globalCategories[0].id;
-    applyStaticTexts();
-    renderTabs(globalCategories, currentCategoryId);
-    renderMenu();
-  }
-
-  function loadMenu() {
-    if (!menuWrapper) return;
-    menuWrapper.innerHTML = '<p class="menu-empty">載入菜單中…</p>';
-
-    const url = new URL('/menu.json', window.location.origin);
-    // Avoid cache issues during deployment
-    const fetchUrl = url.toString() + (url.search ? '&' : '?') + 'v=' + Date.now();
-
-    fetch(fetchUrl, { cache: 'no-store' })
-      .then(res => {
-        if (!res.ok) throw new Error('menu.json 載入失敗 (HTTP ' + res.status + ')');
-        return res.json();
-      })
-      .then(data => initMenu(data))
-      .catch(err => {
-        console.error(err);
-        menuWrapper.innerHTML =
-          '<p class="menu-error">載入菜單發生錯誤，請確認：<br>' +
-          '1. 目前頁面網址：' + window.location.href + '<br>' +
-          '2. 目前抓取網址：' + fetchUrl + '<br>' +
-          '3. menu.json 是否可存取（你可直接點開測試）<br>' +
-          '4. menu.json 內容是否為合法 JSON</p>';
-      });
-  }
-
-  if (langSwitch) {
-    langSwitch.addEventListener('click', e => {
-      const btn = e.target.closest('.lang-btn');
-      if (!btn) return;
-      const lang = btn.dataset.lang;
-      if (!lang || lang === currentLang) return;
-      currentLang = lang;
-      applyStaticTexts();
-      renderTabs(globalCategories, currentCategoryId);
-      renderMenu();
-    });
-  }
-
-  currentLang = detectInitialLang();
-  applyStaticTexts();
-  loadMenu();
-})();
-
-/* ====== 右上角漢堡選單：開關 + 捲動 ====== */
-(function () {
-  const navToggle = document.getElementById('navToggle');
-  const navMenu = document.getElementById('navMenu');
-  if (!navToggle || !navMenu) return;
-
-  navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
-  });
-
-  navMenu.addEventListener('click', (e) => {
-    const btn = e.target.closest('.nav-menu-item');
-    if (!btn) return;
-    const targetId = btn.dataset.target;
-    if (!targetId) return;
-
-    const section = document.getElementById(targetId);
-    if (section) {
-      navMenu.classList.remove('open');
-      window.__scrollToSection ? window.__scrollToSection(section, -80) : section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!navMenu.classList.contains('open')) return;
-    if (e.target.closest('.nav-wrapper')) return;
-    navMenu.classList.remove('open');
-  });
-})();
-
-/* ====== Lightbox：點擊看大圖（Hero 不啟用；菜單卡片啟用） ====== */
-(function () {
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  if (!lightbox || !lightboxImg) return;
-
-  document.addEventListener('click', function (e) {
-    const coverImg = e.target.closest('.coverflow-img');
-    const menuCard = e.target.closest('.menu-card');
-    let img = coverImg;
-    if (!img && menuCard) img = menuCard.querySelector('.menu-card-img');
-    if (!img) return;
-    if (!img) return;
-
-    lightboxImg.src = img.src;
-    lightbox.classList.add('show');
-  });
-
-  lightbox.addEventListener('click', function () {
-    lightbox.classList.remove('show');
-    lightboxImg.src = '';
-  });
-})();
-
-/* ====== Coverflow：中間放大、兩側縮小模糊 + 無限循環（1>2>3>1...，左邊有 3 右邊有 2） ====== */
-(function () {
-  function setupInfiniteCoverflow(trackId) {
-    const track = document.getElementById(trackId);
-    if (!track) return;
-
-    const original = Array.from(track.children);
-    const n = original.length;
-    if (n < 2) return;
-
-    // 只做一次（避免重複 clone）
-    if (track.dataset.infiniteReady === "1") return;
-    track.dataset.infiniteReady = "1";
-
-    // prepend + append clones（總共 3 組）
-    const prependFrag = document.createDocumentFragment();
-    const appendFrag = document.createDocumentFragment();
-
-    original.forEach(node => {
-      appendFrag.appendChild(node.cloneNode(true));
-    });
-    original.forEach(node => {
-      prependFrag.appendChild(node.cloneNode(true));
-    });
-
-    // 插入：先 prepend，再 append
-    track.insertBefore(prependFrag, track.firstChild);
-    track.appendChild(appendFrag);
-
-    // 置中到「中間那組」
-    const recenter = () => {
-      const base = track.scrollWidth / 3;
-      track.scrollLeft = base + 1;
-    };
-    // 等 layout 完成
-    requestAnimationFrame(() => {
-      recenter();
-      updateActive();
-    });
-
-    // 無限循環：接近兩端就跳回中間
-    const wrapIfNeeded = () => {
-      const base = track.scrollWidth / 3;
-      if (base <= 0) return;
-
-      if (track.scrollLeft < base * 0.25) {
-        track.scrollLeft += base;
-      } else if (track.scrollLeft > base * 1.75) {
-        track.scrollLeft -= base;
-      }
-    };
-
-    function updateActive() {
-      const children = Array.from(track.children);
-      if (!children.length) return;
-
-      const centerX = track.scrollLeft + track.clientWidth / 2;
-      let best = null;
-      let bestDist = Infinity;
-
-      children.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        // element center relative to track scroll space
-        const elCenter = el.offsetLeft + el.offsetWidth / 2;
-        const dist = Math.abs(elCenter - centerX);
-        if (dist < bestDist) {
-          bestDist = dist;
-          best = el;
-        }
-      });
-
-      children.forEach(el => el.classList.toggle("is-active", el === best));
-    }
-
-    let ticking = false;
-    track.addEventListener("scroll", () => {
-      wrapIfNeeded();
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(() => {
-          updateActive();
-          ticking = false;
+        // Image fallbacks (.jpg -> .jpeg -> .png -> .webp)
+        const img = card.querySelector("img");
+        const tryExt = [".jpg", ".jpeg", ".png", ".webp"];
+        img.addEventListener("error", () => {
+          const code = img.dataset.code;
+          const current = img.src;
+          const idx = tryExt.findIndex(ext => current.includes(code + ext));
+          const nextIdx = idx + 1;
+          if (nextIdx < tryExt.length) {
+            img.src = `menu-images/${code}${tryExt[nextIdx]}`;
+          } else {
+            // placeholder
+            img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='800' height='800'><rect width='100%' height='100%' fill='#f2eee7'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='#777' font-family='Arial' font-size='28'>NO IMAGE</text></svg>`);
+          }
         });
+
+        // Lightbox
+        card.addEventListener("click", (e) => {
+          const targetImg = card.querySelector("img");
+          if (!targetImg) return;
+          lightboxImg.src = targetImg.src;
+          lightbox.classList.add("show");
+          lightbox.setAttribute("aria-hidden", "false");
+        });
+
+        // Subtle parallax in-card image
+        card.addEventListener("mousemove", (e) => {
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          const rect = card.getBoundingClientRect();
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          const imgEl = card.querySelector(".imgwrap img");
+          if (imgEl) imgEl.style.transform = `translateY(${y * 6}px)`;
+        });
+        card.addEventListener("mouseleave", () => {
+          const imgEl = card.querySelector(".imgwrap img");
+          if (imgEl) imgEl.style.transform = "translateY(0px)";
+        });
+
+        track.appendChild(card);
       }
-    }, { passive: true });
 
-    window.addEventListener("resize", () => {
-      recenter();
-      updateActive();
-    });
-  }
+      wrap.appendChild(track);
 
-  setupInfiniteCoverflow("photoStrip");
-  setupInfiniteCoverflow("reviewStrip");
-})();
+      // Buttons scroll
+      const btnPrev = titleRow.querySelector('button[aria-label="prev"]');
+      const btnNext = titleRow.querySelector('button[aria-label="next"]');
+      function scrollByCards(dir) {
+        const card = track.querySelector(".card");
+        const w = card ? card.getBoundingClientRect().width : 260;
+        track.scrollBy({ left: dir * (w + 12) * 1.2, behavior: "smooth" });
+      }
+      btnPrev.addEventListener("click", () => scrollByCards(-1));
+      btnNext.addEventListener("click", () => scrollByCards(1));
 
-/* ====== Hero：滿版輪播（手機可右滑），桌機右側縮圖 1-2-3 ====== */
-(function () {
-  const slider = document.getElementById("heroSlider");
-  const dotsEl = document.getElementById("heroDots");
-  const thumbsEl = document.getElementById("heroThumbs");
-  if (!slider) return;
-
-  const slides = Array.from(slider.children);
-  const total = slides.length;
-  if (total <= 1) return;
-
-  let index = 0;
-  let timer = null;
-
-  function renderDots() {
-    if (!dotsEl) return;
-    dotsEl.innerHTML = "";
-    for (let i = 0; i < total; i++) {
-      const b = document.createElement("button");
-      b.className = "hero-dot" + (i === index ? " active" : "");
-      b.type = "button";
-      b.setAttribute("aria-label", "Go to slide " + (i + 1));
-      b.addEventListener("click", () => go(i, true));
-      dotsEl.appendChild(b);
+      return wrap;
     }
-  }
 
-  function updateDots() {
-    if (!dotsEl) return;
-    Array.from(dotsEl.querySelectorAll(".hero-dot")).forEach((d, i) => {
-      d.classList.toggle("active", i === index);
-    });
-  }
-
-  function updateThumbs() {
-    if (!thumbsEl) return;
-    Array.from(thumbsEl.querySelectorAll(".hero-thumb")).forEach((t, i) => {
-      t.classList.toggle("active", i === index);
-    });
-  }
-
-  function go(i, fromUser=false) {
-    index = (i + total) % total;
-    slider.style.transform = "translateX(-" + (index * 100) + "%)";
-    updateDots();
-    updateThumbs();
-    if (fromUser) restart();
-  }
-
-  function start() {
-    stop();
-    timer = setInterval(() => go(index + 1, false), 4500);
-  }
-
-  function stop() {
-    if (timer) clearInterval(timer);
-    timer = null;
-  }
-
-  function restart() {
-    start();
-  }
-
-  // Dots
-  renderDots();
-  updateThumbs();
-  go(0);
-
-  // Desktop thumbs click
-  if (thumbsEl) {
-    thumbsEl.addEventListener("click", (e) => {
-      const btn = e.target.closest(".hero-thumb");
-      if (!btn) return;
-      const i = parseInt(btn.dataset.heroIndex, 10);
-      if (!Number.isFinite(i)) return;
-      go(i, true);
-    });
-  }
-
-  // Swipe (touch / pointer)
-  let startX = 0;
-  let isDown = false;
-
-  slider.addEventListener("pointerdown", (e) => {
-    isDown = true;
-    startX = e.clientX;
-    stop();
-    slider.setPointerCapture(e.pointerId);
-  });
-
-  slider.addEventListener("pointerup", (e) => {
-    if (!isDown) return;
-    isDown = false;
-    const dx = e.clientX - startX;
-    if (Math.abs(dx) > 40) {
-      go(index + (dx < 0 ? 1 : -1), true);
-    } else {
-      restart();
+    function escapeHtml(str) {
+      return String(str || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
     }
-  });
 
-  slider.addEventListener("pointercancel", () => {
-    isDown = false;
-    restart();
-  });
+    async function loadMenu() {
+      const status = $("#menuStatus");
+      status.textContent = "載入菜單中…";
 
-  // Pause on hover (desktop)
-  const hero = document.getElementById("home");
-  if (hero) {
-    hero.addEventListener("mouseenter", stop);
-    hero.addEventListener("mouseleave", start);
-  }
+      const candidates = [
+        new URL("./menu.json", window.location.href).toString(),
+        "https://khunyathai.com/menu.json"
+      ];
 
-  start();
-})();
+      let lastErr = null;
+      for (const u of candidates) {
+        try {
+          const res = await fetch(u + (u.includes("?") ? "&" : "?") + "v=" + Date.now(), { cache: "no-store" });
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          const data = await res.json();
+          if (!Array.isArray(data)) throw new Error("menu.json format error");
+          lastMenuData = data;
+          status.remove();
+          renderMenu(data);
+          return;
+        } catch (e) {
+          lastErr = e;
+        }
+      }
 
-</script>
+      status.className = "error";
+      status.textContent = "菜單載入失敗：請確認 menu.json 是否在網站根目錄，或檔案大小/格式是否正確。(" + (lastErr ? lastErr.message : "unknown") + ")";
+      console.error(lastErr);
+    }
 
+    // ====== Hero parallax (safe) ======
+    const hero = document.querySelector(".hero");
+    function onScrollParallax() {
+      if (!hero) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const y = window.scrollY || 0;
+      const p = Math.min(220, y * 0.18);
+      hero.style.backgroundPosition = `center calc(50% + ${p}px)`;
+    }
+    window.addEventListener("scroll", onScrollParallax, { passive: true });
+    onScrollParallax();
+
+    // ====== Start ======
+    loadMenu();
+    applyI18n();
+  </script>
 </body>
 </html>
