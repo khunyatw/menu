@@ -360,6 +360,8 @@
 
     .card-body {
       padding: 12px 12px 14px;
+      display: flex;
+      flex-direction: column;
     }
     .title {
       margin: 0;
@@ -376,9 +378,10 @@
       min-height: 42px;
     }
     .row {
+      margin-top: auto;           /* 這行是關鍵：整個 row 貼到卡片底部 */
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;     /* badges 在上、price 在下 */
+      align-items: flex-start;
       gap: 10px;
     }
     .price {
@@ -390,7 +393,8 @@
       gap: 6px;
       align-items: center;
       flex-wrap: wrap;
-      justify-content: flex-end;
+      justify-content: flex-start;  /* 靠左 */
+      width: 100%;                  /* 讓 badges 佔滿一行，視覺更穩 */
     }
     .badge {
       font-size: 11px;
@@ -988,8 +992,8 @@
             <h4 class="title">${name}</h4>
             <p class="desc">${desc}</p>
             <div class="row">
-              <div class="price">$${price}</div>
               <div class="badges"></div>
+              <div class="price">$${price}</div>
             </div>
           </div>
         `;
