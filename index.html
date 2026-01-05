@@ -1,23 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>昆雅泰式料理 Khunya Thai Cuisine｜板橋泰式家常菜線上菜單</title>
-  <meta name="description" content="昆雅泰式料理 Khunya Thai Cuisine｜板橋泰式家常菜線上菜單，支援中文 / 泰文 / 英文切換。主打打拋飯、泰式炒河粉、清邁金麵、泰式船麵與泰式奶茶。" />
-  <link rel="canonical" href="https://khunyathai.com/" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="昆雅泰式料理 Khunya Thai Cuisine｜線上菜單" />
-  <meta property="og:description" content="板橋泰式家常菜線上菜單，支援中文 / 泰文 / 英文切換。" />
-  <meta property="og:url" content="https://khunyathai.com/" />
-  <meta property="og:image" content="https://khunyathai.com/images/hero/1.jpeg" />
-
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+TC:wght@400;500;700;800&family=Kanit:wght@400;500;700&display=swap">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>昆雅泰式料理 Khunya Thai Cuisine｜板橋泰式家常菜線上菜單</title>
+<meta content="昆雅泰式料理 Khunya Thai Cuisine｜板橋泰式家常菜線上菜單，支援中文 / 泰文 / 英文切換。主打打拋飯、泰式炒河粉、清邁金麵、泰式船麵與泰式奶茶。" name="description"/>
+<link href="https://khunyathai.com/" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="昆雅泰式料理 Khunya Thai Cuisine｜線上菜單" property="og:title"/>
+<meta content="板橋泰式家常菜線上菜單，支援中文 / 泰文 / 英文切換。" property="og:description"/>
+<meta content="https://khunyathai.com/" property="og:url"/>
+<meta content="https://khunyathai.com/images/hero/1.jpeg" property="og:image"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&amp;family=Noto+Sans+TC:wght@400;500;700;800&amp;family=Kanit:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
     :root{
       /* uniam.jp inspired: soft lavender + warm neutrals */
       --bg: #E9E0F2;
@@ -903,206 +900,230 @@ body{
   border-radius: 18px !important;
 }
 
+
+
+/* ===== v7 adjustments: remove pictures/reviews, stronger CTA, unified radius, 50/50 cards ===== */
+:root{
+  --radius-lg: 20px;
+  --radius-md: 18px;
+  --radius-sm: 18px;
+}
+
+/* Primary CTA: obvious color */
+.cta-primary{
+  background: #FF4D2D !important;
+  border-color: #FF4D2D !important;
+  color: #ffffff !important;
+}
+.cta-primary:hover{
+  background: #FF3A17 !important;
+  border-color: #FF3A17 !important;
+}
+
+/* Unify corners across site */
+.hero{ border-radius: var(--radius-lg) !important; }
+.nav-menu{ border-radius: var(--radius-lg) !important; }
+.category-tabs{ border-radius: var(--radius-lg) !important; }
+.panel{ border-radius: var(--radius-lg) !important; }
+.modal-card{ border-radius: var(--radius-lg) !important; }
+.hero-thumb{ border-radius: var(--radius-md) !important; }
+.opt{ border-radius: var(--radius-md) !important; }
+
+/* Card layout: image/text 50/50 */
+.card{
+  display: flex !important;
+  align-items: stretch;
+}
+.card-media{
+  flex: 0 0 50%;
+  max-width: 50%;
+  background: rgba(0,0,0,0.06);
+}
+.card-media .card-img{
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;          /* keep dish photo square */
+  object-fit: cover;
+  display:block;
+}
+
+/* Body takes other half */
+.card-body{
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 14px 14px 14px !important;
+}
+
+/* Typography: calmer spacing (more Japanese-minimal) */
+.card-name{
+  letter-spacing: 0.02em !important;
+  line-height: 1.35 !important;
+}
+.card-price{
+  letter-spacing: 0.01em !important;
+}
+.card-desc{
+  line-height: 1.75 !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* Better on very small screens: keep 50/50 but reduce padding */
+@media (max-width: 380px){
+  .card-body{ padding: 12px !important; }
+}
+
+/* Featured cards keep same 50/50 rule */
+.featured-strip .card{
+  flex: 0 0 78%;
+  max-width: 560px;
+  scroll-snap-align: start;
+}
+@media (min-width: 768px){
+  .featured-strip .card{ flex-basis: 520px; }
+}
 </style>
 </head>
 <body>
+<div class="nav-wrapper">
+<button aria-label="Open navigation" class="nav-toggle" id="navToggle">
+<i class="ri-menu-line"></i>
+</button>
+<div class="nav-menu" id="navMenu">
+<button class="nav-menu-item" data-target="menu"><i class="ri-restaurant-line"></i><span id="navMenuLabel">菜單</span></button>
 
-  <div class="nav-wrapper">
-    <button class="nav-toggle" id="navToggle" aria-label="Open navigation">
-      <i class="ri-menu-line"></i>
-    </button>
 
-    <div class="nav-menu" id="navMenu">
-      <button class="nav-menu-item" data-target="menu"><i class="ri-restaurant-line"></i><span id="navMenuLabel">菜單</span></button>
-      <button class="nav-menu-item" data-target="pictures"><i class="ri-image-line"></i><span id="navPictureLabel">照片</span></button>
-      <button class="nav-menu-item" data-target="reviews"><i class="ri-map-pin-line"></i><span id="navReviewLabel">Google 評論與地圖</span></button>
-      <button class="nav-menu-item" data-target="about"><i class="ri-store-2-line"></i><span id="navAboutLabel">關於我們</span></button>
-      <button class="nav-menu-item" data-target="contact"><i class="ri-chat-1-line"></i><span id="navContactLabel">聯絡我</span></button>
+<button class="nav-menu-item" data-target="about"><i class="ri-store-2-line"></i><span id="navAboutLabel">關於我們</span></button>
+<button class="nav-menu-item" data-target="contact"><i class="ri-chat-1-line"></i><span id="navContactLabel">聯絡我</span></button>
+<div class="nav-menu-divider"></div>
+<div class="nav-menu-lang-label" id="navLangLabel">語言 / Language</div>
+<div class="nav-menu-lang-buttons" id="langSwitch">
+<button class="lang-btn" data-lang="zh">中</button>
+<button class="lang-btn" data-lang="th">TH</button>
+<button class="lang-btn" data-lang="en">EN</button>
+</div>
+</div>
+</div>
+<div class="container">
+<header>
+<div class="brand-row">
+<div>
+<div class="brand-title">KHUNYA THAI</div>
+<div class="brand-sub">HOME-STYLE THAI CUISINE • BANQIAO</div>
+</div>
+</div>
+</header>
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="hero-stage" id="heroStage">
+<div class="hero-slide active"><img alt="Khunya Thai Hero 1" src="images/hero/1.jpeg"/></div>
+<div class="hero-slide"><img alt="Khunya Thai Hero 2" src="images/hero/2.jpeg"/></div>
+<div class="hero-slide"><img alt="Khunya Thai Hero 3" src="images/hero/3.jpeg"/></div>
+<div class="hero-overlay"></div>
+<div class="hero-thumbs" id="heroThumbs">
+<div class="hero-thumb active" data-idx="0"><img alt="thumb 1" src="images/hero/1.jpeg"/></div>
+<div class="hero-thumb" data-idx="1"><img alt="thumb 2" src="images/hero/2.jpeg"/></div>
+<div class="hero-thumb" data-idx="2"><img alt="thumb 3" src="images/hero/3.jpeg"/></div>
+</div>
+<div class="hero-content">
+<h1 class="hero-title" id="heroTitle">昆雅泰式料理</h1>
+<p class="hero-desc" id="heroDesc">板橋巷弄裡的泰國家常餐桌：打拋飯、清邁金麵、船麵與泰式奶茶。</p>
+<div class="hero-meta" id="heroMeta">Hours｜11:00–14:00, 17:00–21:00 (Closed on Sundays)</div>
+<div class="hero-ctas">
+<a class="cta cta-primary" href="https://lin.ee/fGU0Rs0L" rel="noopener noreferrer" target="_blank">
+<i class="ri-line-line"></i><span id="ctaLine">Chat on LINE</span>
+</a>
+<a class="cta" href="https://maps.app.goo.gl/RMUuJtk4PQQrqqKH9" rel="noopener noreferrer" target="_blank">
+<i class="ri-map-pin-2-line"></i><span id="ctaMap">Open in Maps</span>
+</a>
+</div>
+</div>
+<div class="hero-dots" id="heroDots">
+<div class="hero-dot active" data-idx="0"></div>
+<div class="hero-dot" data-idx="1"></div>
+<div class="hero-dot" data-idx="2"></div>
+</div>
+</div>
+</section>
+<main>
+<!-- MENU -->
+<section id="menu">
+<div class="section-head">
+<div>
+<h2 class="section-title" id="menuTitle">Menu</h2>
+<p class="section-sub" id="menuSubtitle">Top picks first. Then browse by category.</p>
+</div>
+</div>
+<div class="featured-strip" id="featuredStrip">
+<div class="loading" id="featuredLoading">Loading…</div>
+</div>
+<div class="category-tabs" id="categoryTabs"></div>
+<div class="menu-carousel" id="menuGrid">
+<div class="loading" id="menuLoading">Loading…</div>
+</div>
+</section>
+<!-- PICTURES -->
 
-      <div class="nav-menu-divider"></div>
-      <div class="nav-menu-lang-label" id="navLangLabel">語言 / Language</div>
-      <div class="nav-menu-lang-buttons" id="langSwitch">
-        <button class="lang-btn" data-lang="zh">中</button>
-        <button class="lang-btn" data-lang="th">TH</button>
-        <button class="lang-btn" data-lang="en">EN</button>
-      </div>
-    </div>
-  </div>
+<!-- REVIEWS -->
 
-  <div class="container">
-    <header>
-      <div class="brand-row">
-        <div>
-          <div class="brand-title">KHUNYA THAI</div>
-          <div class="brand-sub">HOME-STYLE THAI CUISINE • BANQIAO</div>
-        </div>
-      </div>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <div class="hero-stage" id="heroStage">
-        <div class="hero-slide active"><img src="images/hero/1.jpeg" alt="Khunya Thai Hero 1"></div>
-        <div class="hero-slide"><img src="images/hero/2.jpeg" alt="Khunya Thai Hero 2"></div>
-        <div class="hero-slide"><img src="images/hero/3.jpeg" alt="Khunya Thai Hero 3"></div>
-        <div class="hero-overlay"></div>
-
-        <div class="hero-thumbs" id="heroThumbs">
-          <div class="hero-thumb active" data-idx="0"><img src="images/hero/1.jpeg" alt="thumb 1"></div>
-          <div class="hero-thumb" data-idx="1"><img src="images/hero/2.jpeg" alt="thumb 2"></div>
-          <div class="hero-thumb" data-idx="2"><img src="images/hero/3.jpeg" alt="thumb 3"></div>
-        </div>
-
-        <div class="hero-content">
-          <h1 class="hero-title" id="heroTitle">昆雅泰式料理</h1>
-          <p class="hero-desc" id="heroDesc">板橋巷弄裡的泰國家常餐桌：打拋飯、清邁金麵、船麵與泰式奶茶。</p>
-          <div class="hero-meta" id="heroMeta">Hours｜11:00–14:00, 17:00–21:00 (Closed on Sundays)</div>
-          <div class="hero-ctas">
-            <a class="cta cta-primary" href="https://lin.ee/fGU0Rs0L" target="_blank" rel="noopener noreferrer">
-              <i class="ri-line-line"></i><span id="ctaLine">Chat on LINE</span>
-            </a>
-            <a class="cta" href="https://maps.app.goo.gl/RMUuJtk4PQQrqqKH9" target="_blank" rel="noopener noreferrer">
-              <i class="ri-map-pin-2-line"></i><span id="ctaMap">Open in Maps</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="hero-dots" id="heroDots">
-          <div class="hero-dot active" data-idx="0"></div>
-          <div class="hero-dot" data-idx="1"></div>
-          <div class="hero-dot" data-idx="2"></div>
-        </div>
-      </div>
-    </section>
-
-    <main>
-      <!-- MENU -->
-      <section id="menu">
-        <div class="section-head">
-          <div>
-            <h2 class="section-title" id="menuTitle">Menu</h2>
-            <p class="section-sub" id="menuSubtitle">Top picks first. Then browse by category.</p>
-          </div>
-        </div>
-
-        <div class="featured-strip" id="featuredStrip">
-          <div class="loading" id="featuredLoading">Loading…</div>
-        </div>
-
-        <div class="category-tabs" id="categoryTabs"></div>
-
-        <div class="menu-carousel" id="menuGrid">
-          <div class="loading" id="menuLoading">Loading…</div>
-        </div>
-      </section>
-
-      <!-- PICTURES -->
-      <section id="pictures">
-        <div class="section-head">
-          <div>
-            <h2 class="section-title" id="picTitle">Pictures</h2>
-            <p class="section-sub" id="picSubtitle">Swipe like a carousel.</p>
-          </div>
-        </div>
-
-        <div class="coverflow">
-          <div class="coverflow-track" id="photoTrack">
-            <div class="coverflow-item"><img class="coverflow-img" src="images/1.jpeg" alt="photo 1"></div>
-            <div class="coverflow-item"><img class="coverflow-img" src="images/2.jpeg" alt="photo 2"></div>
-            <div class="coverflow-item"><img class="coverflow-img" src="images/3.jpeg" alt="photo 3"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- REVIEWS -->
-      <section id="reviews">
-        <div class="section-head">
-          <div>
-            <h2 class="section-title" id="reviewTitle">Google Reviews & Map</h2>
-            <p class="section-sub" id="reviewSubtitle">Tap to open map. Swipe screenshots.</p>
-          </div>
-          <a class="map-btn" href="https://maps.app.goo.gl/RMUuJtk4PQQrqqKH9" target="_blank" rel="noopener noreferrer">
-            <i class="ri-map-pin-line"></i><span id="mapBtnText">Open Google Maps</span>
-          </a>
-        </div>
-
-        <div class="coverflow">
-          <div class="coverflow-track" id="reviewTrack">
-            <div class="coverflow-item"><img class="coverflow-img contain" src="google-reviews/1.jpeg" alt="review 1"></div>
-            <div class="coverflow-item"><img class="coverflow-img contain" src="google-reviews/2.jpeg" alt="review 2"></div>
-            <div class="coverflow-item"><img class="coverflow-img contain" src="google-reviews/3.jpeg" alt="review 3"></div>
-            <div class="coverflow-item"><img class="coverflow-img contain" src="google-reviews/4.jpeg" alt="review 4"></div>
-            <div class="coverflow-item"><img class="coverflow-img contain" src="google-reviews/5.jpeg" alt="review 5"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section id="about">
-        <div class="section-head">
-          <div>
-            <h2 class="section-title" id="aboutTitle">About Us</h2>
-          </div>
-        </div>
-        <div class="panel">
-          <div class="about-text" id="aboutBody">
+<!-- ABOUT -->
+<section id="about">
+<div class="section-head">
+<div>
+<h2 class="section-title" id="aboutTitle">About Us</h2>
+</div>
+</div>
+<div class="panel">
+<div class="about-text" id="aboutBody">
             我們不追求華麗擺盤，而是專注在「日常可以常吃、又保留泰國靈魂」的家常菜。醬料、咖哩與湯底堅持自己熬煮，盡量使用原始香料與食材。
           </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact">
-        <div class="section-head">
-          <div>
-            <h2 class="section-title" id="contactTitle">Contact Us</h2>
-          </div>
-        </div>
-
-        <div class="panel">
-          <div class="contact-text" id="contactLead">加入 LINE 直接詢問／預訂。</div>
-          <div style="margin-top:10px;">
-            <a href="https://lin.ee/fGU0Rs0L" target="_blank" rel="noopener noreferrer">
-              <img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" height="36" border="0">
-            </a>
-          </div>
-
-          <div class="contact-grid">
-            <div class="kv"><div class="k" id="kLine">LINE</div><div class="v">@143llbev</div></div>
-            <div class="kv"><div class="k" id="kAddr">地址</div><div class="v">新北市板橋區文化路一段311之11號</div></div>
-            <div class="kv"><div class="k" id="kHours">營業時間</div><div class="v">11:00–14:00、17:00–21:00（週日公休）</div></div>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer id="footerText">
+</div>
+</section>
+<!-- CONTACT -->
+<section id="contact">
+<div class="section-head">
+<div>
+<h2 class="section-title" id="contactTitle">Contact Us</h2>
+</div>
+</div>
+<div class="panel">
+<div class="contact-text" id="contactLead">加入 LINE 直接詢問／預訂。</div>
+<div style="margin-top:10px;">
+<a href="https://lin.ee/fGU0Rs0L" rel="noopener noreferrer" target="_blank">
+<img alt="加入好友" border="0" height="36" src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png"/>
+</a>
+</div>
+<div class="contact-grid">
+<div class="kv"><div class="k" id="kLine">LINE</div><div class="v">@143llbev</div></div>
+<div class="kv"><div class="k" id="kAddr">地址</div><div class="v">新北市板橋區文化路一段311之11號</div></div>
+<div class="kv"><div class="k" id="kHours">營業時間</div><div class="v">11:00–14:00、17:00–21:00（週日公休）</div></div>
+</div>
+</div>
+</section>
+</main>
+<footer id="footerText">
       © 2024 KHUNYA THAI CUISINE
     </footer>
-  </div>
-
-  <!-- Modal (menu detail / option selectors) -->
-  <div class="modal" id="modal">
-    <div class="modal-backdrop" id="modalBackdrop"></div>
-    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Menu detail">
-      <button class="modal-close" id="modalClose" aria-label="Close"><i class="ri-close-line"></i></button>
-      <img class="modal-img" id="modalImg" src="" alt="">
-      <div class="modal-body">
-        <div class="modal-row">
-          <div>
-            <div class="modal-name" id="modalName">—</div>
-            <div class="card-code" id="modalCode">—</div>
-          </div>
-          <div class="modal-price" id="modalPrice">$—</div>
-        </div>
-        <div class="modal-desc" id="modalDesc"></div>
-        <div class="modal-options" id="modalOptions"></div>
-      </div>
-    </div>
-  </div>
-
-  <script>
+</div>
+<!-- Modal (menu detail / option selectors) -->
+<div class="modal" id="modal">
+<div class="modal-backdrop" id="modalBackdrop"></div>
+<div aria-label="Menu detail" aria-modal="true" class="modal-card" role="dialog">
+<button aria-label="Close" class="modal-close" id="modalClose"><i class="ri-close-line"></i></button>
+<img alt="" class="modal-img" id="modalImg" src=""/>
+<div class="modal-body">
+<div class="modal-row">
+<div>
+<div class="modal-name" id="modalName">—</div>
+<div class="card-code" id="modalCode">—</div>
+</div>
+<div class="modal-price" id="modalPrice">$—</div>
+</div>
+<div class="modal-desc" id="modalDesc"></div>
+<div class="modal-options" id="modalOptions"></div>
+</div>
+</div>
+</div>
+<script>
     (function(){
       // -------- Language --------
       let currentLang = 'zh';
@@ -1181,39 +1202,40 @@ body{
 
       function applyTexts(){
         const t = i18n[currentLang];
-        document.getElementById('navMenuLabel').textContent = t.navMenu;
-        document.getElementById('navPictureLabel').textContent = t.navPicture;
-        document.getElementById('navReviewLabel').textContent = t.navReview;
-        document.getElementById('navAboutLabel').textContent = t.navAbout;
-        document.getElementById('navContactLabel').textContent = t.navContact;
-        document.getElementById('navLangLabel').textContent = t.navLang;
+        const setText = (id, val)=>{ const el = document.getElementById(id); if(el) el.textContent = val; };
+        setText('navMenuLabel', t.navMenu);
+        setText('navPictureLabel', t.navPicture);
+        setText('navReviewLabel', t.navReview);
+        setText('navAboutLabel', t.navAbout);
+        setText('navContactLabel', t.navContact);
+        setText('navLangLabel', t.navLang);
 
         // Hero badge removed (no Signature Picks pill in hero)
-        document.getElementById('heroTitle').textContent = t.heroTitle;
-        document.getElementById('heroDesc').textContent = t.heroDesc;
-        document.getElementById('heroMeta').textContent = t.heroMeta;
+        setText('heroTitle', t.heroTitle);
+        setText('heroDesc', t.heroDesc);
+        setText('heroMeta', t.heroMeta);
 
-        document.getElementById('ctaLine').textContent = t.ctaLine;
-        document.getElementById('ctaMap').textContent = t.ctaMap;
+        setText('ctaLine', t.ctaLine);
+        setText('ctaMap', t.ctaMap);
 
-        document.getElementById('menuTitle').textContent = t.menuTitle;
-        document.getElementById('menuSubtitle').textContent = t.menuSubtitle;
+        setText('menuTitle', t.menuTitle);
+        setText('menuSubtitle', t.menuSubtitle);
 
-        document.getElementById('picTitle').textContent = t.picsTitle;
-        document.getElementById('picSubtitle').textContent = t.picsSubtitle;
+        setText('picTitle', t.picsTitle);
+        setText('picSubtitle', t.picsSubtitle);
 
-        document.getElementById('reviewTitle').textContent = t.reviewTitle;
-        document.getElementById('reviewSubtitle').textContent = t.reviewSubtitle;
-        document.getElementById('mapBtnText').textContent = t.mapBtn;
+        setText('reviewTitle', t.reviewTitle);
+        setText('reviewSubtitle', t.reviewSubtitle);
+        setText('mapBtnText', t.mapBtn);
 
-        document.getElementById('aboutTitle').textContent = t.aboutTitle;
-        document.getElementById('aboutBody').textContent = t.aboutBody;
+        setText('aboutTitle', t.aboutTitle);
+        setText('aboutBody', t.aboutBody);
 
-        document.getElementById('contactTitle').textContent = t.contactTitle;
-        document.getElementById('contactLead').textContent = t.contactLead;
-        document.getElementById('kLine').textContent = t.kLine;
-        document.getElementById('kAddr').textContent = t.kAddr;
-        document.getElementById('kHours').textContent = t.kHours;
+        setText('contactTitle', t.contactTitle);
+        setText('contactLead', t.contactLead);
+        setText('kLine', t.kLine);
+        setText('kAddr', t.kAddr);
+        setText('kHours', t.kHours);
 
         document.documentElement.lang = (currentLang === 'zh') ? 'zh-TW' : (currentLang === 'th' ? 'th' : 'en');
 
@@ -1393,7 +1415,9 @@ body{
 
         return `
           <article class="card" data-code="${item.code}">
-            <img class="card-img" src="${img}" data-imgbase="${imgBase}" data-fromurl="${fromUrl}" data-try="jpg" data-code="${item.code}" onerror="window.__menuImgFallback(this)" alt="${name}" loading="lazy" decoding="async">
+            <div class="card-media">
+              <img class="card-img" src="${img}" data-imgbase="${imgBase}" data-fromurl="${fromUrl}" data-try="jpg" data-code="${item.code}" onerror="window.__menuImgFallback(this)" alt="${name}" loading="lazy" decoding="async">
+            </div>
             <div class="card-body">
               <div class="card-top">
                 <div>
@@ -1417,12 +1441,7 @@ body{
           return;
         }
         featuredStrip.innerHTML = featured.map(cardHtml).join('');
-        featuredStrip.querySelectorAll('.card').forEach(el=>{
-          el.style.flex = '0 0 78%';
-          el.style.maxWidth = '520px';
-          el.style.scrollSnapAlign = 'start';
-          el.addEventListener('click', ()=> openModalByCode(el.dataset.code));
-        });
+        featuredStrip.querySelectorAll('.card').forEach(el=>{ el.addEventListener('click', ()=> openModalByCode(el.dataset.code)); });
       }
 
       function renderTabs(){
@@ -1600,8 +1619,8 @@ body{
       }
 
       function loadMenu(){
-        document.getElementById('featuredLoading').textContent = i18n[currentLang].loading;
-        document.getElementById('menuLoading').textContent = i18n[currentLang].loading;
+        setText('featuredLoading', i18n[currentLang].loading);
+        setText('menuLoading', i18n[currentLang].loading);
 
         fetch('menu.json', { cache: 'no-store' })
           .then(res => {
