@@ -968,7 +968,7 @@
         const card = document.createElement("article");
         card.className = "card reveal";
         const pillClass = it.feature ? "pill feature" : "pill";
-        const pillText = it.feature ? t("feature") : getCategoryName(it);
+        const pillText = it.code || "";
         const name = escapeHtml(getItemName(it));
         const desc = escapeHtml(getItemDesc(it));
         const price = Number(it.price || 0);
