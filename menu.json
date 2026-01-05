@@ -38,9 +38,9 @@
     "peanut": false,
     "add_on": false,
     "type": "food",
-    "descZH": "雞腿肉🐔與打拋葉🌿快炒，香氣十足不油膩，配紅殼荷包蛋🍳與白飯🍚。",
+    "descZH": "雞肉🐔與打拋葉🌿快炒，香氣十足不油膩，配紅殼荷包蛋🍳與白飯🍚",
     "descTh": "ไก่ผัดกะเพราหอม ๆ ไม่มัน เสิร์ฟพร้อมไข่ดาวและข้าวสวย",
-    "descEn": "Chicken thigh 🐔 stir-fried with Thai basil 🌿, served with rice 🍚 and a fried egg 🍳. Aromatic and satisfying.",
+    "descEn": "Chicken 🐔 stir-fried with Thai basil 🌿, served with rice 🍚 and a fried egg 🍳. Aromatic and satisfying.",
     "imageUrl": null
   },
   {
@@ -170,9 +170,9 @@
     "peanut": false,
     "add_on": false,
     "type": "food",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "泰式大火炒飯🍚搭配豬肉🐷與蛋香🍳，粒粒分明、鍋氣十足🔥 辣度可調🌶️，香菜🌿點綴。",
+    "descTh": "ข้าวผัดหมูไฟแรง🍚 ใส่หมู🐷และไข่🍳 หอมกลิ่นกระทะ🔥 ปรับระดับความเผ็ดได้🌶️ · โรยผักชี🌿",
+    "descEn": "Wok-fried rice 🍚 with pork 🐷 and egg 🍳, fragrant with a smoky wok hei 🔥 Spice level adjustable 🌶️ · with coriander 🌿.",
     "imageUrl": null
   },
   {
@@ -192,9 +192,9 @@
     "peanut": false,
     "add_on": false,
     "type": "food",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "泰式大火炒飯🍚加入海鮮🦐🦑與蛋香🍳，粒粒分明、鍋氣十足🔥 辣度可調🌶️，香菜🌿點綴。",
+    "descTh": "ข้าวผัดไฟแรง🍚 ใส่ทะเล🦐🦑และไข่🍳 หอมกลิ่นกระทะ🔥 ปรับระดับความเผ็ดได้🌶️ · โรยผักชี🌿",
+    "descEn": "Wok-fried rice 🍚 with seafood 🦐🦑 and egg 🍳, fragrant with a smoky wok hei 🔥 Spice level adjustable 🌶️ · with coriander 🌿.",
     "imageUrl": null
   },
   {
@@ -214,9 +214,9 @@
     "peanut": false,
     "add_on": false,
     "type": "food",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "鮮蝦🦐與粉絲🍜吸滿蒜香醬汁🧄，熱呼呼上桌，香氣十足 香菜🌿點綴。",
+    "descTh": "กุ้ง🦐อบวุ้นเส้น🍜 ซึมซับซอสกระเทียม🧄 หอม ๆ เสิร์ฟร้อน ๆ โรยผักชี🌿",
+    "descEn": "Shrimp 🦐 with glass noodles 🍜 soaked in garlicky sauce 🧄, served hot and aromatic with coriander 🌿.",
     "imageUrl": null
   },
   {
@@ -324,9 +324,9 @@
     "peanut": false,
     "add_on": false,
     "type": "food",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "泰式壽喜燒🥘加入豬肉🐷與蔬菜🥬，搭配特製沾醬🍋，湯鮮味爽。",
+    "descTh": "สุกี้หมู🥘 ใส่หมู🐷และผัก🥬 จิ้มน้ำจิ้มรสเปรี้ยว🍋",
+    "descEn": "Thai suki 🥘 with pork 🐷 and vegetables 🥬, served with a tangy dipping sauce 🍋.",
     "imageUrl": null
   },
   {
@@ -346,9 +346,9 @@
     "peanut": false,
     "add_on": false,
     "type": "food",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "泰式壽喜燒🥘加入海鮮🦐🦑與蔬菜🥬，搭配特製沾醬🍋，清爽又滿足。",
+    "descTh": "สุกี้ทะเล🥘 ใส่กุ้ง🦐ปลาหมึก🦑และผัก🥬 จิ้มน้ำจิ้มรสเปรี้ยว🍋",
+    "descEn": "Thai suki 🥘 with seafood 🦐🦑 and vegetables 🥬, served with a tangy dipping sauce 🍋.",
     "imageUrl": null
   },
   {
@@ -368,9 +368,9 @@
     "peanut": false,
     "add_on": false,
     "type": "side",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "冬蔭功酸辣湯🍋🌶️蝦香滿滿🦐，酸香開胃、暖胃又過癮 香菜🌿點綴。",
+    "descTh": "ต้มยำกุ้ง🍋🌶️ หอมเครื่อง ตัดเปรี้ยวเผ็ดกำลังดี ใส่กุ้งแน่นๆ🦐 โรยผักชี🌿",
+    "descEn": "Tom Yum soup 🍋🌶️ packed with shrimp 🦐—tangy, aromatic and comforting with coriander 🌿.",
     "imageUrl": null
   },
   {
@@ -390,9 +390,9 @@
     "peanut": false,
     "add_on": false,
     "type": "side",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "現炸薯條🍟外酥內鬆，熱熱吃最爽。",
+    "descTh": "เฟรนช์ฟราย🍟 ทอดใหม่ กรอบนอกนุ่มใน",
+    "descEn": "Freshly fried fries 🍟—crispy outside, fluffy inside.",
     "imageUrl": null
   },
   {
@@ -412,9 +412,9 @@
     "peanut": false,
     "add_on": false,
     "type": "side",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "泰式炸肉丸🥘外酥內彈，搭甜辣醬🌶️🍯超涮嘴。",
+    "descTh": "ลูกชิ้นทอด🍢 กรอบนอกเด้งใน จิ้มน้ำจิ้มหวานเผ็ด🌶️🍯",
+    "descEn": "Thai fried meatballs 🍢—crispy outside, bouncy inside, great with sweet chili sauce 🌶️🍯.",
     "imageUrl": null
   },
   {
@@ -456,9 +456,9 @@
     "peanut": false,
     "add_on": false,
     "type": "side",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "魚露炸雞翅🍗外皮酥香，魚露鹹香入味，越吃越停不下來。",
+    "descTh": "ปีกไก่ทอดน้ำปลา🍗 กรอบหอม เค็มนัว เข้ากันสุดๆ",
+    "descEn": "Fish sauce fried wings 🍗—crispy, savory and deeply seasoned.",
     "imageUrl": null
   },
   {
@@ -478,9 +478,9 @@
     "peanut": false,
     "add_on": false,
     "type": "side",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "泰式炸春捲🥟外酥內香，搭醬更過癮。",
+    "descTh": "ปอเปี๊ยะทอด🥟 กรอบหอม ทานคู่ซอสยิ่งอร่อย",
+    "descEn": "Fried spring rolls 🥟—crispy and fragrant, perfect with dipping sauce.",
     "imageUrl": null
   },
   {
@@ -500,9 +500,9 @@
     "peanut": false,
     "add_on": false,
     "type": "side",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "泰式辣姆豬🐷拌香料與烤米粉香🌾，酸辣開胃🍋🌶️，超下酒。",
+    "descTh": "ลาบหมู🐷 หอมข้าวคั่ว🌾 คลุกเครื่องสมุนไพร🌿 แซ่บเปรี้ยวเผ็ด🍋🌶️",
+    "descEn": "Larb Moo 🐷—spicy minced pork salad with herbs 🌿 and toasted rice aroma 🌾.",
     "imageUrl": null
   },
   {
@@ -544,9 +544,9 @@
     "peanut": false,
     "add_on": false,
     "type": "side",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "冰鎮鮮蝦🦐以魚露與檸檬🍋醃製，酸辣鮮爽🌶️，超開胃。",
+    "descTh": "กุ้งแช่น้ำปลา🦐 แช่เย็น คลุกน้ำปลาและมะนาว🍋 เปรี้ยวเผ็ดสดชื่น🌶️",
+    "descEn": "Chilled shrimp 🦐 marinated with fish sauce and lime 🍋—fresh, tangy and lightly spicy 🌶️.",
     "imageUrl": null
   },
   {
@@ -566,9 +566,9 @@
     "peanut": false,
     "add_on": false,
     "type": "side",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "火烤豬頸肉🐷外焦內嫩，肉香滿滿，搭泰式沾醬🌶️更涮嘴。",
+    "descTh": "คอหมูย่าง🐷 ย่างหอม ๆ นุ่มฉ่ำ จิ้มน้ำจิ้มแจ่ว🌶️อร่อยมาก",
+    "descEn": "Grilled pork neck 🐷—juicy and smoky, best with Thai dipping sauce 🌶️.",
     "imageUrl": null
   },
   {
@@ -632,9 +632,9 @@
     "peanut": true,
     "add_on": false,
     "type": "food",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "煎蛋🍳外酥內嫩，拌泰式酸辣醬🍋🌶️，鹹香開胃，口感超有層次 辣度可調🌶️，含花生🥜。",
+    "descTh": "ยำไข่ดาว🍳 ไข่กรอบนอกนุ่มใน คลุกน้ำยำเปรี้ยวเผ็ด🍋🌶️ ปรับระดับความเผ็ดได้🌶️ · มีถั่วลิสง🥜",
+    "descEn": "Fried egg salad 🍳 tossed in Thai tangy-spicy dressing 🍋🌶️—crispy edges and flavorful bite Spice level adjustable 🌶️ · contains peanuts 🥜.",
     "imageUrl": null
   },
   {
@@ -676,9 +676,9 @@
     "peanut": false,
     "add_on": false,
     "type": "food",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "粉絲🍜拌泰式酸辣醬🍋🌶️，清爽開胃，配料滿滿一口很滿足 辣度可調🌶️。",
+    "descTh": "ยำวุ้นเส้น🍜 คลุกน้ำยำเปรี้ยวเผ็ด🍋🌶️ สดชื่น เครื่องแน่น ปรับระดับความเผ็ดได้🌶️",
+    "descEn": "Glass noodle salad 🍜 with Thai tangy-spicy dressing 🍋🌶️—refreshing and satisfying Spice level adjustable 🌶️.",
     "imageUrl": null
   },
   {
@@ -698,9 +698,9 @@
     "peanut": false,
     "add_on": false,
     "type": "food",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "媽媽麵🍜拌海鮮🦐與泰式酸辣醬🍋🌶️，酸辣超涮嘴，一口停不下來 辣度可調🌶️。",
+    "descTh": "ยำมาม่าทะเล🍜 ใส่ทะเล🦐 คลุกน้ำยำเปรี้ยวเผ็ด🍋🌶️ แซ่บมาก ปรับระดับความเผ็ดได้🌶️",
+    "descEn": "Thai instant noodle salad 🍜 with seafood 🦐 in a tangy-spicy dressing 🍋🌶️—addictive and bold Spice level adjustable 🌶️.",
     "imageUrl": null
   },
   {
@@ -720,9 +720,9 @@
     "peanut": true,
     "add_on": false,
     "type": "food",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "玉米🌽爽甜搭鹹蛋🥚，再拌酸辣醬🍋🌶️，鹹香濃郁超有層次 辣度可調🌶️，含花生🥜。",
+    "descTh": "ตำข้าวโพดไข่เค็ม🌽 ใส่ไข่เค็ม🥚 คลุกน้ำยำเปรี้ยวเผ็ด🍋🌶️ หอมมัน ปรับระดับความเผ็ดได้🌶️ · มีถั่วลิสง🥜",
+    "descEn": "Sweet corn 🌽 mixed with salted egg 🥚 and Thai tangy-spicy dressing 🍋🌶️—rich and flavorful Spice level adjustable 🌶️ · contains peanuts 🥜.",
     "imageUrl": null
   },
   {
@@ -742,9 +742,9 @@
     "peanut": false,
     "add_on": false,
     "type": "food",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "泰式豬肉香腸切片🐷拌酸辣醬🍋🌶️，清爽又夠味，越吃越開胃 辣度可調🌶️。",
+    "descTh": "ยำหมูยอ🐷 คลุกน้ำยำเปรี้ยวเผ็ด🍋🌶️ สดชื่นรสจัด ปรับระดับความเผ็ดได้🌶️",
+    "descEn": "Thai pork sausage salad 🐷 tossed in tangy-spicy dressing 🍋🌶️—refreshing with a punch Spice level adjustable 🌶️.",
     "imageUrl": null
   },
   {
@@ -830,9 +830,9 @@
     "peanut": false,
     "add_on": false,
     "type": "food",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "涼拌米粉🍜拌酸辣醬🍋🌶️，口感Q彈，清爽又有層次 辣度可調🌶️。",
+    "descTh": "ตำซั่ว🍜 ใส่เส้นขนมจีน คลุกน้ำยำเปรี้ยวเผ็ด🍋🌶️ แซ่บ ปรับระดับความเผ็ดได้🌶️",
+    "descEn": "Vermicelli salad 🍜 with Thai tangy-spicy dressing 🍋🌶️—chewy, refreshing and bold Spice level adjustable 🌶️.",
     "imageUrl": null
   },
   {
@@ -918,9 +918,9 @@
     "peanut": false,
     "add_on": false,
     "type": "drink",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "可樂🥤冰冰喝超爽🧊，搭配泰式料理更解膩。",
+    "descTh": "Coke🥤 เสิร์ฟเย็นๆ🧊 ดื่มแล้วสดชื่น เข้ากับอาหารรสจัด",
+    "descEn": "Coke 🥤 served chilled 🧊—the perfect match to balance spicy food 🌶️.",
     "imageUrl": null
   },
   {
@@ -940,9 +940,9 @@
     "peanut": false,
     "add_on": false,
     "type": "drink",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "雪碧🥤冰冰喝超爽🧊，搭配泰式料理更解膩。",
+    "descTh": "Sprite🥤 เสิร์ฟเย็นๆ🧊 ดื่มแล้วสดชื่น เข้ากับอาหารรสจัด",
+    "descEn": "Sprite 🥤 served chilled 🧊—the perfect match to balance spicy food 🌶️.",
     "imageUrl": null
   },
   {
@@ -1006,9 +1006,9 @@
     "peanut": false,
     "add_on": false,
     "type": "drink",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "泰國能量飲 Sponsor⚡冰鎮🧊提神醒腦，鹹辣配一口很爽。",
+    "descTh": "สปอนเซอร์⚡ เครื่องดื่มชูกำลัง เสิร์ฟเย็นๆ🧊 สดชื่น",
+    "descEn": "Thai energy drink Sponsor ⚡ served chilled 🧊 for a quick boost.",
     "imageUrl": null
   },
   {
@@ -1028,9 +1028,9 @@
     "peanut": false,
     "add_on": false,
     "type": "drink",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "泰國 M-150 能量飲⚡冰鎮🧊一口提神，泰國人超愛的經典款。",
+    "descTh": "เอ็ม-150⚡ ชูกำลังยอดฮิต เสิร์ฟเย็นๆ🧊 ดื่มแล้วตื่น",
+    "descEn": "Thai energy drink M-150 ⚡ served chilled 🧊—a classic Thai favorite.",
     "imageUrl": null
   },
   {
@@ -1050,9 +1050,9 @@
     "peanut": false,
     "add_on": false,
     "type": "side",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "茉莉香米白飯🍚粒粒分明，搭咖喱或打拋都超配。",
+    "descTh": "ข้าวสวยหอมมะลิ🍚 ร้อนๆ ทานคู่กับกับข้าวเข้ากัน",
+    "descEn": "Steamed jasmine rice 🍚—simple, fragrant and pairs with everything.",
     "imageUrl": null
   },
   {
@@ -1072,9 +1072,9 @@
     "peanut": false,
     "add_on": false,
     "type": "side",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "涼拌米粉🍜拌酸辣醬🍋🌶️，口感Q彈，清爽又有層次。",
+    "descTh": "ตำซั่ว🍜 ใส่เส้นขนมจีน คลุกน้ำยำเปรี้ยวเผ็ด🍋🌶️ แซ่บ",
+    "descEn": "Vermicelli salad 🍜 with Thai tangy-spicy dressing 🍋🌶️—chewy, refreshing and bold.",
     "imageUrl": null
   },
   {
@@ -1094,9 +1094,9 @@
     "peanut": false,
     "add_on": false,
     "type": "side",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "泰式煎蛋🍳外酥內嫩，香氣十足，配飯更滿足🍚。",
+    "descTh": "ไข่เจียว🍳 กรอบนอกนุ่มใน หอมมาก ทานคู่ข้าวอร่อย",
+    "descEn": "Thai omelette 🍳—crispy edges, fluffy inside, great with rice 🍚.",
     "imageUrl": null
   },
   {
@@ -1116,9 +1116,9 @@
     "peanut": false,
     "add_on": false,
     "type": "side",
-    "descZH": null,
-    "descTh": null,
-    "descEn": null,
+    "descZH": "荷包蛋🍳蛋黃濃郁，戳破拌飯超療癒🍚。",
+    "descTh": "ไข่ดาว🍳 ไข่แดงเยิ้มๆ ทานกับข้าวฟิน🍚",
+    "descEn": "Sunny-side up egg 🍳—runny yolk goodness, perfect over rice 🍚.",
     "imageUrl": null
   }
 ]
