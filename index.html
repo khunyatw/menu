@@ -1089,6 +1089,57 @@
     // ====== Start ======
     loadMenu();
     applyI18n();
+
+    // ===== Language Auto Detect + Persist =====
+    function detectPreferredLang() {
+      const raw = (navigator.language || navigator.userLanguage || "").toLowerCase();
+    
+      // Chinese
+      if (raw.startsWith("zh")) return "zh";
+    
+      // Thai
+      if (raw.startsWith("th")) return "th";
+    
+      // Everything else
+      return "en";
+    }
+    
+    function getInitialLang() {
+      const saved = localStorage.getItem("khunya_lang");
+      if (saved === "zh" || saved === "th" || saved === "en") return saved;
+      return detectPreferredLang();
+    }
+    
+    function saveLang(lang) {
+      localStorage.setItem("khunya_lang", lang);
+    }
+    
+    // 你原本「套用語言」的函式如果不是 setLang，請改名或替換呼叫
+    function setLang(lang) {
+      // TODO: 這裡要接你原本的語言切換邏輯
+      // 例如：renderMenu(currentMenuLang) / updateTexts(lang) / etc.
+      // 如果你已經有 setLanguage(lang)，就把這個函式刪掉，改呼叫 setLanguage(lang)
+    }
+    
+    // 初始化：第一次載入自動套用
+    document.addEventListener("DOMContentLoaded", () => {
+      const initLang = getInitialLang();
+    
+      // 如果你已有 setLanguage(lang)，用 setLanguage(initLang)
+      setLang(initLang);
+    
+      // 綁定按鈕：任何地方（header 或 drawer）只要有 .lang-btn 都會生效
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const lang = btn.dataset.lang;
+          if (!lang) return;
+          saveLang(lang);
+    
+          // 如果你已有 setLanguage(lang)，用 setLanguage(lang)
+          setLang(lang);
+        });
+      });
+    });
   </script>
 </body>
 </html>
