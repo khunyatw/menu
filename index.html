@@ -1316,7 +1316,24 @@ body{
       const categoryTabs = document.getElementById('categoryTabs');
       const menuGrid = document.getElementById('menuGrid');
 
-      function getCategoryLabel(cat){
+      
+      const featuredLoadingEl = document.getElementById('featuredLoading');
+      const menuLoadingEl = document.getElementById('menuLoading');
+
+      function showLoading(){
+        if(featuredLoadingEl) featuredLoadingEl.style.display = '';
+        if(menuLoadingEl) menuLoadingEl.style.display = '';
+      }
+      function hideLoading(){
+        if(featuredLoadingEl) featuredLoadingEl.style.display = 'none';
+        if(menuLoadingEl) menuLoadingEl.style.display = 'none';
+      }
+      function showLoadError(){
+        const msg = (i18n[currentLang] && i18n[currentLang].loadErr) ? i18n[currentLang].loadErr : 'Failed to load menu.';
+        if(featuredLoadingEl){ featuredLoadingEl.textContent = msg; featuredLoadingEl.classList.add('error'); }
+        if(menuLoadingEl){ menuLoadingEl.textContent = msg; menuLoadingEl.classList.add('error'); }
+      }
+function getCategoryLabel(cat){
         if(currentLang==='zh') return cat.zh || cat.en || cat.th || cat.id;
         if(currentLang==='th') return cat.th || cat.en || cat.zh || cat.id;
         return cat.en || cat.zh || cat.th || cat.id;
@@ -1456,7 +1473,8 @@ body{
             currentCategoryId = btn.dataset.id;
             renderTabs();
             renderMenuGrid();
-          });
+        hideLoading();
+      });
         });
       }
 
@@ -1619,10 +1637,12 @@ body{
       }
 
       function loadMenu(){
+        showLoading();
+        if(featuredLoadingEl){ featuredLoadingEl.classList.remove('error'); }
+        if(menuLoadingEl){ menuLoadingEl.classList.remove('error'); }
         setText('featuredLoading', i18n[currentLang].loading);
         setText('menuLoading', i18n[currentLang].loading);
-
-        fetch('menu.json', { cache: 'no-store' })
+        fetch(new URL('menu.json', window.location.href), { cache: 'no-store' })
           .then(res => {
             if(!res.ok) throw new Error('menu.json load failed');
             return res.json();
@@ -1630,8 +1650,9 @@ body{
           .then(data => initMenu(data))
           .catch(err => {
             console.error(err);
-            featuredStrip.innerHTML = `<div class="error">${i18n[currentLang].loadErr}</div>`;
-            menuGrid.innerHTML = `<div class="error">${i18n[currentLang].loadErr}</div>`;
+            showLoadError();
+            if(featuredStrip) featuredStrip.innerHTML = '';
+            if(menuGrid) menuGrid.innerHTML = '';
           });
       }
 
