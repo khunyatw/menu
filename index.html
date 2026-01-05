@@ -746,7 +746,29 @@
       }
     };
 
-    let currentLang = "zh";
+    const LANG_KEY = "khunya_lang";
+    
+    function detectPreferredLang(){
+      const raw = (navigator.language || navigator.userLanguage || "en").toLowerCase();
+      // zh* → zh；th* → th；其他一律 en
+      if (raw.startsWith("zh")) return "zh";
+      if (raw.startsWith("th")) return "th";
+      return "en";
+    }
+    
+    function getInitialLang(){
+      const saved = localStorage.getItem(LANG_KEY);
+      return (saved === "zh" || saved === "th" || saved === "en") ? saved : detectPreferredLang();
+    }
+    
+    function saveLang(lang){
+      localStorage.setItem(LANG_KEY, lang);
+    }
+    
+    let currentLang = getInitialLang();
+    // 讓 <html lang="..."> 也同步（SEO/無障礙更一致）
+    document.documentElement.lang = (currentLang === "zh") ? "zh-Hant" : (currentLang === "th" ? "th" : "en");
+
     function t(key) {
       return (I18N[currentLang] && I18N[currentLang][key]) || (I18N.zh[key] ?? key);
     }
