@@ -638,7 +638,7 @@
     loadMenu();
     applyI18n();
 
-    /*
+    /
 // ===== Language Auto Detect + Persist =====
     function detectPreferredLang() {
       const raw = (navigator.language || navigator.userLanguage || "").toLowerCase();
@@ -673,7 +673,12 @@
     // 初始化：第一次載入自動套用
     document.addEventListener("DOMContentLoaded", () => {
       const initLang = getInitialLang();
-    
+    // Thai weekday color easter egg (fixed to Asia/Taipei)
+      const dt = new Date(new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Taipei" }).format(new Date()));
+      const day = dt.getDay(); // 0=Sun ... 6=Sat
+      const dayClasses = ["day-sun","day-mon","day-tue","day-wed","day-thu","day-fri","day-sat"];
+      document.documentElement.classList.add(dayClasses[day]);
+    document.documentElement.classList.add(dayClasses[day]);
       // 如果你已有 setLanguage(lang)，用 setLanguage(initLang)
       setLang(initLang);
     
