@@ -513,12 +513,20 @@ html.day-sun { --thai-day: #E6C9C7; } /* pale rose */
   content:"";
   position:absolute;
   left:0; right:0; top:0;
-  height:3px;                     /* 更細，更像彩蛋 */
-  background: color-mix(in srgb, var(--thai-day) 55%, transparent);
+  height:4px;                     /* 彩蛋色條（很淡但看得到） */
+
+  /* fallback：任何瀏覽器都看得到 */
+  background: var(--thai-day);
+  opacity: .55;
+
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
-  opacity: .55;                   /* 再淡一層 */
 }
 
-
-
+/* 有支援 color-mix 的瀏覽器，使用更柔和的混色 */
+@supports (background: color-mix(in srgb, white 50%, transparent)) {
+  .card::before{
+    background: color-mix(in srgb, var(--thai-day) 60%, transparent);
+    opacity: .65;
+  }
+}
