@@ -485,4 +485,40 @@
       width: 0;
       height: 0;
     }
+/* ===== Thai weekday color easter egg ===== */
+/* Thai weekday colors:
+   Mon=Yellow, Tue=Pink, Wed=Green, Thu=Orange, Fri=Blue, Sat=Purple, Sun=Red
+*/
+:root{
+  --thai-day: #FF5A3C; /* fallback */
+}
+
+/* set by <html class="day-xxx"> */
+html.day-mon { --thai-day: #E8DFB8; } /* pale buttery yellow */
+html.day-tue { --thai-day: #E6CBD4; } /* pale dusty pink */
+html.day-wed { --thai-day: #CFE0D6; } /* pale sage */
+html.day-thu { --thai-day: #E7D1C2; } /* pale clay / apricot */
+html.day-fri { --thai-day: #C9D7E2; } /* pale misty blue */
+html.day-sat { --thai-day: #D6CFE3; } /* pale lavender */
+html.day-sun { --thai-day: #E6C9C7; } /* pale rose */
+
+/* Subtle card accent (very light) */
+.card{
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.06); /* 邊框固定淡灰，不跟著變色，避免干擾 */
+}
+
+/* top strip uses thai-day with opacity */
+.card::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:0;
+  height:3px;                     /* 更細，更像彩蛋 */
+  background: color-mix(in srgb, var(--thai-day) 55%, transparent);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  opacity: .55;                   /* 再淡一層 */
+}
+
+
 
