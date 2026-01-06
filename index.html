@@ -484,6 +484,15 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* Hide scrollbar but keep horizontal scrolling */
+    .carousel {
+      -ms-overflow-style: none;   /* IE/Edge legacy */
+      scrollbar-width: none;      /* Firefox */
+    }
+    .carousel::-webkit-scrollbar {
+      display: none;              /* Chrome/Safari */
+    }
+
 
     /* Reduce motion */
     @media (prefers-reduced-motion: reduce) {
