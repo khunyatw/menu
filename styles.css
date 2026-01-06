@@ -299,9 +299,9 @@
       scroll-snap-align: start;
       border: 1px solid rgba(23,23,23,.14);
       border-radius: var(--radius);
-      background: rgba(255,255,255,.65);
+      background: rgb(var(--thai-day-rgb));/* ✅ 整張卡片跟著星期變色 */
       overflow: hidden;
-      box-shadow: 0 14px 40px rgba(0,0,0,.06);
+      box-shadow: 0 14px 40px rgba(0,0,0,.06), inset 0 3px 0 rgba(var(--thai-day-rgb), .45);
       transition: transform .25s ease, box-shadow .25s ease;
     }
     .card:hover {
@@ -485,48 +485,24 @@
       width: 0;
       height: 0;
     }
-/* ===== Thai weekday color easter egg ===== */
-/* Thai weekday colors:
+
+/* ===== Thai weekday color easter egg (Morandi + very light) =====
+   Thai weekday colors:
    Mon=Yellow, Tue=Pink, Wed=Green, Thu=Orange, Fri=Blue, Sat=Purple, Sun=Red
+   Implementation: set --thai-day-rgb on <html class="day-xxx"> and draw a subtle inset top strip.
 */
 :root{
-  --thai-day: #FF5A3C; /* fallback */
+  --thai-day-rgb: 230, 230, 230; /* fallback */
 }
 
-/* set by <html class="day-xxx"> */
-html.day-mon { --thai-day: #E8DFB8; } /* pale buttery yellow */
-html.day-tue { --thai-day: #E6CBD4; } /* pale dusty pink */
-html.day-wed { --thai-day: #CFE0D6; } /* pale sage */
-html.day-thu { --thai-day: #E7D1C2; } /* pale clay / apricot */
-html.day-fri { --thai-day: #C9D7E2; } /* pale misty blue */
-html.day-sat { --thai-day: #D6CFE3; } /* pale lavender */
-html.day-sun { --thai-day: #E6C9C7; } /* pale rose */
+/* Lighter Morandi (pastel + low saturation) */
+html.day-mon { --thai-day-rgb: 248, 243, 224; } /* Mon - yellow (very light) */
+html.day-tue { --thai-day-rgb: 248, 232, 236; } /* Tue - pink */
+html.day-wed { --thai-day-rgb: 233, 246, 238; } /* Wed - green */
+html.day-thu { --thai-day-rgb: 249, 238, 228; } /* Thu - orange */
+html.day-fri { --thai-day-rgb: 234, 243, 250; } /* Fri - blue */
+html.day-sat { --thai-day-rgb: 241, 234, 250; } /* Sat - purple */
+html.day-sun { --thai-day-rgb: 250, 232, 230; } /* Sun - red */
 
-/* Subtle card accent (very light) */
-.card{
-  position: relative;
-  border: 1px solid rgba(0,0,0,0.06); /* 邊框固定淡灰，不跟著變色，避免干擾 */
-}
+/* Apply: subtle top strip inside each card (does NOT affect code pill) */
 
-/* top strip uses thai-day with opacity */
-.card::before{
-  content:"";
-  position:absolute;
-  left:0; right:0; top:0;
-  height:4px;                     /* 彩蛋色條（很淡但看得到） */
-
-  /* fallback：任何瀏覽器都看得到 */
-  background: var(--thai-day);
-  opacity: .55;
-
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
-}
-
-/* 有支援 color-mix 的瀏覽器，使用更柔和的混色 */
-@supports (background: color-mix(in srgb, white 50%, transparent)) {
-  .card::before{
-    background: color-mix(in srgb, var(--thai-day) 60%, transparent);
-    opacity: .65;
-  }
-}
