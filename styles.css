@@ -498,7 +498,7 @@
 /* Lighter Morandi (pastel + low saturation) */
 html.day-mon { --thai-day-rgb: 248, 243, 224; } /* Mon - yellow (very light) */
 html.day-tue { --thai-day-rgb: 248, 232, 236; } /* Tue - pink */
-html.day-wed { --thai-day-rgb: #A9C4A7; } /* Wed - green */
+html.day-wed { --thai-day-rgb: #D6A0A0; } /* Wed - green */
 html.day-thu { --thai-day-rgb: 249, 238, 228; } /* Thu - orange */
 html.day-fri { --thai-day-rgb: 234, 243, 250; } /* Fri - blue */
 html.day-sat { --thai-day-rgb: 241, 234, 250; } /* Sat - purple */
