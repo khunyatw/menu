@@ -496,13 +496,13 @@
 }
 
 /* Lighter Morandi (pastel + low saturation) */
-html.day-mon { --thai-day-rgb: 248, 243, 224; } /* Mon - yellow (very light) */
-html.day-tue { --thai-day-rgb: 248, 232, 236; } /* Tue - pink */
+html.day-mon { --thai-day-rgb: 230, 216, 168; } /* Mon - yellow (very light) */
+html.day-tue { --thai-day-rgb: 227, 182, 195; } /* Tue - pink */
 html.day-wed { --thai-day-rgb: 169, 196, 167; } /* Wed - green */
-html.day-thu { --thai-day-rgb: 249, 238, 228; } /* Thu - orange */
-html.day-fri { --thai-day-rgb: 234, 243, 250; } /* Fri - blue */
-html.day-sat { --thai-day-rgb: 241, 234, 250; } /* Sat - purple */
-html.day-sun { --thai-day-rgb: 250, 232, 230; } /* Sun - red */
+html.day-thu { --thai-day-rgb: 226, 179, 138; } /* Thu - orange */
+html.day-fri { --thai-day-rgb: 175, 198, 217; } /* Fri - blue */
+html.day-sat { --thai-day-rgb: 185, 168, 201; } /* Sat - purple */
+html.day-sun { --thai-day-rgb: 214, 160, 160; } /* Sun - red */
 
 /* Apply: subtle top strip inside each card (does NOT affect code pill) */
 
