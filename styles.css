@@ -545,11 +545,14 @@ html.day-sun { --thai-day-rgb: 214, 160, 160; } /* Sun - red */
 .hero{
   position: relative;
   width: 100%;
-  min-height: 100svh;     /* 手機穩定版視窗高度 */
-  min-height: 100vh;      /* fallback */
-  overflow: hidden;
-  border-radius: 0;       /* 滿版通常不要圓角 */
+  height: calc(100svh - 60px); /* 扣掉 .spacer-top 60px */
+  height: calc(100vh - 60px);  /* fallback */
   margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+  background: #000; /* 影片載入前的底色 */
 }
 
 /* 背景影片/圖片一定要填滿 */
@@ -580,11 +583,12 @@ html.day-sun { --thai-day-rgb: 214, 160, 160; } /* Sun - red */
   position: relative;
   z-index: 2;
   height: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 96px 18px 28px; /* 上方留給 topbar，底部更像滿版 hero */
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;  /* 文字靠下更像滿版 hero */
-  padding: 24px;
-  max-width: 1100px;          /* 內容不要太寬 */
-  margin: 0 auto;
+  justify-content: flex-end;
+  color: #fff;
 }
 
