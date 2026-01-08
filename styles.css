@@ -592,3 +592,49 @@ html.day-sun { --thai-day-rgb: 214, 160, 160; } /* Sun - red */
   color: #fff;
 }
 
+/* ===== Layout fixes: hero overlay + alignment + mobile gutters ===== */
+:root{
+  --gutter: clamp(14px, 4vw, 22px);
+}
+
+/* Keep header + page content perfectly aligned */
+.topbar-inner{ padding-left: var(--gutter); padding-right: var(--gutter); }
+.wrap{ padding-left: var(--gutter); padding-right: var(--gutter); }
+
+/* Hero: content bottom-right-ish, with softer gradient mask */
+.hero-overlay{
+  background:
+    radial-gradient(900px 560px at 78% 78%,
+      rgba(0,0,0,.62) 0%,
+      rgba(0,0,0,.30) 42%,
+      rgba(0,0,0,0) 72%),
+    linear-gradient(180deg,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,.06) 52%,
+      rgba(0,0,0,.45) 100%);
+}
+
+/* Use the same horizontal gutter as the rest of the site */
+.hero-inner{
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/* Constrain copy so it sits "center-lower-right" instead of spanning the whole hero */
+.hero-copy{
+  max-width: min(640px, 92%);
+  text-align: left;
+}
+
+/* CTA row shouldn't stretch full width */
+.hero-copy .cta-row{ justify-content: flex-start; }
+
+/* Carousels: add breathing room on both sides (esp. mobile) */
+.track{
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  padding-bottom: 12px;
+}
