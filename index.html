@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>Khunya Thai Cuisine</title>
   <meta name="description" content="板橋巷弄裡的泰國家常餐桌：打拋飯、清邁金麵、船麵與泰式奶茶。" />
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./styles.fixed.css" />
 </head>
 
 <body>
@@ -67,13 +67,16 @@
 
 
   <div class="spacer-top"></div>
+
+<main class="wrap">
   <div class="hero reveal" id="top">
     <video class="hero-video" autoplay muted loop playsinline preload="metadata">
       <source src="./hero.mp4" type="video/mp4" />
     </video>
-  <main class="wrap">
-      <div class="hero-inner">
-          <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <div class="hero-copy">
         <h1 data-i18n="hero_title">昆雅泰式料理</h1>
         <p data-i18n="hero_desc">板橋巷弄裡的泰國家常餐桌：打拋飯、清邁金麵、船麵與泰式奶茶，天天都可以吃的那種。</p>
 
@@ -88,15 +91,17 @@
             <span data-i18n="cta_line">LINE 線上詢問</span>
           </a>
 
-          <a class="btn ghost" href="https://maps.google.com/?q=昆雅泰式料理 板橋" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s7-4.438 7-11a7 7 0 1 0-14 0c0 6.562 7 11 7 11Z" stroke="currentColor" stroke-width="1.5"/><path d="M12 13.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" fill="currentColor"/></svg>
-            <span data-i18n="cta_nav">導航到我們</span>
+          <a class="btn ghost" href="https://maps.app.goo.gl/vVybQWvB1mExvYxW9" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-4.438 7-11a7 7 0 1 0-14 0c0 6.562 7 11 7 11Z" stroke="currentColor" stroke-width="1.5"/><path d="M12 10.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" fill="currentColor"/></svg>
+            <span data-i18n="cta_map">導航</span>
           </a>
         </div>
       </div>
     </div>
+  </div>
 
-    <section id="menu">
+  <section id="menu">
+
       <div class="section-head reveal">
         <div>
           <h2 data-i18n="menu_title">菜單</h2>
