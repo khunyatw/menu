@@ -506,3 +506,40 @@ html.day-sun { --thai-day-rgb: 214, 160, 160; } /* Sun - red */
 
 /* Apply: subtle top strip inside each card (does NOT affect code pill) */
 
+/* ===== Hero background video ===== */
+.hero{
+  position: relative;
+  overflow: hidden;
+  min-height: 58vh; /* 你想更高可調 65vh/75vh */
+}
+
+.hero-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* 影片填滿 */
+  object-position: center;
+  transform: scale(1.02); /* 避免邊緣露白 */
+  z-index: 0;
+}
+
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,.45) 0%,
+    rgba(0,0,0,.25) 45%,
+    rgba(0,0,0,.45) 100%
+  );
+  z-index: 1;
+}
+
+/* 讓 Hero 內容在影片上層 */
+.hero .hero-inner{
+  position: relative;
+  z-index: 2;
+}
+
+
