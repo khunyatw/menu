@@ -148,25 +148,6 @@
     .spacer-top { height: 60px; }
 
     /* Hero */
-    .hero {
-      position: relative;
-      margin-top: 14px;
-      border: 1px solid rgba(23,23,23,.12);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.42), rgba(0,0,0,.12)),
-        url('hero.jpg') center/cover no-repeat;
-      min-height: 360px;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(1200px 400px at 10% 20%, rgba(0,0,0,.32), transparent 60%);
-      pointer-events: none;
-    }
     .hero-inner {
       position: relative;
       padding: 44px 18px 22px;
