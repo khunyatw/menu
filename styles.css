@@ -182,8 +182,8 @@
     .hero p {
       max-width: 680px;
       margin: 14px 0 0;
-      font-size: 15px;
-      opacity: .95;
+      font-size: 18px;
+      opacity: .80;
     }
     .hero .meta {
       margin-top: 18px;
