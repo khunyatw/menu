@@ -541,5 +541,50 @@ html.day-sun { --thai-day-rgb: 214, 160, 160; } /* Sun - red */
   position: relative;
   z-index: 2;
 }
+/* ===== Fullscreen Hero ===== */
+.hero{
+  position: relative;
+  width: 100%;
+  min-height: 100svh;     /* 手機穩定版視窗高度 */
+  min-height: 100vh;      /* fallback */
+  overflow: hidden;
+  border-radius: 0;       /* 滿版通常不要圓角 */
+  margin: 0;
+}
 
+/* 背景影片/圖片一定要填滿 */
+.hero-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,.55) 0%,
+    rgba(0,0,0,.25) 45%,
+    rgba(0,0,0,.60) 100%
+  );
+  z-index: 1;
+}
+
+/* 內容疊在上面 */
+.hero-inner{
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;  /* 文字靠下更像滿版 hero */
+  padding: 24px;
+  max-width: 1100px;          /* 內容不要太寬 */
+  margin: 0 auto;
+}
 
